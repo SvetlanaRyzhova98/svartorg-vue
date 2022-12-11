@@ -21,7 +21,7 @@
             </div>
 
             <h3 class="form__title blue-text">Свяжитесь с нами</h3>
-            <form class="contact" action="">
+            <form @submit.prevent="submit(form)" class="contact" action="">
               <input
                 class="contact__input form-style"
                 type="text"
@@ -31,6 +31,7 @@
                 class="contact__input form-style"
                 type="text"
                 placeholder="Ваш телефон"
+                v-model="form.phone"
               />
               <textarea
                 class="contact__text form-style"
@@ -38,11 +39,13 @@
                 id=""
                 cols="30"
                 rows="10"
+                v-model="form.message"
               ></textarea>
               <button class="contact__button" type="submit">
                 Отправить
                 <i class="far fa-envelope icon"></i>
               </button>
+              {{form}}
             </form>
           </div>
 
@@ -61,6 +64,38 @@
         </div>
     </footer>
 </template>
+
+<script setup>
+const form = ref({
+    name: '',
+    phone: '',
+    subject: '',
+    message: ''
+});
+
+async function submit(form) {
+  await $fetch('http://localhost:3000/api/contact', {
+		method: 'POST',
+		body: form,
+	})
+		.then(() => {
+			// this.errors = false;
+			// this.succsess = true;
+			// this.waiting = false;
+			this.form = {
+				name: '',
+				email: '',
+				subject: '',
+				message: '',
+			};
+		})
+		.catch(() => {
+			// this.errors = true;
+			// this.succsess = false;
+			// this.waiting = false;
+		});
+}
+</script>
 
 <style>
 .articles {
