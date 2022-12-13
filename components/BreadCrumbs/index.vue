@@ -1,10 +1,22 @@
 <template>
     <ul class="breadcrumbs">
-          <li><a href="./html.html">Главная</a></li>
-          <span>—</span>
-          <li><a href="./catalog-welding.html">Сварочное оборудование</a></li>
+          <li><NuxtLink to="/">Главная</NuxtLink></li>
+
+            <template v-for="({caption, href}, j) in path">
+                <span>—</span>
+                <li><NuxtLink  :to="href" >{{caption}}</NuxtLink></li>
+            </template>
+
+          
          </ul>
 </template>
+
+<script>
+export default {
+  name: 'BreadCrumbs',
+  props: {path: Array}
+}
+</script>
 
 <style>
 .breadcrumbs{

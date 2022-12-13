@@ -1,21 +1,61 @@
 <template>
   <div class="wrapper">
     
-    <CatalogHero>{{titles[route.params.group]}}</CatalogHero>
+    <CatalogHero>{{titles[route.params.group].caption}}</CatalogHero>
     
+    <BreadCrumbs :path="[titles[route.params.group]]" />
 
-
-
-    <BreadCrumbs />
+    <CatalogFilter :group="route.params.group" v-model="filter" />
 
     <div class="catalog_box">
-      <CatalogItem v-for="(item, j) in catalogItems" :key="j" :item="item" />
+      <CatalogItem v-for="(item, j) in items" :key="j" :item="item" />
     </div>
   </div>
 </template>
 
 
+
+
+
 <script setup>
+
+import CatalogItem from './components/CatalogItem';
+import CatalogHero from './components/CatalogHero';
+import CatalogFilter from './components/CatalogFilter';
+
+const route = useRoute();
+const { data: catalogItems } = await useFetch(`/api/catalog?group=${route.params.group}`);
+
+const titles = {
+        welding: {caption: 'Сварочное оборудование', href: '/catalog/welding'},
+        electro: {caption: 'Электрооборудование', href: '/catalog/electro'},
+      };
+
+
+const filter = useState('filter', () => ({}));
+
+const items = computed(() => {
+
+  const filterObj = Object.entries(filter.value)
+        .filter(([key, value]) => value)
+        .map(([key, value]) => key);
+
+  console.log(catalogItems.value);
+
+      if (!filterObj.length) {
+        return catalogItems.value;
+      }
+
+      return (catalogItems.value || []).filter((itemA) => {
+        return  filterObj.every(itemB => itemA.hasOwnProperty(itemB));
+      });
+});
+
+
+</script>
+
+
+<!-- <script setup>
 
 
 const route = useRoute();
@@ -23,27 +63,44 @@ const { data: catalogItems } = await useFetch(`/api/catalog?group=${route.params
 
 
 
-
-// console.log("uytruytrutyru", catalogItems);
 </script>
 
 <script>
 import CatalogItem from './components/CatalogItem';
 import CatalogHero from './components/CatalogHero';
+import CatalogFilter from './components/CatalogFilter';
 
 export default {
   name: 'MainCatalog',
   props: {},
+
+
+
+
+  computed: {
+    items() {
+      const filter = Object.entries(this.filter)
+        .filter(([key, value]) => value)
+        .map(([key, value]) => key);
+        console.log(filter);
+        console.log(this.catalogItems);
+      return (this.catalogItems || []).filter((item) => {
+        return item;
+      });
+    }
+  },
+
   data() {
     return {
       titles: {
-        welding: 'СВАРОЧНОЕ ОБОРУДОВАНИЕ',
-        electro: 'ЭЛЕКТРООБОРУДОВАНИЕ',
-      }
+        welding: {caption: 'Сварочное оборудование', href: '/catalog/welding'},
+        electro: {caption: 'Электрооборудование', href: '/catalog/electro'},
+      },
+      filter: {}
     };
   }
 }
-</script>
+</script> -->
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

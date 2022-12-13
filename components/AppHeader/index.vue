@@ -2,24 +2,31 @@
     <div>
         <header class="header">
       <div class="header__wrapper">
-        <a class="header__logo" href="/html.html">
-            <img class="logo_img" src="./img/svg/logo1.svg" alt="Logo" />
-        </a>
+        <NuxtLink class="header__logo" to="/">
+            <img class="logo_img" src="./assets/logo1.svg" alt="Logo" />
+        </NuxtLink>
         
         <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
-              <!-- -- продукция -- услуги -- контакты -- о компании -->
-              <NuxtLink class="header__link" to="/catalog">Продукция</NuxtLink>
+              <a class="header__link">Продукция</a>
+              <ul class="header__sublist">
+                <li><NuxtLink class="header__link header__link--sub" to="/catalog/welding">Сварочное оборудование</NuxtLink></li>
+                <li><NuxtLink class="header__link header__link--sub" to="/catalog">Электроинструмент</NuxtLink></li>
+                <li><NuxtLink class="header__link header__link--sub" to="/catalog">Бензоинструмент</NuxtLink></li>
+                <li><NuxtLink class="header__link header__link--sub" to="/catalog">Газосварочное</NuxtLink></li>
+                <li><NuxtLink class="header__link header__link--sub" to="/catalog">Маски</NuxtLink></li>
+                <li><NuxtLink class="header__link header__link--sub" to="/catalog">Расходные материалы</NuxtLink></li>
+              </ul>
             </li>
             <li class="header__item">
               <NuxtLink  to="/services" class="header__link">Услуги</NuxtLink>
             </li>
             <li class="header__item">
-              <a href="#!" class="header__link">Контакты </a>
+              <NuxtLink class="header__link" to="/contacts" >Контакты </NuxtLink>
             </li>
             <li class="header__item">
-              <a href="#!" class="header__link">О компании</a>
+              <NuxtLink to="/about" class="header__link">О компании</NuxtLink>
             </li>
           </ul>
 
@@ -114,15 +121,39 @@
   flex: 2;
   justify-content: space-around;
 }
+.header__item {
+  position: relative;
+}
 .header__link {
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
   text-decoration: none;
-  /* //padding-right: 25px; */
   color: white;
+
 }
+.header__sublist {
+  position: absolute;
+    top: 19px;
+    /* left: -20px; */
+    height: 200px;
+    left: -17px;
+    display: flex;
+    flex-direction: column;
+    background: black;
+    align-items: flex-start;
+    padding: 5px 15px;
+    justify-content: space-evenly;
+    display: none;
+}
+.header__item:hover .header__sublist{
+display: flex;
+}
+.header__link--sub{
+  margin-bottom: 10px;
+}
+
 .header__link:hover,
 .header__link:active,
 .header__link:focus {

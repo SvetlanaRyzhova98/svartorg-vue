@@ -1,6 +1,6 @@
 const weldingGroup = [
     {
-        "image": "http://127.0.0.1:5500/img/catalog/aurorapro_overman_200.jpg",
+        "image": "/catalog/aurorapro_overman_200.jpg",
         "desc": "Инверторный сварочный полуавтомат",
         "title": " Aurora PRO OVERMAN 200",
         "price": "35900 руб.",
@@ -45,10 +45,11 @@ const weldingGroup = [
                 "val": "17.5 кг"
             }
         ],
-        "group": "welding"
+        "group": "welding",
+        "mma": true
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/aurorapro_overman_180.jpg",
+        "image": "/catalog/aurorapro_overman_180.jpg",
         "desc": "Инверторный сварочный полуавтомат",
         "title": " Aurora PRO OVERMAN 180",
         "price": "34200 руб.",
@@ -93,10 +94,11 @@ const weldingGroup = [
                 "val": "17.5 кг"
             }
         ],
-        "group": "welding"
+        "group": "welding",
+        "mma": true
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/3-real_mig_200_a_0.png",
+        "image": "/catalog/3-real_mig_200_a_0.png",
         "desc": "Сварочный инвертор MIG",
         "title": " REAL MIG 200 (N24002N)",
         "price": "31500 руб.",
@@ -141,10 +143,10 @@ const weldingGroup = [
                 "val": "13 кг"
             }
         ],
-        "group": "welding"
+        "group": "welding",
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/real-mig-200-n24002.png",
+        "image": "/catalog/real-mig-200-n24002.png",
         "desc": "Сварочный инвертор MIG",
         "title": " REAL MIG 200 (N24002N) Black",
         "price": "31500 руб.",
@@ -189,10 +191,11 @@ const weldingGroup = [
                 "val": "13 кг"
             }
         ],
-        "group": "welding"
+        "group": "welding",
+        "tig": true
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/5-real_smart_arc_200.png",
+        "image": "/catalog/5-real_smart_arc_200.png",
         "desc": "Сварочный инвертор MMA",
         "title": "REAL ARC 200 (Z238N)",
         "price": "9720 руб.",
@@ -236,7 +239,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/6real-mig-200-smart_int.png",
+        "image": "/catalog/6real-mig-200-smart_int.png",
         "desc": "Сварочный инвертор MIG",
         "title": " REAL SMART MIG 200 (N2A5)",
         "price": "40270 руб.",
@@ -281,10 +284,12 @@ const weldingGroup = [
                 "val": "9.96 кг"
             }
         ],
-        "group": "welding"
+        "group": "welding",
+        "mma": true,
+        "tig": true
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/7auroravector2000.jpg",
+        "image": "/catalog/7auroravector2000.jpg",
         "desc": "Сварочный инвертор",
         "title": " АВРОРА Вектор 2000",
         "price": "7200 руб.",
@@ -320,7 +325,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/8auroravector2200.jpg",
+        "image": "/catalog/8auroravector2200.jpg",
         "desc": "Сварочный инвертор",
         "title": " \n                        АВРОРА Вектор 2200",
         "price": "9100 руб.",
@@ -356,7 +361,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/9aurorapr_inter205.jpg",
+        "image": "/catalog/9aurorapr_inter205.jpg",
         "desc": "Сварочный инвертор",
         "title": "AuroraPRO INTER 205",
         "price": "17500 руб.",
@@ -400,7 +405,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/10aurorapr_inter255.jpg",
+        "image": "/catalog/10aurorapr_inter255.jpg",
         "desc": "Сварочный инвертор",
         "title": "AuroraPRO INTER 255",
         "price": "29600 руб.",
@@ -436,7 +441,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/12real-arc-200-z238n-black_b.png",
+        "image": "/catalog/12real-arc-200-z238n-black_b.png",
         "desc": "Сварочный инвертор",
         "title": "REAL SMART ARC 200 (Z28303)",
         "price": "11530 руб.",
@@ -480,7 +485,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/13real_smart_arc_220_z28403_6.png",
+        "image": "/catalog/13real_smart_arc_220_z28403_6.png",
         "desc": "Сварочный инвертор MMA",
         "title": "PRO ARC 200 (Z209S)",
         "price": "25470 руб.",
@@ -524,7 +529,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/14real_smart_arc_220_z28403_6_0.png",
+        "image": "/catalog/14real_smart_arc_220_z28403_6_0.png",
         "desc": "Сварочный инвертор MMA",
         "title": "TECH ARC 205 B (Z203)",
         "price": "28750 руб.",
@@ -568,7 +573,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/15real_arc_250_d_z226_a_0.png",
+        "image": "/catalog/15real_arc_250_d_z226_a_0.png",
         "desc": "Сварочный инвертор MMA",
         "title": "REAL ARC 250 D (Z226)",
         "price": "42150 руб.",
@@ -612,7 +617,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/16arc315(z29801).png",
+        "image": "/catalog/16arc315(z29801).png",
         "desc": "Сварочный инвертор MMA",
         "title": "REAL ARC 315 (Z29801)",
         "price": "50890 руб.",
@@ -656,7 +661,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/17_master202.jpg",
+        "image": "/catalog/17_master202.jpg",
         "desc": "Сварочный аппарат",
         "title": " МАСТЕР 202",
         "price": "20 189 руб.",
@@ -700,7 +705,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/18_master250.jpg",
+        "image": "/catalog/18_master250.jpg",
         "desc": "Сварочный аппарат",
         "title": " МАСТЕР 250 ПРОФ",
         "price": "32 208 руб.",
@@ -744,7 +749,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/19_uno.jpg",
+        "image": "/catalog/19_uno.jpg",
         "desc": "Сварочный аппарат",
         "title": " UNO MMA 200 SYN",
         "price": "13 969 р.",
@@ -788,7 +793,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/20_uno.jpg",
+        "image": "/catalog/20_uno.jpg",
         "desc": "Сварочный аппарат",
         "title": " UNO MMA 250 SYN",
         "price": "17 748 р.",
@@ -832,7 +837,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/21_kvazarrus250.jpg",
+        "image": "/catalog/21_kvazarrus250.jpg",
         "desc": "Сварочный аппарат",
         "title": " KVAZARRUS 250",
         "price": "6 304 р.",
@@ -872,7 +877,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/22saggio200.jpg",
+        "image": "/catalog/22saggio200.jpg",
         "desc": "Сварочный аппарат",
         "title": " SAGGIO MMA 200",
         "price": "21 211 р.",
@@ -916,7 +921,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/23kvazarrus210.jpg",
+        "image": "/catalog/23kvazarrus210.jpg",
         "desc": "Сварочный аппарат",
         "title": " KVAZARRUS 210",
         "price": "5723 руб.",
@@ -960,7 +965,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/24vd-500.jpg",
+        "image": "/catalog/24vd-500.jpg",
         "desc": "Сварочный аппарат",
         "title": " Инверторный ВД-500И",
         "price": "75 671 р.",
@@ -1004,7 +1009,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/25saggio250.jpg",
+        "image": "/catalog/25saggio250.jpg",
         "desc": "Сварочный аппарат",
         "title": "  SAGGIO MMA 250",
         "price": "37 721 р.",
@@ -1048,7 +1053,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/26varteg.jpg",
+        "image": "/catalog/26varteg.jpg",
         "desc": "Сварочный аппарат",
         "title": "VARTEG 300",
         "price": "41 059 р.",
@@ -1092,7 +1097,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/27varteg500.jpg",
+        "image": "/catalog/27varteg500.jpg",
         "desc": "Сварочный аппарат",
         "title": "VARTEG 500",
         "price": "65 979 р.",
@@ -1136,7 +1141,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/28redbo.jpg",
+        "image": "/catalog/28redbo.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo ARC-258S",
         "price": "14 700 р.",
@@ -1180,7 +1185,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/29redbopro.jpg",
+        "image": "/catalog/29redbopro.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo PRO 200PFC",
         "price": "14 990 р.",
@@ -1224,7 +1229,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/30Edon%20TB-200.jpg",
+        "image": "/catalog/30Edon%20TB-200.jpg",
         "desc": "Сварочный аппарат",
         "title": " Edon TB-200",
         "price": "4 240 р.",
@@ -1268,7 +1273,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/31edon250.jpg",
+        "image": "/catalog/31edon250.jpg",
         "desc": "Сварочный аппарат",
         "title": " Edon TB-200",
         "price": "6 480 р.",
@@ -1312,7 +1317,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/32redbo.jpg",
+        "image": "/catalog/32redbo.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo Intec ARC-200",
         "price": "8 050 р.",
@@ -1356,7 +1361,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/33redbo.jpg",
+        "image": "/catalog/33redbo.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo MMA-250",
         "price": "9 790 р.",
@@ -1400,7 +1405,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/34EdonLV-200.jpg",
+        "image": "/catalog/34EdonLV-200.jpg",
         "desc": "Сварочный аппарат инверторный",
         "title": " Edon LV-200",
         "price": "5 130 р.",
@@ -1444,7 +1449,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/35redbo.jpg",
+        "image": "/catalog/35redbo.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo PRO ARC-200S",
         "price": "16 560 р.",
@@ -1488,7 +1493,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/36ARC-250S.jpg",
+        "image": "/catalog/36ARC-250S.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo PRO ARC-250S",
         "price": "16 560 р.",
@@ -1528,7 +1533,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/37redbo.jpg",
+        "image": "/catalog/37redbo.jpg",
         "desc": "Сварочный аппарат",
         "title": " Redbo PRO ARC-250S",
         "price": "71 060 р.",
@@ -1568,7 +1573,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/38%D0%9A%D0%95%D0%94%D0%A0_ULTRAMMA-200.jpeg",
+        "image": "/catalog/38%D0%9A%D0%95%D0%94%D0%A0_ULTRAMMA-200.jpeg",
         "desc": "АППАРАТ ИНВЕРТОРНЫЙ",
         "title": "КЕДР ULTRAMMA-200 COMPACT",
         "price": "8 900 р.",
@@ -1608,7 +1613,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/39ULTRAARC-220.jpeg",
+        "image": "/catalog/39ULTRAARC-220.jpeg",
         "desc": "АППАРАТ ИНВЕРТОРНЫЙ",
         "title": " КЕДР ULTRAARC-220 COMPACT",
         "price": "12 500 р.",
@@ -1648,7 +1653,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/40ULTRAARC-250.jpeg",
+        "image": "/catalog/40ULTRAARC-250.jpeg",
         "desc": "АППАРАТ ИНВЕРТОРНЫЙ",
         "title": " КЕДР ULTRAARC-250",
         "price": "34 900 р.",
@@ -1688,7 +1693,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/41MULTIARC-2000.jpeg",
+        "image": "/catalog/41MULTIARC-2000.jpeg",
         "desc": "АППАРАТ ИНВЕРТОРНЫЙ",
         "title": " КЕДР MULTIARC-2000",
         "price": "42 371 р.",
@@ -1728,7 +1733,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/42%D0%92%D0%94-306.jpeg",
+        "image": "/catalog/42%D0%92%D0%94-306.jpeg",
         "desc": "АППАРАТ ИНВЕРТОРНЫЙ",
         "title": "  КЕДР ВД-306.01 PRO",
         "price": "42 371 р.",
@@ -1764,7 +1769,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/43%D0%9A%D0%95%D0%94%D0%A0_%D0%A0%D0%94-1000.jpeg",
+        "image": "/catalog/43%D0%9A%D0%95%D0%94%D0%A0_%D0%A0%D0%94-1000.jpeg",
         "desc": "УСТАНОВКА ВОЗДУШНО-ДУГОВОЙ СТРОЖКИ",
         "title": " КЕДР РД-1000",
         "price": "286 940 р.",
@@ -1804,7 +1809,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/44BRIMAMMA-200.png",
+        "image": "/catalog/44BRIMAMMA-200.png",
         "desc": "Сварочный инвертор",
         "title": " BRIMA MMA-200",
         "price": "0 р.",
@@ -1840,7 +1845,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/45BrimaARC-250.jpg",
+        "image": "/catalog/45BrimaARC-250.jpg",
         "desc": "Сварочный инвертор",
         "title": " Brima ARC-250",
         "price": "0 р.",
@@ -1884,7 +1889,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/46ARC-400.jpg",
+        "image": "/catalog/46ARC-400.jpg",
         "desc": "Сварочный инвертор",
         "title": " Brima ARC-400",
         "price": "51 529 р.",
@@ -1924,7 +1929,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/47startarcline220.jpg",
+        "image": "/catalog/47startarcline220.jpg",
         "desc": "Сварочный инвертор",
         "title": " START ArcLine 220",
         "price": "9 650 р.",
@@ -1968,7 +1973,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/48startarcline250.jpg",
+        "image": "/catalog/48startarcline250.jpg",
         "desc": "Сварочный инвертор",
         "title": " START ArcLine 250",
         "price": "10 650 р.",
@@ -2012,7 +2017,7 @@ const weldingGroup = [
         "group": "welding"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/49startmodelSTICK251.png",
+        "image": "/catalog/49startmodelSTICK251.png",
         "desc": "Сварочный инвертор",
         "title": " START modelSTICK 251",
         "price": "24 650 р.",
@@ -2056,7 +2061,7 @@ const weldingGroup = [
 const electroGroup = 
     [
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/1akkumulyatornyy.jpg",
+            "image": "/catalog/electro/1akkumulyatornyy.jpg",
             "desc": "Аккумуляторный шуруповерт",
             "title": " Hanskonner HCD1230R",
             "price": "6150 руб.",
@@ -2104,7 +2109,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/2setevoy_shurupovert_hanskonner_hid2145p.jpg",
+            "image": "/catalog/electro/2setevoy_shurupovert_hanskonner_hid2145p.jpg",
             "desc": "Сетевая дрель-шуруповерт",
             "title": "Hanskonner HID2145P",
             "price": "3 150 руб.",
@@ -2148,7 +2153,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/3perforator_sds_plus_hanskonner_hrh1824b.jpg",
+            "image": "/catalog/electro/3perforator_sds_plus_hanskonner_hrh1824b.jpg",
             "desc": "Перфоратор",
             "title": " SDS Plus Hanskonner HRH1824BL",
             "price": "9950 руб.",
@@ -2192,7 +2197,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/4bolgarka_ushm_hanskonner_hag13125t.jpg",
+            "image": "/catalog/electro/4bolgarka_ushm_hanskonner_hag13125t.jpg",
             "desc": "Болгарка (УШМ)",
             "title": "Hanskonner HAG13125TE",
             "price": "9950 руб.",
@@ -2236,7 +2241,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/5SDS_Plus_Hanskonner_HRH0828RE.jpg",
+            "image": "/catalog/electro/5SDS_Plus_Hanskonner_HRH0828RE.jpg",
             "desc": "Перфоратор",
             "title": "SDS Plus Hanskonner HRH0828RE",
             "price": "4 950 руб.",
@@ -2280,7 +2285,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/6Hanskonner_HAG918CPE.jpg",
+            "image": "/catalog/electro/6Hanskonner_HAG918CPE.jpg",
             "desc": "Полировальная машина",
             "title": "Hanskonner HAG918CPE",
             "price": "7 790 р",
@@ -2320,7 +2325,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/7HanskonnerHJS0810MQL.jpg",
+            "image": "/catalog/electro/7HanskonnerHJS0810MQL.jpg",
             "desc": "Лобзик электрический",
             "title": "Hanskonner HJS0810MQL",
             "price": "7 750 р",
@@ -2364,7 +2369,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/8sturm.jpg",
+            "image": "/catalog/electro/8sturm.jpg",
             "desc": "Аккумуляторный гайковерт",
             "title": "Sturm! CD650SBL 1BatterySystem",
             "price": "21 250 р",
@@ -2408,7 +2413,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/9sturm.jpg",
+            "image": "/catalog/electro/9sturm.jpg",
             "desc": "Аккумуляторный шуруповерт",
             "title": "Sturm! CD3314LP",
             "price": "5 050 р",
@@ -2464,7 +2469,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/10sturm.jpg",
+            "image": "/catalog/electro/10sturm.jpg",
             "desc": "Аккумуляторный шуруповерт",
             "title": "Sturm! CD3618 1BatterySystem\n                      ",
             "price": "5 550 р",
@@ -2516,7 +2521,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/11sturm.jpg",
+            "image": "/catalog/electro/11sturm.jpg",
             "desc": "Аккумуляторный шуруповерт",
             "title": "Hanskonner HCD1838RI",
             "price": "10 650 р",
@@ -2572,7 +2577,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/12SRH25804BR.jpg",
+            "image": "/catalog/electro/12SRH25804BR.jpg",
             "desc": "Перфоратор",
             "title": "SDS Plus Sturm! RH25804BR ",
             "price": "5 350 р",
@@ -2620,7 +2625,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/13RH2532V.jpg",
+            "image": "/catalog/electro/13RH2532V.jpg",
             "desc": "Перфоратор",
             "title": "SDS Plus Sturm! RH2532V ",
             "price": "8 350 р",
@@ -2668,7 +2673,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/14AG9012T.png",
+            "image": "/catalog/electro/14AG9012T.png",
             "desc": "Болгарка (УШМ)",
             "title": "Sturm! AG9012T  ",
             "price": "3 350 р",
@@ -2708,7 +2713,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/15AG90121P.jpg",
+            "image": "/catalog/electro/15AG90121P.jpg",
             "desc": "Болгарка (УШМ)",
             "title": "Sturm! AG90121P  ",
             "price": "4 350 р",
@@ -2748,7 +2753,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/16AG9018P.jpg",
+            "image": "/catalog/electro/16AG9018P.jpg",
             "desc": "Болгарка (УШМ)",
             "title": "Sturm! AG9018P  ",
             "price": "7 750 р",
@@ -2788,7 +2793,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/17DH2516P.jpg",
+            "image": "/catalog/electro/17DH2516P.jpg",
             "desc": "Отбойный молоток-бетонолом",
             "title": "Sturm! DH2516P ",
             "price": "11 150 р",
@@ -2824,7 +2829,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/18HanskonnerHRH2150VC.jpg",
+            "image": "/catalog/electro/18HanskonnerHRH2150VC.jpg",
             "desc": "Отбойный молоток",
             "title": "Hanskonner HRH2150VC ",
             "price": "29 590 р",
@@ -2864,7 +2869,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/19soyuz_pes_2520rb.jpg",
+            "image": "/catalog/electro/19soyuz_pes_2520rb.jpg",
             "desc": "Отбойный молоток",
             "title": "СОЮЗ ПЕС-2520РБ ",
             "price": "17 550 р",
@@ -2908,7 +2913,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/20CF7325S.jpg",
+            "image": "/catalog/electro/20CF7325S.jpg",
             "desc": "Отрезная пила",
             "title": "Sturm! CF7325S ",
             "price": "13 390 р",
@@ -2952,7 +2957,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/21HanskonnerHAG915S.jpg",
+            "image": "/catalog/electro/21HanskonnerHAG915S.jpg",
             "desc": "Штроборез",
             "title": " Hanskonner HAG915S",
             "price": "18 490 р.",
@@ -3004,7 +3009,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/22ag915s.jpg",
+            "image": "/catalog/electro/22ag915s.jpg",
             "desc": "Штроборез",
             "title": " Sturm! AG915S ",
             "price": "12 550 р.",
@@ -3056,7 +3061,7 @@ const electroGroup =
             "group": "electro"
         },
         {
-            "image": "http://127.0.0.1:5500/img/catalog/electro/23Sturm4010-12-AL.jpg",
+            "image": "/catalog/electro/23Sturm4010-12-AL.jpg",
             "desc": "Лазерный уровень",
             "title": " Sturm! 4010-12-AL",
             "price": "10 750 р.",
@@ -3099,7 +3104,7 @@ const electroGroup =
 
 const be = [
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/1varteg3500.jpg",
+        "image": "/catalog/benzo/1varteg3500.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " VARTEG G3500",
         "price": "20260 руб.",
@@ -3143,7 +3148,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/2varteg7500.png",
+        "image": "/catalog/benzo/2varteg7500.png",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " REAL MIG 200 BLACK (N24002N)",
         "price": "34410 руб.",
@@ -3187,7 +3192,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/3g300.jpg",
+        "image": "/catalog/benzo/3g300.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": "  FOXWELD EXPERT G3700",
         "price": "30346 руб.",
@@ -3231,7 +3236,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/4g8500.jpg",
+        "image": "/catalog/benzo/4g8500.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " FOXWELD EXPERT G8500 EW ",
         "price": "89786 руб.",
@@ -3275,7 +3280,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/5g9500.jpg",
+        "image": "/catalog/benzo/5g9500.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " FOXWELD EXPERT G9500-3 ",
         "price": "110652 руб.",
@@ -3319,7 +3324,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/6age2200.jpg",
+        "image": "/catalog/benzo/6age2200.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " Aurora AGE 2200 RUN",
         "price": "19 500 руб.",
@@ -3363,7 +3368,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/7abe5500.jpg",
+        "image": "/catalog/benzo/7abe5500.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " Aurora ABE 5500 RUN",
         "price": "40 930 руб.",
@@ -3411,7 +3416,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/8age1200plus.jpg",
+        "image": "/catalog/benzo/8age1200plus.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " Aurora AGE 12000 D PLUS",
         "price": "176 000 р.",
@@ -3459,7 +3464,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/9age1200plus_blok-avt.jpg",
+        "image": "/catalog/benzo/9age1200plus_blok-avt.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " Aurora AGE 12000 D PLUS + автомат.",
         "price": "189 000 р.",
@@ -3507,7 +3512,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/10age12500dsx.jpg",
+        "image": "/catalog/benzo/10age12500dsx.jpg",
         "desc": "БЕНЗИНОВЫЙ ГЕНЕРАТОР",
         "title": " Aurora AGE 12500 DSX DUAL",
         "price": "19 500 руб.",
@@ -3551,7 +3556,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/1kylt.jpg",
+        "image": "/catalog/benzo/1kylt.jpg",
         "desc": "Культиватор бензиновый",
         "title": "  Aurora DIGGER 750",
         "price": "29 000 руб.",
@@ -3595,7 +3600,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/2k_aurora.jpg",
+        "image": "/catalog/benzo/2k_aurora.jpg",
         "desc": "Мотоблок бензиновый",
         "title": "  Aurora COUNTRY 1055",
         "price": "36 400 руб",
@@ -3639,7 +3644,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/3k_AuroraGARDENER750.jpg",
+        "image": "/catalog/benzo/3k_AuroraGARDENER750.jpg",
         "desc": "Мотоблок бензиновый",
         "title": "Aurora GARDENER 750",
         "price": "36 400 руб",
@@ -3683,7 +3688,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/4k_1050ADVANCE.jpg",
+        "image": "/catalog/benzo/4k_1050ADVANCE.jpg",
         "desc": "Мотоблок бензиновый",
         "title": " Aurora COUNTRY 1050 ADVANCE",
         "price": "55 400 руб",
@@ -3727,7 +3732,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/5k_1350dplus.jpg",
+        "image": "/catalog/benzo/5k_1350dplus.jpg",
         "desc": "Мотоблок дизельный",
         "title": "Aurora SPACE-YARD 1350D PLUS",
         "price": "76 700 руб",
@@ -3771,7 +3776,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/1compress.jpg",
+        "image": "/catalog/benzo/1compress.jpg",
         "desc": "Компрессор",
         "title": "Remeza СБ 4/С- 50 LB 30 A",
         "price": "000 руб.",
@@ -3815,7 +3820,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/2compress.jpg",
+        "image": "/catalog/benzo/2compress.jpg",
         "desc": "Компрессор",
         "title": "Remeza СБ 4/Ф-270 LB 50",
         "price": "000 руб.",
@@ -3859,7 +3864,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/3compres.jpg",
+        "image": "/catalog/benzo/3compres.jpg",
         "desc": "Компрессор МАСЛЯНЫЙ КОАКСИАЛЬНЫЙ",
         "title": "AERO 220/50",
         "price": "000 руб.",
@@ -3895,7 +3900,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/4compres_aero380.jpg",
+        "image": "/catalog/benzo/4compres_aero380.jpg",
         "desc": "Компрессор МАСЛЯНЫЙ РЕМЕННОЙ",
         "title": "AERO 380/100",
         "price": "000 руб.",
@@ -3931,7 +3936,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/5compress_aero.jpg",
+        "image": "/catalog/benzo/5compress_aero.jpg",
         "desc": "КОМПРЕССОР МАСЛЯНЫЙ РЕМЕННОЙ",
         "title": "AEROMAX 1050/300",
         "price": "130 000 руб.",
@@ -3971,7 +3976,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/6compress_aurora.jpg",
+        "image": "/catalog/benzo/6compress_aurora.jpg",
         "desc": "КОМПРЕССОР БЕЗМАСЛЯНЫЙ",
         "title": "PASSAT-25 BLACK",
         "price": "14 300 руб.",
@@ -4011,7 +4016,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/7compress.jpg",
+        "image": "/catalog/benzo/7compress.jpg",
         "desc": "КОМПРЕССОР",
         "title": "Aurora Tornado-275",
         "price": "128 520 руб.",
@@ -4051,7 +4056,7 @@ const be = [
         "group": "benzo"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/benzo/8compress.jpg",
+        "image": "/catalog/benzo/8compress.jpg",
         "desc": "КОМПРЕССОР",
         "title": " Aurora CYCLON-100 TURBO active series",
         "price": "44 100 руб",
@@ -4094,7 +4099,7 @@ const be = [
 
 const gas = [
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/1gasr1p.jpg",
+        "image": "/catalog/gas/1gasr1p.jpg",
         "desc": "Пропановый резак",
         "title": " KRASS Р1П-100 ",
         "price": "2 289 руб.",
@@ -4142,7 +4147,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/2r3p-02m.jpg",
+        "image": "/catalog/gas/2r3p-02m.jpg",
         "desc": "Пропановый резак",
         "title": " KRASS Р3П-02М",
         "price": "2 769 руб.",
@@ -4190,7 +4195,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/3krassg2c-m.jpg",
+        "image": "/catalog/gas/3krassg2c-m.jpg",
         "desc": "Ацетиленовая горелка",
         "title": "KRASS Г2С-М тип МАЛЮТКА",
         "price": "3 006 руб.",
@@ -4234,7 +4239,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/4bpo53.jpg",
+        "image": "/catalog/gas/4bpo53.jpg",
         "desc": "Редуктор пропановый",
         "title": " БПО 5 3 KRASS",
         "price": "1 099 руб.",
@@ -4278,7 +4283,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/5krass.jpg",
+        "image": "/catalog/gas/5krass.jpg",
         "desc": "Редуктор углекислотный",
         "title": " УР 6 6 mini KRASS",
         "price": "1 489 руб.",
@@ -4330,7 +4335,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/6bko.jpg",
+        "image": "/catalog/gas/6bko.jpg",
         "desc": "Редуктор кислородный",
         "title": "БКО 50 12.5 mini KRASS ",
         "price": "1 359 руб.",
@@ -4382,7 +4387,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/7bao.jpg",
+        "image": "/catalog/gas/7bao.jpg",
         "desc": "Редуктор ацетиленовый",
         "title": "БАО 5 1.5 KRASS",
         "price": "1 776 руб.",
@@ -4430,7 +4435,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/8kpp2.jpg",
+        "image": "/catalog/gas/8kpp2.jpg",
         "desc": "Регулятор для углекислоты и аргона",
         "title": "У 30/АР 40 КР Р2 KRASS",
         "price": "2 639 руб.",
@@ -4478,7 +4483,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/9blue.jpg",
+        "image": "/catalog/gas/9blue.jpg",
         "desc": "Рукав кислородный",
         "title": "Синий (40 м; 6.3 мм) ",
         "price": "2 472 руб.",
@@ -4506,7 +4511,7 @@ const gas = [
         "group": "gas"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/gas/10red.jpg",
+        "image": "/catalog/gas/10red.jpg",
         "desc": "Рукав ацетиленовый",
         "title": "Красный (40 м; 6.3 мм) ",
         "price": "2 472 руб.",
@@ -4537,7 +4542,7 @@ const gas = [
 
 const protection = [
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/1SMART%E2%80%941.png",
+        "image": "/catalog/acsess/1SMART%E2%80%941.png",
         "desc": "Маска для сварки",
         "title": " SMART—1 ",
         "price": "1 104 руб.",
@@ -4589,7 +4594,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/2PROB20.png",
+        "image": "/catalog/acsess/2PROB20.png",
         "desc": "Маска для сварки",
         "title": " PRO B20 КАРБОН TRUE COLOR ",
         "price": "3 563 руб.",
@@ -4637,7 +4642,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/3C50I.png",
+        "image": "/catalog/acsess/3C50I.png",
         "desc": "Маска для сварки",
         "title": "TECH C50I TRUE COLOR PLUS ",
         "price": "11 004 руб.",
@@ -4685,7 +4690,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/4TECHC50I.png",
+        "image": "/catalog/acsess/4TECHC50I.png",
         "desc": "Маска для сварки",
         "title": "TECH C50I ХИЩНИК TRUE COLOR PLUS ",
         "price": "13 189 руб.",
@@ -4733,7 +4738,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/5TECHC50I_tehno.png",
+        "image": "/catalog/acsess/5TECHC50I_tehno.png",
         "desc": "Маска для сварки",
         "title": "TECH C50I ТЕХНО TRUE COLOR PLUS ",
         "price": "13 189 руб.",
@@ -4781,7 +4786,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/6sparx_rc.png",
+        "image": "/catalog/acsess/6sparx_rc.png",
         "desc": "СИЗОД",
         "title": "TECH SPARX RC + VENTO ",
         "price": "109 920 руб.",
@@ -4829,7 +4834,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/7SPOTELITE.png",
+        "image": "/catalog/acsess/7SPOTELITE.png",
         "desc": "Маска для сварки",
         "title": "TECH SPOTELITE TRUE COLOR PLUS ",
         "price": "15 452 руб.",
@@ -4877,7 +4882,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/8FOXCRAFT.jpg",
+        "image": "/catalog/acsess/8FOXCRAFT.jpg",
         "desc": "Маска для сварки",
         "title": "FOXCRAFT \"ГАЛАКТИКА\" ",
         "price": "10 800 руб.",
@@ -4925,7 +4930,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/9GEFEST.jpg",
+        "image": "/catalog/acsess/9GEFEST.jpg",
         "desc": "Маска для сварки",
         "title": "GEFEST \"КРАСНАЯ\"",
         "price": "8 517 руб.",
@@ -4973,7 +4978,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/10korund_2.jpg",
+        "image": "/catalog/acsess/10korund_2.jpg",
         "desc": "Маска для сварки",
         "title": "КОРУНД-2 \"ПЛАМЯ\"",
         "price": "5 400 руб.",
@@ -5021,7 +5026,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/11TOPSHIELD.jpg",
+        "image": "/catalog/acsess/11TOPSHIELD.jpg",
         "desc": "Маска для сварки",
         "title": "TOPSHIELD \"ORIGINAL\"",
         "price": "11 066 руб.",
@@ -5069,7 +5074,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/12korund_2_foks.jpg",
+        "image": "/catalog/acsess/12korund_2_foks.jpg",
         "desc": "Маска для сварки",
         "title": "КОРУНД-2 \"ФОКС\"",
         "price": "5 817 руб.",
@@ -5117,7 +5122,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/13korund_mega.jpg",
+        "image": "/catalog/acsess/13korund_mega.jpg",
         "desc": "Маска для сварки",
         "title": "КОРУНД МЕГА \"ЧЁРНАЯ\" ",
         "price": "41 400 руб.",
@@ -5165,7 +5170,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/14raydeR.jpg",
+        "image": "/catalog/acsess/14raydeR.jpg",
         "desc": "Маска для сварки",
         "title": "КОРУНД-2 \"РАЙДЕР\" ",
         "price": "5 817 руб.",
@@ -5213,7 +5218,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/15%D0%9A-304PRO.jpeg",
+        "image": "/catalog/acsess/15%D0%9A-304PRO.jpeg",
         "desc": "Маска для сварки",
         "title": "КЕДР (В РАЗОБР.ВИДЕ) \"К-304 PRO\" ",
         "price": "5 842 руб.",
@@ -5257,7 +5262,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/16%D0%9A-804.jpeg",
+        "image": "/catalog/acsess/16%D0%9A-804.jpeg",
         "desc": "Маска для сварки",
         "title": "КЕДР (В РАЗОБР.ВИДЕ) \"К-804 EXPERT\" ",
         "price": "8 671 руб.",
@@ -5301,7 +5306,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/17%D0%9A-704%D0%A2.jpeg",
+        "image": "/catalog/acsess/17%D0%9A-704%D0%A2.jpeg",
         "desc": "Маска для сварки",
         "title": "КЕДР (СОБРАННАЯ) \"К-704Т PRO\" С ТУРБОБЛОКОМ ЧЕРНАЯ\n                      ",
         "price": "69 010 руб.",
@@ -5345,7 +5350,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/18k-704p.jpeg",
+        "image": "/catalog/acsess/18k-704p.jpeg",
         "desc": "Маска для сварки",
         "title": "КЕДР (В РАЗОБР.ВИДЕ) \"К-704 PRO\", ЧЕРНАЯ ",
         "price": "8 732 руб.",
@@ -5389,7 +5394,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/19sun-9.jpg",
+        "image": "/catalog/acsess/19sun-9.jpg",
         "desc": "Маска для сварки",
         "title": "Хамелеон Aurora SUN-9 CARBON ",
         "price": "6 300 руб.",
@@ -5433,7 +5438,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/20sun-7.jpg",
+        "image": "/catalog/acsess/20sun-7.jpg",
         "desc": "Маска для сварки",
         "title": "Хамелеон Aurora SUN-7 c увеличенным светофильтром\n                      ",
         "price": "4 200 руб.",
@@ -5477,7 +5482,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/21AuroraA-777.jpg",
+        "image": "/catalog/acsess/21AuroraA-777.jpg",
         "desc": "Маска для сварки",
         "title": "Хамелеон Aurora A-777 Skeleton Fire",
         "price": "3 500 руб.",
@@ -5521,7 +5526,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/22TecmenADF735S.jpg",
+        "image": "/catalog/acsess/22TecmenADF735S.jpg",
         "desc": "Сварочная маска с авт. светофильтром",
         "title": "Tecmen ADF - 735S TM14 ",
         "price": "7 974 руб.",
@@ -5565,7 +5570,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/23ADF-800STM16.jpg",
+        "image": "/catalog/acsess/23ADF-800STM16.jpg",
         "desc": "Сварочная маска с авт. светофильтром",
         "title": "Tecmen ADF - 800S TM16",
         "price": "7 999 руб.",
@@ -5605,7 +5610,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/24TecmenTM1000.jpg",
+        "image": "/catalog/acsess/24TecmenTM1000.jpg",
         "desc": "Сварочная маска с авт. светофильтром",
         "title": "Tecmen TM 1000",
         "price": "26 165 руб.",
@@ -5645,7 +5650,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/25TecmenTM1000.jpg",
+        "image": "/catalog/acsess/25TecmenTM1000.jpg",
         "desc": "Сварочная маска с авт. светофильтром",
         "title": "Tecmen TM 1000 PAPR",
         "price": "94 700 руб.",
@@ -5685,7 +5690,7 @@ const protection = [
         "group": "protection"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/acsess/26815s.jpg",
+        "image": "/catalog/acsess/26815s.jpg",
         "desc": "Сварочная маска с авт. светофильтром",
         "title": "Tecmen ADF 815S TM16  с PAPR",
         "price": "71 900 руб.",
@@ -5728,7 +5733,7 @@ const protection = [
 
 const material = [
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/1ESAB.jpeg",
+        "image": "/catalog/materials/1ESAB.jpeg",
         "desc": "Электроды",
         "title": " ESAB OK 46.00 ⌀ 3.0 мм ",
         "price": "3 000 руб.",
@@ -5788,7 +5793,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/2LB-52U.jpeg",
+        "image": "/catalog/materials/2LB-52U.jpeg",
         "desc": "Электроды",
         "title": " LB-52U ⌀ 3,2 мм KOBELCO ",
         "price": "3 000 руб.",
@@ -5844,7 +5849,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/3yonni.jpg",
+        "image": "/catalog/materials/3yonni.jpg",
         "desc": "Электроды",
         "title": " ESAB УОНИИ 13/55 ⌀ 3.0 мм ",
         "price": "3 000 руб.",
@@ -5900,7 +5905,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/4ASKAYNAK.jpeg",
+        "image": "/catalog/materials/4ASKAYNAK.jpeg",
         "desc": "Электроды",
         "title": " ASKAYNAK AS R-143 ⌀ 2.5 мм",
         "price": "314 руб. / кг",
@@ -5956,7 +5961,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/5yommi1355.jpg",
+        "image": "/catalog/materials/5yommi1355.jpg",
         "desc": "Электроды",
         "title": " УОНИ-13/55 ⌀ 3 мм",
         "price": "314 руб. / кг",
@@ -6012,7 +6017,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/6esabok.jpeg",
+        "image": "/catalog/materials/6esabok.jpeg",
         "desc": "Проволока омедненная",
         "title": "ESAB OK Autrod 12.51 ⌀ 0.8 мм",
         "price": "314 руб. / кг",
@@ -6068,7 +6073,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/7SG2.jpeg",
+        "image": "/catalog/materials/7SG2.jpeg",
         "desc": "Проволока омедненная",
         "title": "ASKAYNAK AS SG2 D200",
         "price": "286 руб. / кг",
@@ -6124,7 +6129,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/8tigrod.jpeg",
+        "image": "/catalog/materials/8tigrod.jpeg",
         "desc": "Прутки присадочные омедненные",
         "title": "ESAB OK Tigrod 12.64 ⌀ 2,4 мм",
         "price": "540.69 руб. / кг",
@@ -6172,7 +6177,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/9308LSi.jpeg",
+        "image": "/catalog/materials/9308LSi.jpeg",
         "desc": "Прутки присадочные нержавеющие",
         "title": "ESAB OK Tigrod 308LSi ⌀ 2.0 мм",
         "price": "1 911.26 руб. / кг",
@@ -6216,7 +6221,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/10ESABAlSi.jpeg",
+        "image": "/catalog/materials/10ESABAlSi.jpeg",
         "desc": "Электроды алюминиевые",
         "title": "ESAB OK AlSi12 ⌀ 3.2 мм",
         "price": "4 122.11 руб. / кг",
@@ -6264,7 +6269,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/11Tigrod4043.jpeg",
+        "image": "/catalog/materials/11Tigrod4043.jpeg",
         "desc": "Прутки присадочные алюминиевые",
         "title": "ESAB OK Tigrod 4043 ⌀ 2,4 мм ",
         "price": "1 497.95 руб. / кг",
@@ -6312,7 +6317,7 @@ const material = [
         "group": "materials"
     },
     {
-        "image": "http://127.0.0.1:5500/img/catalog/materials/12.jpg",
+        "image": "/catalog/materials/12.jpg",
         "desc": "Электроды!",
         "title": " АНО-21 (3 мм; 1 кг) СЗСМ",
         "price": "493 руб. / кг",

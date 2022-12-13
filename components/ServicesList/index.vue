@@ -1,6 +1,6 @@
 <template>
     <div class="cards services">
-            <a href="servis.html">
+            <NuxtLink to="/services">
               <figure class="card-category">
                 <img
                   src="./assets/servise1.jpeg"
@@ -9,8 +9,8 @@
                 />
                 <figcaption class="card__desc card__desc-serv">сварочные работы</figcaption>
               </figure>
-            </a>
-            <a href="servis.html">
+            </NuxtLink>
+            <NuxtLink to="/services">
               <figure class="card-category">
                 <img
                   src="./assets/servisse2.png"
@@ -21,8 +21,8 @@
                   изготовление металло&shy;конструкций
                 </figcaption>
               </figure>
-            </a>
-            <a href="servis.html">
+            </NuxtLink>
+            <NuxtLink to="/services">
               <figure class="card-category">
                 <img
                   src="./assets/service3.jpg"
@@ -33,7 +33,7 @@
                   электро&shy;монтажные работы
                 </figcaption>
               </figure>
-            </a>
+            </NuxtLink>
           </div>
 </template>
 

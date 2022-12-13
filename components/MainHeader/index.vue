@@ -15,7 +15,7 @@
           </li>
           <li class="header__item">
             <router-link to="/services" class="header__link header__link-display">Услуги</router-link>
-            <a href="./servis.htmlbvc" class="header__link header__link-displaynone"><i class="fab fa-themeco"></i></a>
+            <a href="./servis.html" class="header__link header__link-displaynone"><i class="fab fa-themeco"></i></a>
           </li>
           <li class="header__item">
             <a href="#!" class="header__link header__link-display">Контакты </a>
