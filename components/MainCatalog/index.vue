@@ -8,8 +8,18 @@
     <CatalogFilter :group="route.params.group" v-model="filter" />
 
     <div class="catalog_box">
-      <CatalogItem v-for="(item, j) in items" :key="j" :item="item" />
+      <CatalogItem v-for="(item, j) in pageItems" :key="j" :item="item" />
     </div>
+
+
+    <v-pagination
+    v-model="page"
+    :pages="pages"
+    :range-size="1"
+    active-color="#DCEDFF"
+    @update:modelValue="updateHandler"
+  />
+  {{pages}}
   </div>
 </template>
 
@@ -18,6 +28,9 @@
 
 
 <script setup>
+
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 import CatalogItem from './components/CatalogItem';
 import CatalogHero from './components/CatalogHero';
@@ -34,6 +47,13 @@ const titles = {
 
 const filter = useState('filter', () => ({}));
 
+const page = useState('page', () => (1));
+
+
+const ItemsOnPage = 10;
+
+
+
 const items = computed(() => {
 
   const filterObj = Object.entries(filter.value)
@@ -42,15 +62,33 @@ const items = computed(() => {
 
   console.log(catalogItems.value);
 
+      let afterFilter = [];
+
       if (!filterObj.length) {
-        return catalogItems.value;
+        afterFilter = catalogItems.value;
       }
 
-      return (catalogItems.value || []).filter((itemA) => {
+      afterFilter = (catalogItems.value || []).filter((itemA) => {
         return  filterObj.every(itemB => itemA.hasOwnProperty(itemB));
       });
+
+      return afterFilter;
 });
 
+const pageItems = computed(() => {
+    return items.value.slice((page.value - 1) * ItemsOnPage, (page.value - 1) * ItemsOnPage + ItemsOnPage);
+});
+
+
+
+const pages = computed(() => {
+
+    return Math.ceil(items.value.length / ItemsOnPage);
+});
+
+
+
+const updateHandler = () => {}
 
 </script>
 
