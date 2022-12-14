@@ -128,7 +128,7 @@ export default {
 </script> -->
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .catalog_box {
   display: grid;
   /* grid-template-columns: 1fr 1fr 1fr 1fr; */
@@ -137,6 +137,12 @@ export default {
   margin-top: 30px;
   justify-content: center;
   grid-auto-rows: 360px;
+}
+
+
+.Pagination {
+    margin: 25px 0;
+    justify-content: center;
 }
 </style>
 <!-- 

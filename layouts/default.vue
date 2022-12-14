@@ -576,7 +576,7 @@ img {
     line-height: 25px;
   }
   .hiro__box {
-    padding: 0 30px;
+    padding: 0 20px;
   }
   .hiro__title {
     font-size: 45px;
@@ -651,8 +651,8 @@ img {
     padding: 0;
   }
   .title-section {
-    font-size: 22px;
-    line-height: 22px;
+    font-size: 20px;
+    line-height: 1;
     padding-left: 0;
     background-size: 0;
     color: var(--blue);
@@ -676,10 +676,10 @@ img {
   }
   
   .category__link {
-    font-size: 18px;
+    font-size: 15px;
   }
   .category__link.category__acces {
-    margin-left: 30px;
+    margin-left: 0px;
   }
   .cards.services {
     grid-template-columns: 1fr;

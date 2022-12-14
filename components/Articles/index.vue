@@ -108,15 +108,7 @@
   width: 100%;
 }
 
-@media all and (max-width: 500px) {
-  .articles {
-    grid-template-columns: 1fr;
-  }
-  .article__text {
-    margin-bottom: 0px;
-    min-height: 60px;
-  }
-}
+
 
 @media all and (max-width: 800px) {
   .article {
@@ -127,6 +119,16 @@
   }
   .articles {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .articles {
+    grid-template-columns: 1fr;
+  }
+  .article__text {
+    margin-bottom: 0px;
+    min-height: 60px;
   }
 }
 </style>

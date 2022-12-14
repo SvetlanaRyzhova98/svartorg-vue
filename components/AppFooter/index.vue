@@ -45,7 +45,7 @@
                 Отправить
                 <i class="far fa-envelope icon"></i>
               </button>
-              {{form}}
+              <!-- {{form}} -->
             </form>
           </div>
 
@@ -98,64 +98,7 @@ async function submit(form) {
 </script>
 
 <style>
-.articles {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 25px;
-  color: #343434;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 19px;
-}
-.article {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.article__content {
-  display: flex;
-  flex-direction: column;
-  text-align: start;
-  align-items: flex-start;
-  max-height: 300px;
-}
-.article__text {
-  font-weight: 300;
-  font-size: 13px;
-  line-height: 19px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  min-height: 80px;
-  text-overflow: ellipsis;
-}
-.article__link {
-  text-decoration-line: underline;
-  color: #343434;
-}
-.article__data {
-  font-size: 13px;
-  color: rgba(151, 151, 151, 1);
-  line-height: 26px;
-}
-.article__title {
-  font-size: 16px;
-  letter-spacing: 0.05em;
-  max-width: 235px;
-  margin-bottom: 15px;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  text-transform: uppercase;
-  display: block;
-  /* white-space: nowrap; */
-  min-height: 40px;
-  font-weight: 600;
-}
-.article__img.article__img_less {
-  max-width: 128px;
-}
-.article__img {
-  max-width: 255px;
-  width: 100%;
-}
+
 
 /*Main end*/
 /*footer*/
