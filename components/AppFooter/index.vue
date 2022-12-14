@@ -74,7 +74,7 @@ const form = ref({
 });
 
 async function submit(form) {
-  await $fetch('http://localhost:3000/api/contact', {
+  await $fetch('/api/contact', {
 		method: 'POST',
 		body: form,
 	})
