@@ -29,5 +29,15 @@
     padding-left: 130px;
   }
 }
+@media all and (max-width: 500px) {
+  
+
+  .title-section {
+    font-size: 20px;
+    line-height: 1;
+    padding-left: 0;
+    background-size: 0;
+    color: var(--blue);
+  }}
 
 </style>
