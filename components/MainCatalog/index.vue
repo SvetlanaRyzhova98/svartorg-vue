@@ -1,8 +1,7 @@
 <template>
   <div class="wrapper">
-    
-    <CatalogHero>{{titles[route.params.group].caption}}</CatalogHero>
-    
+    <CatalogHero>{{ titles[route.params.group].caption }}</CatalogHero>
+
     <BreadCrumbs :path="[titles[route.params.group]]" />
 
     <CatalogFilter :group="route.params.group" v-model="filter" />
@@ -11,87 +10,75 @@
       <CatalogItem v-for="(item, j) in pageItems" :key="j" :item="item" />
     </div>
 
-
     <v-pagination
-    v-model="page"
-    :pages="pages"
-    :range-size="1"
-    active-color="#DCEDFF"
-    @update:modelValue="updateHandler"
-  />
-  {{pages}}
+      v-model="page"
+      :pages="pages"
+      :range-size="1"
+      active-color="#DCEDFF"
+      @update:modelValue="updateHandler"
+    />
+    {{ pages }}
   </div>
 </template>
 
-
-
-
-
 <script setup>
-
 import VPagination from "@hennge/vue3-pagination";
 import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
-import CatalogItem from './components/CatalogItem';
-import CatalogHero from './components/CatalogHero';
-import CatalogFilter from './components/CatalogFilter';
+import CatalogItem from "./components/CatalogItem";
+import CatalogHero from "./components/CatalogHero";
+import CatalogFilter from "./components/CatalogFilter";
 
 const route = useRoute();
-const { data: catalogItems } = await useFetch(`/api/catalog?group=${route.params.group}`);
+const { data: catalogItems } = await useFetch(
+  `/api/catalog?group=${route.params.group}`
+);
 
 const titles = {
-        welding: {caption: 'Сварочное оборудование', href: '/catalog/welding'},
-        electro: {caption: 'Электрооборудование', href: '/catalog/electro'},
-      };
+  welding: { caption: "Сварочное оборудование", href: "/catalog/welding" },
+  electro: { caption: "Электрооборудование", href: "/catalog/electro" },
+};
 
+const filter = useState("filter", () => ({}));
 
-const filter = useState('filter', () => ({}));
+const page = useState("page", () => 1);
 
-const page = useState('page', () => (1));
-
-
-const ItemsOnPage = 10;
-
-
+const ItemsOnPage = 12;
+// количество выводимых карточек в пагинации
 
 const items = computed(() => {
-
   const filterObj = Object.entries(filter.value)
-        .filter(([key, value]) => value)
-        .map(([key, value]) => key);
+    .filter(([key, value]) => value)
+    .map(([key, value]) => key);
 
   console.log(catalogItems.value);
 
-      let afterFilter = [];
+  let afterFilter = [];
 
-      if (!filterObj.length) {
-        afterFilter = catalogItems.value;
-      }
+  if (!filterObj.length) {
+    afterFilter = catalogItems.value;
+  }
 
-      afterFilter = (catalogItems.value || []).filter((itemA) => {
-        return  filterObj.every(itemB => itemA.hasOwnProperty(itemB));
-      });
+  afterFilter = (catalogItems.value || []).filter((itemA) => {
+    return filterObj.every((itemB) => itemA.hasOwnProperty(itemB));
+  });
 
-      return afterFilter;
+  return afterFilter;
 });
 
 const pageItems = computed(() => {
-    return items.value.slice((page.value - 1) * ItemsOnPage, (page.value - 1) * ItemsOnPage + ItemsOnPage);
+  return items.value.slice(
+    (page.value - 1) * ItemsOnPage,
+    (page.value - 1) * ItemsOnPage + ItemsOnPage
+  );
 });
-
-
 
 const pages = computed(() => {
-
-    return Math.ceil(items.value.length / ItemsOnPage);
+  return Math.ceil(items.value.length / ItemsOnPage);
 });
 
-
-
-const updateHandler = () => {}
-
+const updateHandler = () => {};
 </script>
-
 
 <!-- <script setup>
 
@@ -152,16 +139,12 @@ export default {
   grid-auto-rows: 360px;
 }
 </style>
-
-
-
-
-Array.from(document.querySelectorAll(".card-item")).map((cardItem) => {
-const image = cardItem.querySelector(".front img").src;
-const desc =  cardItem.querySelector(".front .name-product").firstChild.nodeValue.trim();
-const title =  cardItem.querySelector(".front .name-product span").innerHTML;
-const price =  cardItem.querySelector(".front .price").innerHTML.trim();
-const table =  cardItem.querySelector(".back .info-list").rows;
-const rows = Array.from(table).map((r) => {return {key: r.cells[0].firstChild.innerHTML, val: r.cells[1].innerHTML }});
-return {image,desc,title,price,rows};
-});
+<!-- 
+Array.from(document.querySelectorAll(".card-item")).map((cardItem) => { const
+image = cardItem.querySelector(".front img").src; const desc =
+cardItem.querySelector(".front .name-product").firstChild.nodeValue.trim();
+const title = cardItem.querySelector(".front .name-product span").innerHTML;
+const price = cardItem.querySelector(".front .price").innerHTML.trim(); const
+table = cardItem.querySelector(".back .info-list").rows; const rows =
+Array.from(table).map((r) => {return {key: r.cells[0].firstChild.innerHTML, val:
+r.cells[1].innerHTML }}); return {image,desc,title,price,rows}; }); -->
