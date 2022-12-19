@@ -6,11 +6,10 @@
 
 <style>
 .title-box {
-  margin-bottom: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 .title-section {
   background: url('~/components/MainTitle/assets/slider-decor.svg') no-repeat center left;
