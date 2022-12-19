@@ -543,6 +543,9 @@ img {
     grid-template-rows: 1fr 1fr;
     justify-items: center;
   }
+  section{
+    margin-bottom: 50px;
+  }
 }
 
 @media all and (max-width: 800px) {
