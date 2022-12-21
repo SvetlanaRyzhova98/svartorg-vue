@@ -254,7 +254,7 @@ td{
 td:first-child {
   padding-right: 20px;
   border-right: 1px solid  var(--grey-light);
-  line-height: 1;
+  line-height: 1.3;
   padding: 5px;
   max-width: 80px;
 }

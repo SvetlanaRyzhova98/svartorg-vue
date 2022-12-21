@@ -9,7 +9,15 @@
           <button @click="onChange({'tig': !modelValue?.['tig']})" 
           class="filter-btn"
           :class="{'filter-btn-active': modelValue?.['tig']}"
-          >MMA, TIG</button>
+          >TIG</button>
+          <button @click="onChange({'mig': !modelValue?.['mig']})" 
+          class="filter-btn"
+          :class="{'filter-btn-active': modelValue?.['mig']}"
+          >MIG</button>
+          <button @click="onChange({'mag': !modelValue?.['mag']})" 
+          class="filter-btn"
+          :class="{'filter-btn-active': modelValue?.['mag']}"
+          >MAG</button>
         </div>
     </template>
 </template>

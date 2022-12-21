@@ -58,10 +58,13 @@ const items = computed(() => {
   if (!filterObj.length) {
     afterFilter = catalogItems.value;
   }
-
-  afterFilter = (catalogItems.value || []).filter((itemA) => {
-    return filterObj.every((itemB) => itemA.hasOwnProperty(itemB));
+  else {
+    afterFilter = (catalogItems.value || []).filter((itemA) => {
+    return filterObj.some((itemB) => itemA.hasOwnProperty(itemB));
   });
+  }
+
+  
 
   return afterFilter;
 });
