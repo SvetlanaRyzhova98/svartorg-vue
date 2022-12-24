@@ -52,7 +52,7 @@
           <div class="map" id="map">
             <iframe
               width="100%"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2819.4293553974767!2d39.074142815543155!3d45.036508379098166!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40f05ac0a490e901%3A0xcf66548c0bcd02be!2z0YPQuy4g0KPRgNCw0LvRjNGB0LrQsNGPLCAxMzYsINCa0YDQsNGB0L3QvtC00LDRgCwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksIDM1MDA4MA!5e0!3m2!1sru!2sru!4v1659643417683!5m2!1sru!2sru"
+              :src="Locations[location.location]?.coordinate"
               frameborder="0"
               style="border: 0"
               allowfullscreen
@@ -66,6 +66,12 @@
 </template>
 
 <script setup>
+
+import { useLocationStore } from "../../store/location";
+  import { Locations } from '../../consts/location';
+
+
+
 const form = ref({
     name: '',
     phone: '',
@@ -95,6 +101,8 @@ async function submit(form) {
 			// this.waiting = false;
 		});
 }
+
+const location = useLocationStore();
 </script>
 
 <style>

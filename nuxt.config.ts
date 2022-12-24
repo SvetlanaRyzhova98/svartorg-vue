@@ -6,5 +6,9 @@ export default defineNuxtConfig({
         MAILUSER: process.env.MAILUSER,
         MAILPASSWORD: process.env.MAILPASSWORD,
         CONTACTMAIL: process.env.CONTACTMAIL
-    }
+    },
+    modules: [
+        // pinia plugin
+        '@pinia/nuxt',
+      ],
 })

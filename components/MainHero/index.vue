@@ -20,12 +20,12 @@
           </p>
 
           <div class="location">
-            <div class="location-select"><span>Выберите город</span>  <i class="fas fa-arrow-circle-down"></i></div>
+            <div @click="onLocationOpenClick" class="location-select"><span>Выберите город: {{Locations[location.location]?.title}}</span>  <i class="fas fa-arrow-circle-down"></i></div>
            
-           <ul class="location-city visible">
-            <li>Краснодар</li>
-            <li>Тимашевск</li>
-            <li>Новороссийск (Цемдолина)</li>
+           <ul class="location-city" :class="{'visible': !isLocationOpen}">
+            <li @click="setLocation('KRD')">{{Locations['KRD'].title}}</li>
+            <li @click="setLocation('NVR')">{{Locations['NVR'].title}}</li>
+            <li @click="setLocation('TMSH')">{{Locations['TMSH'].title}}</li>
            </ul>
           </div>
         </div>
@@ -33,6 +33,35 @@
       </div>
     </div>
 </template>
+
+
+
+
+<script setup>
+import { useLocationStore } from "../../store/location";
+import { Locations } from '../../consts/location';
+
+const location = useLocationStore()
+
+const isLocationOpen = useState("isLocationOpen", () => false);
+
+function onLocationOpenClick() {
+  isLocationOpen.value = !isLocationOpen.value;
+}
+
+
+function setLocation(str) {
+  location.setLocation(str);
+  isLocationOpen.value = false;
+}
+// if (process.server) {
+//   counter.n = 20
+// }
+</script>
+
+
+
+
 
 <style>
 

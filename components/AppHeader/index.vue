@@ -32,24 +32,9 @@
 
          
           
-          <div class="header__contact">
-            <div class="header__link header__link_cont">
-              <i class="fas fa-location-arrow icon"></i>
-              Уральская 136/7</div
-            >
-            <div class="header__link header__link_cont  header__link_cont-mobile map-click">
-              <i class="fas fa-location-arrow icon"></i>
-              </div
-            >
-            <a href="tel:+79183254800" class="header__link header__link_cont">
-              <i class="fas fa-phone-alt icon"></i>
-              8-918-325-48-00</a
-            >
-            <a href="tel:+79183254800" class="header__link header__link_cont header__link_cont-mobile">
-              <i class="fas fa-phone-alt icon"></i>
-            </a>
-          </div>
-          <div class="menu-burger">
+          <HeaderLocation />
+
+          <div @click="onMobileMenuClick" class="menu-burger">
             <span></span>
           </div>
         </nav>
@@ -57,14 +42,12 @@
 
 
 
-      <div class="menu-mobile">
+      <div class="menu-mobile" :class="{'menu-mobile-active': isMobileMenuOpen}">
         
-        <!-- <nav class="nav">
-          <ul class="header__list">
+        <nav class="nav">
+          <ul class="mobile-header__list">
             <li class="header__item">
-              <a href="#!" class="header__link">Продукция
-                
-            </a>
+              <NuxtLink class="header__link" to="/">Сварочное оборудование</NuxtLink>
             </li>
             <li class="header__item">
               <a href="#!" class="header__link">Применение</a>
@@ -79,7 +62,7 @@
               <a href="#!" class="header__link">Hовости</a>
             </li>
           </ul>
-        </nav> -->
+        </nav>
       </div>
 
 
@@ -88,10 +71,71 @@
     </div>
 </template>
 
+<script>
+export default {
+  name: 'AppHeader',
+  props: {
+  },
+  data() {return {isMobileMenuOpen: false}},
+  methods: {
+    onMobileMenuClick() {
+      this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    },
+    myEventHandler(e) {
+      this.isMobileMenuOpen = false;
+    }
+  },
+  created() {
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", this.myEventHandler);
+    }
+  },
+  destroyed() {
+    if (typeof window !== 'undefined') {
+      window.removeEventListener("resize", this.myEventHandler);
+    }
+  }
+}
+</script>
 
 
 
 <style>
+
+.menu-mobile {
+  position: absolute;
+  top: 80px;
+    background: black;
+    width: 100%;
+    display: flex;
+    transition: 1s;
+    z-index: 9;
+    max-height: 0;
+    overflow: hidden;
+}
+.menu-mobile nav {
+  width: 100%;
+}
+.menu-mobile .mobile-header__list {
+  width: 100%;
+}
+.menu-mobile .mobile-header__list .header__item {
+  font-weight: 700;
+    padding: 17px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-bottom: 1px solid #3d3d3d;
+}
+.menu-mobile .mobile-header__list .header__item .header__link {
+  font-weight: 700;
+}
+.menu-mobile-active {
+  
+  top: 80px;
+  height: auto;
+  max-height: 500px;
+}
 
 /*header*/
 .icon {

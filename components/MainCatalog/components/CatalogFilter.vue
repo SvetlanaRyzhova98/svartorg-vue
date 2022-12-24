@@ -13,11 +13,11 @@
           <button @click="onChange({'mig': !modelValue?.['mig']})" 
           class="filter-btn"
           :class="{'filter-btn-active': modelValue?.['mig']}"
-          >MIG</button>
-          <button @click="onChange({'mag': !modelValue?.['mag']})" 
+          >MIG/MAG</button>
+          <button @click="onChange({'cut': !modelValue?.['cut']})" 
           class="filter-btn"
-          :class="{'filter-btn-active': modelValue?.['mag']}"
-          >MAG</button>
+          :class="{'filter-btn-active': modelValue?.['cut']}"
+          >CUT</button>
         </div>
     </template>
 </template>
