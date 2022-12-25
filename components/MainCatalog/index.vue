@@ -85,6 +85,10 @@ const pages = computed(() => {
 });
 
 const updateHandler = () => {};
+
+onMounted(() => {
+  page.value = 1;
+})
 </script>
 
 <!-- <script setup>

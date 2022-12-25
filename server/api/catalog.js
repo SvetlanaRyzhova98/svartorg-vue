@@ -42,7 +42,7 @@ const weldingGroup = [
         val: "15 кг",
       },
     ],
-    group: "welding",
+    group: "welding", 
     mig: true,
     tig: true,
     mma: true,
@@ -642,6 +642,7 @@ const weldingGroup = [
     ],
     group: "welding",
     mig: true,
+    
   },
   {
     image: "/catalog/ALPHAWF-1.jpeg",
@@ -3232,6 +3233,7 @@ const weldingGroup = [
       },
     ],
     group: "welding",
+    mma: true,
   },
   {
     image: "/catalog/8auroravector2200.jpg",
@@ -3265,6 +3267,7 @@ const weldingGroup = [
       },
     ],
     group: "welding",
+    mma: true,
   },
   {
     image: "/catalog/9aurorapr_inter205.jpg",
@@ -3306,6 +3309,7 @@ const weldingGroup = [
       },
     ],
     group: "welding",
+    mma: true,
   },
   {
     image: "/catalog/10aurorapr_inter255.jpg",
@@ -3339,6 +3343,7 @@ const weldingGroup = [
       },
     ],
     group: "welding",
+    mma: true,
   },
   {
     image: "/catalog/12real-arc-200-z238n-black_b.png",
@@ -3382,7 +3387,7 @@ const weldingGroup = [
         val: "3.8 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/13real_smart_arc_220_z28403_6.png",
@@ -3426,7 +3431,7 @@ const weldingGroup = [
         val: "5.2 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/14real_smart_arc_220_z28403_6_0.png",
@@ -3467,7 +3472,7 @@ const weldingGroup = [
         val: "8 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/15real_arc_250_d_z226_a_0.png",
@@ -3508,7 +3513,7 @@ const weldingGroup = [
         val: "9.3 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/16arc315(z29801).png",
@@ -3549,7 +3554,7 @@ const weldingGroup = [
         val: "19.8 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/17_master202.jpg",
@@ -3590,7 +3595,7 @@ const weldingGroup = [
         val: "6.25 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/18_master250.jpg",
@@ -3634,7 +3639,7 @@ const weldingGroup = [
         val: "6.25 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/19_uno.jpg",
@@ -3678,7 +3683,7 @@ const weldingGroup = [
         val: "6 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/20_uno.jpg",
@@ -3722,7 +3727,7 @@ const weldingGroup = [
         val: "6.1 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/21_kvazarrus250.jpg",
@@ -3759,7 +3764,7 @@ const weldingGroup = [
         val: "3 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/22saggio200.jpg",
@@ -3803,7 +3808,7 @@ const weldingGroup = [
         val: "5.9 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/23kvazarrus210.jpg",
@@ -3844,7 +3849,7 @@ const weldingGroup = [
         val: "3.93 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/24vd-500.jpg",
@@ -3888,7 +3893,7 @@ const weldingGroup = [
         val: "24.43 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/25saggio250.jpg",
@@ -3932,7 +3937,7 @@ const weldingGroup = [
         val: "12.7 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/26varteg.jpg",
@@ -3976,7 +3981,7 @@ const weldingGroup = [
         val: "19 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/27varteg500.jpg",
@@ -4020,7 +4025,7 @@ const weldingGroup = [
         val: "24.4 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/28redbo.jpg",
@@ -4064,7 +4069,7 @@ const weldingGroup = [
         val: "7.9 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/29redbopro.jpg",
@@ -4108,7 +4113,7 @@ const weldingGroup = [
         val: "8 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/30Edon%20TB-200.jpg",
@@ -4152,7 +4157,7 @@ const weldingGroup = [
         val: "2.5 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/31edon250.jpg",
@@ -4196,7 +4201,7 @@ const weldingGroup = [
         val: "7 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/32redbo.jpg",
@@ -4240,7 +4245,7 @@ const weldingGroup = [
         val: "4.8 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/33redbo.jpg",
@@ -4284,7 +4289,7 @@ const weldingGroup = [
         val: "7 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/34EdonLV-200.jpg",
@@ -4328,7 +4333,7 @@ const weldingGroup = [
         val: "3.1 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/35redbo.jpg",
@@ -4372,7 +4377,7 @@ const weldingGroup = [
         val: "6.2 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/36ARC-250S.jpg",
@@ -4412,7 +4417,7 @@ const weldingGroup = [
         val: "11.2 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/37redbo.jpg",
@@ -4452,7 +4457,7 @@ const weldingGroup = [
         val: "37 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/38%D0%9A%D0%95%D0%94%D0%A0_ULTRAMMA-200.jpeg",
@@ -4492,7 +4497,7 @@ const weldingGroup = [
         val: "2.9 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/39ULTRAARC-220.jpeg",
@@ -4532,7 +4537,7 @@ const weldingGroup = [
         val: "4 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/40ULTRAARC-250.jpeg",
@@ -4572,7 +4577,7 @@ const weldingGroup = [
         val: "9.5 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/41MULTIARC-2000.jpeg",
@@ -4612,7 +4617,7 @@ const weldingGroup = [
         val: "7 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/42%D0%92%D0%94-306.jpeg",
@@ -4648,7 +4653,7 @@ const weldingGroup = [
         val: "14.5 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/43%D0%9A%D0%95%D0%94%D0%A0_%D0%A0%D0%94-1000.jpeg",
@@ -4685,7 +4690,7 @@ const weldingGroup = [
         val: "70 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/44BRIMAMMA-200.png",
@@ -4718,7 +4723,7 @@ const weldingGroup = [
         val: "2.2 кг",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/45BrimaARC-250.jpg",
@@ -4759,7 +4764,7 @@ const weldingGroup = [
         val: "IP23",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/46ARC-400.jpg",
@@ -4796,7 +4801,7 @@ const weldingGroup = [
         val: "IP21S",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/47startarcline220.jpg",
@@ -4837,7 +4842,7 @@ const weldingGroup = [
         val: "IP21S",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/48startarcline250.jpg",
@@ -4878,7 +4883,7 @@ const weldingGroup = [
         val: "IP21S",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
   {
     image: "/catalog/49startmodelSTICK251.png",
@@ -4915,7 +4920,7 @@ const weldingGroup = [
         val: "IP21S",
       },
     ],
-    group: "welding",
+    group: "welding", mma: true,
   },
 ];
 
