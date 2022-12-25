@@ -61,9 +61,9 @@
             <li class="header__item">
               <NuxtLink class="header__link" to="/contacts">Контакты </NuxtLink>
             </li>
-            <!-- <li class="header__item">
-              <NuxtLink to="/about" class="header__link">О компании</NuxtLink>
-            </li> -->
+            <li class="header__item">
+              <NuxtLink to="/articles" class="header__link">Инфо</NuxtLink>
+            </li>
           </ul>
 
           <HeaderLocation />

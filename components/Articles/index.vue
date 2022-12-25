@@ -48,7 +48,7 @@
 </template>
 
 
-<style>
+<style scoped>
 
 .articles {
   display: grid;
@@ -124,15 +124,14 @@
 
 
 @media all and (max-width: 800px) {
-  .article {
+   .article {
     grid-template-columns: 1fr;
   }
   .article__img {
     display: none;
   }
-  .articles {
-    grid-template-columns: 1fr;
-  }
+ 
+  
 }
 
 @media all and (max-width: 500px) {

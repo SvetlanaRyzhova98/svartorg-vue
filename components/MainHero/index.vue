@@ -19,7 +19,7 @@
         <div class="location">
           <div @click="onLocationOpenClick" class="location-select">
             <span
-              >Выберите город: {{ Locations[location.location]?.title }}</span
+              >Выберите город: </span
             >
             <i class="fas fa-arrow-circle-down"></i>
           </div>

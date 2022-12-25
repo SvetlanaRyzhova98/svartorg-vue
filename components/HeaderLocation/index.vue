@@ -5,7 +5,7 @@
 
 <div class="header__contact">
             <div class="header__link header__link_cont">
-              <i class="fas fa-location-arrow icon"></i>🌎 
+              <i class="fas fa-location-arrow icon"></i> 
               {{Locations[location.location]?.address}} </div
             >
             <div class="header__link header__link_cont  header__link_cont-mobile map-click">

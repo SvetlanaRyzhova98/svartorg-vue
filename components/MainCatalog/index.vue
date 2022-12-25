@@ -37,7 +37,7 @@ const { data: catalogItems } = await useFetch(
 const titles = {
   welding: { caption: "Сварочное оборудование", href: "/catalog/welding" },
   electro: { caption: "Электрооборудование", href: "/catalog/electro" },
-  benzo: { caption: "Бензо", href: "/catalog/benzo" },
+  benzo: { caption: "Бензоинструмент", href: "/catalog/benzo" },
   gas: { caption: "Газосварочное", href: "/catalog/gas" },
   protection: { caption: "Маски", href: "/catalog/protection" },
   materials: { caption: "Расходные материалы", href: "/catalog/materials" },
