@@ -7,7 +7,7 @@
         </div>
 </template>
 
-<style>
+<style scoped>
 
 .hiro {
     width: 100%;
@@ -65,4 +65,5 @@
   line-height: 30px;
   letter-spacing: 0.5px;
 }
+
 </style>

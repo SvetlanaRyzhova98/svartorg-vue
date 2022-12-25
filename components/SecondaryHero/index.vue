@@ -7,7 +7,7 @@
         </div>
 </template>
 
-<style>
+<style scoped>
 .hiro.hiro-srv {
   height: 200px;
   font-size: 20px;
