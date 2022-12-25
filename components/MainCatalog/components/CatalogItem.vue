@@ -68,7 +68,7 @@ export default {
   color: rgba(34, 41, 51, 0.6);
 }
 
-.filters{
+/* .filters{
   margin-top: 20px;
   display: flex;
   gap: 10px;
@@ -86,7 +86,7 @@ export default {
 }
 .filter-btn:hover{
   background: #80808052;
-}
+} */
 
 .catalog_box {
   display: grid;
@@ -338,11 +338,11 @@ tbody:hover tr:hover td {
     height: 200px;
   } */
 }
-@media all and (max-width: 500px) {
+/* @media all and (max-width: 500px) {
   .filter-btn {
     padding: 5px 12px;}
   /* .front, .back{
     height: 250px;
   } */
-}
+
 </style>

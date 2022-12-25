@@ -34,21 +34,7 @@
 
 
 <style scoped>
-.hiro.hiro-srv {
-  height: 200px;
-  font-size: 20px;
-  margin: 0;
-  padding-top: 80px;
-}
-.hiro.hiro-srv .hiro__decor {
-  width: 100%;
-}
-.hiro.hiro-srv .hiro__title {
-  font-size: 22px;
-  line-height: 1;
-  margin: 0;
-  text-transform: uppercase;
-}
+
 .srv-section {
   margin-bottom: 0;
 }
@@ -108,9 +94,9 @@
   .srv__title {
     font-size: 16px;
   }
-  .hiro.hiro-srv .hiro__title {
+  /* .hiro.hiro-srv .hiro__title {
     font-size: 19px;}
-  
+   */
   
 }
 @media all and (max-width: 500px) {
@@ -120,8 +106,8 @@
   .srv__list{
     grid-template-columns: 1fr;
   }
-  .hiro.hiro-srv .hiro__title {
+  /* .hiro.hiro-srv .hiro__title {
     font-size: 17px;}
-}
+ */}
 
 </style>

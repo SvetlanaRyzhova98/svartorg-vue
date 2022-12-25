@@ -61,9 +61,9 @@
             <li class="header__item">
               <NuxtLink class="header__link" to="/contacts">Контакты </NuxtLink>
             </li>
-            <li class="header__item">
+            <!-- <li class="header__item">
               <NuxtLink to="/about" class="header__link">О компании</NuxtLink>
-            </li>
+            </li> -->
           </ul>
 
           <HeaderLocation />
@@ -80,42 +80,65 @@
       >
         <nav class="nav">
           <ul class="mobile-header__list">
-            <li class="header__item" >
-              <NuxtLink @click="myEventHandler" class="header__link" to="/catalog/welding"
+            <li class="header__item">
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/welding"
                 >Сварочное оборудование</NuxtLink
               >
             </li>
             <li class="header__item">
-              <NuxtLink  @click="myEventHandler"  class="header__link" to="/catalog/electro"
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/electro"
                 >Электроинструмент</NuxtLink
               >
             </li>
             <li class="header__item">
-              <NuxtLink  @click="myEventHandler"  class="header__link" to="/catalog/benzo"
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/benzo"
                 >Бензоинструмент</NuxtLink
               >
             </li>
             <li class="header__item">
-              <NuxtLink @click="myEventHandler"   class="header__link" to="/catalog/protection"
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/protection"
                 >Маски</NuxtLink
               >
             </li>
             <li class="header__item">
-              <NuxtLink  @click="myEventHandler"  class="header__link" to="/catalog/gas"
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/gas"
                 >Газосварочное</NuxtLink
               >
             </li>
             <li class="header__item">
-              <NuxtLink  @click="myEventHandler"  class="header__link" to="/catalog/materials"
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/materials"
                 >Расходные материалы</NuxtLink
               >
             </li>
-            
+
             <li class="header__item line">
               <a href="#!" class="header__link">Контакты</a>
             </li>
             <li class="header__item">
-              <a href="#!" class="header__link">Hовости</a>
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/articles"
+                >Полезная информация</NuxtLink
+              >
             </li>
           </ul>
         </nav>
@@ -183,7 +206,7 @@ export default {
 .menu-mobile .mobile-header__list .header__item .header__link {
   font-weight: 700;
 }
-.menu-mobile .mobile-header__list .header__item:first-child{
+.menu-mobile .mobile-header__list .header__item:first-child {
   margin-top: 50px;
 }
 .menu-mobile-active {
@@ -191,8 +214,8 @@ export default {
   height: calc(100vh - 80px);
   max-height: calc(100vh - 80px);
 }
-.line{
-  border-top:  2px solid rgb(71, 66, 66);
+.line {
+  border-top: 2px solid rgb(71, 66, 66);
   margin: 0 auto;
   width: 60% !important;
   padding-top: 30px !important;
@@ -241,7 +264,7 @@ export default {
   position: absolute;
   top: 19px;
   /* left: -20px; */
-  height: 200px;
+  height: 300px;
   left: -17px;
   display: flex;
   flex-direction: column;
@@ -250,6 +273,8 @@ export default {
   padding: 5px 15px;
   justify-content: space-evenly;
   display: none;
+  border-radius: 8px;
+  box-shadow: 7px 7px 13px 0px #1311119c;
 }
 .header__item:hover .header__sublist {
   display: flex;
@@ -339,7 +364,6 @@ export default {
   transform: rotate(45deg);
 }
 
-
 @media all and (max-width: 1000px) {
   /*   
   .header__logo img{
@@ -357,8 +381,7 @@ export default {
   }
 }
 @media all and (max-width: 800px) {
-
-   .header__list {
+  .header__list {
     gap: 0px;
   }
   .header__link_cont {
@@ -367,18 +390,15 @@ export default {
   .header__link_cont.header__link_cont-mobile {
     display: block;
     font-size: 25px;
-  } 
+  }
   .header__link {
     font-size: 16px;
     line-height: 19px;
     padding-right: 15px;
   }
-  
-  
-  }
-  
-  
-  @media all and (max-width: 600px) {
+}
+
+@media all and (max-width: 600px) {
   .header__list {
     display: none;
   }

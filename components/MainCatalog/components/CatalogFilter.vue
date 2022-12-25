@@ -59,11 +59,19 @@
   background: transparent;
   margin: 0 5px;
 }
-.filter-btn-active{
-font-weight: 700;
-}
+
 .filter-btn:hover{
   background: #80808052;
 }
+.filter-btn-active{
+font-weight: 700;
+}
+@media all and (max-width: 500px) {
+  .filter-btn {
+  padding: 5px 12px;
+  margin: 0;
+}
+}
+
   </style>
   

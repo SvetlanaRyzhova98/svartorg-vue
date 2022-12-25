@@ -1,5 +1,5 @@
 <template>
-                <div class="articles">
+                <NuxtLink to="/articles" class="articles">
               <div class="article">
                 <img src="./assets/gr.jpg" alt="" class="article__img" />
                 <div class="article__content">
@@ -10,7 +10,8 @@
                     прибора зависит не только от производителя, а также от условий
                     его использования.
                   </div>
-                  <a href="./article.html" class="article__link"> Читать полностью </a>
+                  
+                  <a href="" class="article__link"> Читать полностью </a>
                 </div>
               </div>
   
@@ -43,7 +44,7 @@
                 />
                 <div class="article__data">07.03.2022</div>
               </div>
-            </div>
+            </NuxtLink>
 </template>
 
 
@@ -57,6 +58,7 @@
   font-weight: 300;
   font-size: 14px;
   line-height: 19px;
+  margin-top: 30px;
 }
 .article {
   display: grid;
@@ -107,6 +109,17 @@
   max-width: 255px;
   width: 100%;
 }
+.articles-new .article__content {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    align-items: flex-start;
+    max-height: max-content;
+    padding: 15px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: block;
+}
 
 
 
@@ -118,13 +131,14 @@
     display: none;
   }
   .articles {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
 @media all and (max-width: 500px) {
   .articles {
     grid-template-columns: 1fr;
+    
   }
   .article__text {
     margin-bottom: 0px;

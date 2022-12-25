@@ -1,12 +1,10 @@
 <template>
+<SecondaryHero>Полезная информация<br /></SecondaryHero>
+
 <div class="wrapper">
-    <div class="hiro hiro-srv">
-      <div class="hiro__decor"></div>
-      <div class="hiro__box">
-        <h1 class="hiro__title">Полезная информация<br /></h1>
-      </div>
-    </div>
-  </div>
+    <BreadCrumbs :path="[{caption: 'Полезная информация', href: '/articles'}]" />
+    
+</div>
 
   <section class="wrapper wrapper-articles">
     <div class="articles articles-new">

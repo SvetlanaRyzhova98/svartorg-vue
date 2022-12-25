@@ -66,13 +66,13 @@ export default {
             {
                 caption: 'средства защиты',
                 imageSrc: protectImg,
-                href: './catalog-protection.html',
+                href: '/catalog/protection',
                 type: 'secondary'
             },
             {
                 caption: 'сварочные материалы',
                 imageSrc: materialyImg,
-                href: './catalog-materials.html',
+                href: '/catalog/materials',
                 type: 'secondary'
             },
         

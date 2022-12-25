@@ -29,7 +29,9 @@
   padding-top: 80px;
 }
 .hiro.hiro-srv .hiro__decor {
-  width: 100%;
+  width: 100vw;
+  background: url('~/components/MainCatalog/components/CatalogHero/assets/black-bg1.jpg') no-repeat center right;
+  background-size: cover;
 }
 .hiro.hiro-srv .hiro__title {
   font-size: 22px;
@@ -64,6 +66,11 @@
   font-size: 20px;
   line-height: 30px;
   letter-spacing: 0.5px;
+}
+@media all and (max-width: 500px) {
+ 
+ .hiro.hiro-srv .hiro__title {
+   font-size: 17px;}
 }
 
 </style>

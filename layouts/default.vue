@@ -1,7 +1,10 @@
 <template>
   <div>
     <AppHeader />
-    <slot />
+    <div class="offset">
+      <slot />
+    </div>
+   
     <AppFooter />
   </div>
 </template>
@@ -560,6 +563,9 @@ img {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center;
 }
+.offset{
+  padding-top: 20px;
+}
 
 @media all and (max-width: 1200px) {
   .wrapper {
@@ -599,10 +605,6 @@ img {
     margin-bottom: 50px;
   }
   
-
-  .hiro__decor {
-    width: 300px;
-  }
 }
 
 
@@ -636,9 +638,6 @@ img {
     font-size: 15px;
   }
 
-  .hiro__decor {
-    width: 200px;
-  }
 
   .category__link {
     font-size: 15px;
