@@ -123,4 +123,27 @@ function setLocation(str) {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+.location {
+  display: flex;
+margin-top: 15px;
+  width: max-content;
+  font-size: 20px;
+  line-height: 25px;
+  flex-direction: column;
+}
+.location-city {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+.location-city li:hover {
+  color: var(--blue);
+  cursor: pointer;
+}
+.location-select:hover{
+  cursor: pointer;
+}
 </style>
