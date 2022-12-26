@@ -29,7 +29,7 @@
   padding-top: 80px;
 }
 .hiro.hiro-srv .hiro__decor {
-  width: 100vw;
+  width: 100%;
   background: url('~/components/MainCatalog/components/CatalogHero/assets/black-bg1.jpg') no-repeat center right;
   background-size: cover;
 }
