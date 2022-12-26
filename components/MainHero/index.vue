@@ -76,7 +76,7 @@ function setLocation(str) {
 }
 .hiro__decor {
   position: absolute;
-  width: 444px;
+  width: 300px;
   height: calc(100% - 80px);
   /* left: 405px; */
   top: 60px;
@@ -148,8 +148,8 @@ function setLocation(str) {
   .hiro__title {
     font-size: 45px;
   }
-  .hiro__decor[data-v-05cf6cd0] {
-    display: none;}
+  .hiro__decor {
+  width: 100%;}
 }
 @media all and (max-width:500px){
   .hiro__title {

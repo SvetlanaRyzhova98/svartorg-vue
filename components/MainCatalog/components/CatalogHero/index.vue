@@ -42,7 +42,7 @@
 
 .hiro__decor {
   position: absolute;
-  width: 444px;
+  width: 300px;
   height: calc(100% - 80px);
   /* left: 405px; */
   top: 80px;
