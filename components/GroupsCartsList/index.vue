@@ -16,7 +16,7 @@
 import GroupSelector from './components/GroupSelector';
 import GroupItem from './components/GroupItem';
 
-import weldingImg from './assets/1.jpeg';
+import weldingImg from './assets/1.jpg';
 import electroImg from './assets/electro1.jpg';
 import bensoImg from './assets/benso.jpeg';
 import weldingGasImg from './assets/gas.jpg';
