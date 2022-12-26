@@ -81,33 +81,5 @@
  .hiro.hiro-srv .hiro__title {
    font-size: 17px;}
 }
- /* .hiro.hiro-srv {
-  height: 200px;
-  font-size: 20px;
-  margin: 0;
-  padding-top: 80px;
-}
-.hiro.hiro-srv .hiro__decor {
-  width: 100vw;
-  background: url('~/components/MainCatalog/components/CatalogHero/assets/black-bg1.jpg') no-repeat center right;
 
-}
-.hiro.hiro-srv .hiro__title {
-  font-size: 22px;
-  line-height: 1;
-  margin: 0;
-  text-transform: uppercase;
-}
-@media all and (max-width: 800px) {
-  
-  .hiro.hiro-srv .hiro__title {
-    font-size: 19px;}
-  
-  
-}
-@media all and (max-width: 500px) {
- 
-  .hiro.hiro-srv .hiro__title {
-    font-size: 17px;}
-} */
 </style>
