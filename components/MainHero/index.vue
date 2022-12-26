@@ -149,8 +149,7 @@ function setLocation(str) {
     font-size: 45px;
   }
   .hiro__decor[data-v-05cf6cd0] {
-    position: absolute;
-    width: 100vw;}
+    display: none;}
 }
 @media all and (max-width:500px){
   .hiro__title {
