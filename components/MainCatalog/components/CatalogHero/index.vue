@@ -70,7 +70,8 @@
 @media all and (max-width: 800px) {
  
  .hiro__decor {
-   display: none;}
+   width: 100%;
+}
 }
 
 @media all and (max-width: 500px) {
