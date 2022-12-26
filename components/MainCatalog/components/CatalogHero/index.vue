@@ -67,6 +67,12 @@
   line-height: 30px;
   letter-spacing: 0.5px;
 }
+@media all and (max-width: 800px) {
+ 
+ .hiro__decor {
+   width: 100vw;}
+}
+
 @media all and (max-width: 500px) {
  
  .hiro.hiro-srv .hiro__title {
