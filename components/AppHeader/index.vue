@@ -53,6 +53,13 @@
                     >Расходные материалы</NuxtLink
                   >
                 </li>
+                <li>
+                  <NuxtLink
+                    class="header__link header__link--sub"
+                    to="/catalog/compressor"
+                    >Компрессоры и пневмо</NuxtLink
+                  >
+                </li>
               </ul>
             </li>
             <li class="header__item">
