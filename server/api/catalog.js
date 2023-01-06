@@ -9169,7 +9169,7 @@ const compressor = [
     image: "/catalog/benzo/1compress.jpg",
     desc: "Компрессор",
     title: "Remeza СБ 4/С- 50 LB 30 A",
-    price: "000 руб.",
+    price: "",
     rows: [
       {
         key: "Mощность",
@@ -9210,7 +9210,7 @@ const compressor = [
     image: "/catalog/benzo/2compress.jpg",
     desc: "Компрессор",
     title: "Remeza СБ 4/Ф-270 LB 50",
-    price: "000 руб.",
+    price: " ",
     rows: [
       {
         key: "Mощность",
@@ -9251,7 +9251,7 @@ const compressor = [
     image: "/catalog/benzo/3compres.jpg",
     desc: "Компрессор МАСЛЯНЫЙ КОАКСИАЛЬНЫЙ",
     title: "AERO 220/50",
-    price: "000 руб.",
+    price: " ",
     rows: [
       {
         key: "Mощность",
@@ -9284,7 +9284,7 @@ const compressor = [
     image: "/catalog/benzo/4compres_aero380.jpg",
     desc: "Компрессор МАСЛЯНЫЙ РЕМЕННОЙ",
     title: "AERO 380/100",
-    price: "000 руб.",
+    price: "",
     rows: [
       {
         key: "Mощность",
