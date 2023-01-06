@@ -70,7 +70,7 @@ function setLocation(str) {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   padding-top: 100px;
   /* padding-right: calc(100vw + -86%); */
 }
@@ -137,6 +137,10 @@ function setLocation(str) {
   cursor: pointer;
 }
 @media all and (max-width: 800px) {
+    .hiro {
+    margin-bottom: 50px;
+    /* padding-top: 100px;  */
+}
   .hiro__desc {
     margin-bottom: 40px;
     font-size: 18px;

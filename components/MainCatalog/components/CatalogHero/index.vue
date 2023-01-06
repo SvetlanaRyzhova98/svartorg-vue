@@ -68,7 +68,10 @@
   letter-spacing: 0.5px;
 }
 @media all and (max-width: 800px) {
- 
+  /* .hiro {
+    margin-bottom: 50px;
+    padding-top: 100px; 
+} */
  .hiro__decor {
    width: 100%;
 }

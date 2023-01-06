@@ -41,6 +41,7 @@ const titles = {
   gas: { caption: "Газосварочное", href: "/catalog/gas" },
   protection: { caption: "Маски", href: "/catalog/protection" },
   materials: { caption: "Расходные материалы", href: "/catalog/materials" },
+  compressor: { caption: "Компрессоры и пневмоинструмент", href: "/catalog/compressor" },
 };
 
 const filter = useState("filter", () => ({}));

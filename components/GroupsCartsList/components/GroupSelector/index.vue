@@ -37,7 +37,7 @@ export default {
 .category {
   display: flex;
   justify-content: center;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   gap: 20px;
 }
 .category__link.category__acces {

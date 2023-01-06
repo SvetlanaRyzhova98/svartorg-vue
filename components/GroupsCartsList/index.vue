@@ -20,6 +20,7 @@ import weldingImg from './assets/1.jpg';
 import electroImg from './assets/electro1.jpg';
 import bensoImg from './assets/benso.jpeg';
 import weldingGasImg from './assets/gas.jpg';
+import compressorImg from './assets/compress.jpg';
 
 import protectImg from './assets/sredstva_individualnoy_zashchity_1.jpg';
 import materialyImg from './assets/svarochnye_materialy_1.jpg';
@@ -56,9 +57,16 @@ export default {
                 type: 'main'
             },
             {
-                caption: 'ГАЗОСВАРОЧНОЕ',
+                caption: 'газосварочное',
                 imageSrc: weldingGasImg,
                 href: '/catalog/gas',
+                type: 'main'
+            },
+            
+            {
+                caption: 'Компрессоры и пневмоинструмент',
+                imageSrc: compressorImg,
+                href: '/catalog/compressor',
                 type: 'main'
             },
             
