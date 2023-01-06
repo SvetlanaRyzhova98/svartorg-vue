@@ -135,6 +135,14 @@
                 >Расходные материалы</NuxtLink
               >
             </li>
+            <li class="header__item">
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/catalog/compressor"
+                >Компрессоры и пневмо</NuxtLink
+              >
+            </li>
 
             <li class="header__item line">
               <a href="#!" class="header__link">Контакты</a>
@@ -214,7 +222,7 @@ export default {
   font-weight: 700;
 }
 .menu-mobile .mobile-header__list .header__item:first-child {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .menu-mobile-active {
   top: 80px;
