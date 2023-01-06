@@ -80,7 +80,9 @@
 @media all and (max-width: 500px) {
  
  .hiro.hiro-srv .hiro__title {
-   font-size: 17px;}
+   font-size: 17px;
+  text-align: center;}
+   
 }
 
 </style>
