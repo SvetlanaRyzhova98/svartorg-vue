@@ -18,10 +18,8 @@
 
         <div class="location">
           <div @click="onLocationOpenClick" class="location-select">
-            <span
-              >Выберите город: </span
-            >
-            <i class="fas fa-arrow-circle-down"></i>
+            {{Locations[location.location].title}}
+            <i class="fas fa-arrow-circle-down" :class="{ rotated: isLocationOpen }">▼</i>
           </div>
 
           <ul class="location-city" :class="{ visible: !isLocationOpen }">
@@ -58,6 +56,14 @@ function setLocation(str) {
 </script>
 
 <style scoped>
+.fa-arrow-circle-down {
+  font-size: 15px;
+  transition: .2s;
+  display: inline-block;
+}
+.rotated {
+  transform: rotate(180deg);
+}
 .hiro {
   width: 100%;
   height: 100vh;
@@ -135,6 +141,7 @@ function setLocation(str) {
 }
 .location-select:hover {
   cursor: pointer;
+  color: var(--blue);
 }
 @media all and (max-width: 800px) {
     .hiro {
