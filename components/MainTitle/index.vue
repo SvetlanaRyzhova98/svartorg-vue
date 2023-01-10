@@ -1,7 +1,7 @@
 <template>
-    <div class="title-box">
+    <title class="title-box">
             <h3 class="title-section"><slot /></h3>
-          </div>
+    </title>
 </template>
 
 <style>
