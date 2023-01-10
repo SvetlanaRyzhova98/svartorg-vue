@@ -69,6 +69,7 @@ function setLocation(str) {
   height: 100vh;
   max-height: 1800px;
   position: relative;
+  background: black;
   background: url("~/components/MainHero/assets/black-bg1.jpg") no-repeat center
     right;
   /* background: url(../img/svar2_background1.jpg) no-repeat center center; */
