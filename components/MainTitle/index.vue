@@ -1,6 +1,6 @@
 <template>
     <div class="title-box">
-            <title class="title-section"><slot /></title>
+            <h3 class="title-section"><slot /></h3>
     </div>
 </template>
 
