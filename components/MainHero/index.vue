@@ -3,7 +3,7 @@
     <div class="hiro__decor"></div>
 
     <div class="hiro__box">
-      <title class="hiro__title">Сварочное оборудование<br /></title>
+      <title class="hiro__title">Сварочное оборудование </title>
       <div class="hiro__desc">
         <p>
           Оптово-розничная торговля: cварочное оборудование,
