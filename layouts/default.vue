@@ -4,6 +4,7 @@
       <Meta name="description" content="Сварочное оборудование - купить в Краснодаре, Тимашевске и Новороссийске по самым выгодным ценам, c гарантией. Звоните и покупайте - ☎ +7-918-325-48-00"/>
       <Meta name="keywords" content="Сварочный инвертор, Сварка, Краснодар, Цемдолина, Новороссийск, Сварка металлоконструкций"/>
       <Meta name="yandex-verification" content="c671d3980bb38ae7" />
+      <Link rel="icon" href="https://www.galaktika-svarki.ru/favicon.ico" type="image/x-icon" />
     </Head>
   <div>
     <AppHeader />
