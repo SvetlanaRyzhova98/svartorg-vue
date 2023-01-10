@@ -2,7 +2,7 @@
 <div class="hiro hiro-srv">
           <div class="hiro__decor"></div>
           <div class="hiro__box">
-            <title class="hiro__title"><slot/></title>
+            <h1 class="hiro__title"><slot/></h1>
           </div>
         </div>
 </template>
