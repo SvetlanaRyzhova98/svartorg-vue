@@ -109,7 +109,9 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-
+title{
+  display: block;
+}
 /* make sure to set some focus styles for accessibility */
 :focus {
   outline: 0;
