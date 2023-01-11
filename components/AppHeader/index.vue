@@ -312,7 +312,7 @@ export default {
   max-width: 180px;
   height: 100%;
   width: 100%;
-  background: url(../img/svg/logo_short-white.svg) center no-repeat;
+  /* background: url(../img/svg/logo_short-white.svg) center no-repeat; */
   background-size: contain;
   margin: 0 0 0 10px;
   display: flex;
