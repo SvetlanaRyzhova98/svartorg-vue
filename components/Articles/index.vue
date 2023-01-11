@@ -11,7 +11,7 @@
                     его использования.
                   </div>
                   
-                  <a href="" class="article__link"> Читать полностью </a>
+                  <div class="article__link"> Читать полностью </div>
                 </div>
               </div>
   
