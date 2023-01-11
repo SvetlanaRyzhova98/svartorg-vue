@@ -1,9 +1,9 @@
 <template>
     <div class="category">
-            <a  @click="onChange('main')" class="category__link category__instrum"
-              >Оборудование</a
+            <div  @click="onChange('main')" class="category__link category__instrum"
+              >Оборудование</div
             >
-            <a  @click="onChange('secondary')" class="category__link category__acces">Аксессуары</a>
+            <div  @click="onChange('secondary')" class="category__link category__acces">Аксессуары</div>
           </div>
 </template>
 

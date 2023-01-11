@@ -9,7 +9,7 @@
         <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
-              <a class="header__link">Продукция</a>
+              <div class="header__link">Продукция</div>
               <ul class="header__sublist">
                 <li>
                   <NuxtLink
@@ -252,7 +252,7 @@ export default {
 .header {
   background: black;
   position: fixed;
-  width: 100vw;
+  width: 100%;
   display: flex;
   z-index: 99;
   min-height: 80px;
