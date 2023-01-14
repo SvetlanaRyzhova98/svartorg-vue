@@ -1,5 +1,22 @@
 <template>
-    <div>
+  <Head>
+    <Title>Галактика Сварки</Title>
+    <Meta
+      name="description"
+      content="Магазин Сварочных аппаратов ☎ +7-918-325-48-00, силовая техика, электроинструмент, компрессоры, пневмоинструмент"
+    />
+    <Meta
+      name="keywords"
+      content="Купить сварочник, Купить Инвертор Краснодар, Сварочный работы"
+    />
+
+    <Link
+      rel="icon"
+      href="https://www.galaktika-svarki.ru/favicon.ico"
+      type="image/x-icon"
+    />
+  </Head>
+  <div>
     <MainHero />
     <main>
       <section>
@@ -10,23 +27,18 @@
       </section>
       <section>
         <div class="wrapper">
-            <MainTitle>Предоставляемые услуги</MainTitle>
-            <ServicesList />
+          <MainTitle>Предоставляемые услуги</MainTitle>
+          <ServicesList />
         </div>
       </section>
       <section>
         <div class="wrapper">
-            <MainTitle>Полезная информация</MainTitle>
-            <Articles />
+          <MainTitle>Полезная информация</MainTitle>
+          <Articles />
         </div>
       </section>
     </main>
-</div>
+  </div>
 </template>
 
-<style>
-
-
-
-</style>
-
+<style></style>

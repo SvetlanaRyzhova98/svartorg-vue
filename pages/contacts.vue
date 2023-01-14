@@ -9,6 +9,9 @@
       name="keywords"
       content="Уральская 136, Краснодар, Тимашевск, Пролетарская 106, Новороссийск"
     />
+   
+    <Link rel="icon" href="https://www.galaktika-svarki.ru/favicon.ico" type="image/x-icon" />
+    
   </Head>
     <div>
         contacts

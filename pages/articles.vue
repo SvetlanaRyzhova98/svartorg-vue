@@ -9,6 +9,8 @@
       name="keywords"
       content="Купить сварочный аппарат, Сварочный аппарат для дома, Сварочные трансформаторы, Краснодар, Тимашевск, Новороссийск"
     />
+    <Link rel="icon" href="https://www.galaktika-svarki.ru/favicon.ico" type="image/x-icon" />
+    
   </Head>
   <SecondaryHero>Полезная информация<br /></SecondaryHero>
 

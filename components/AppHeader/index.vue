@@ -165,7 +165,6 @@
 <script>
 export default {
   name: "AppHeader",
-  props: {},
   data() {
     return { isMobileMenuOpen: false };
   },

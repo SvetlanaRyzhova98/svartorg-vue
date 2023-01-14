@@ -9,6 +9,8 @@
       name="keywords"
       content="Сварщик, Сварка, Изготовление металлоконструкций, Электромонтаж. Краснодар, Тимашевск, Новороссийск"
     />
+    <Link rel="icon" href="https://www.galaktika-svarki.ru/favicon.ico" type="image/x-icon" />
+    
   </Head>
 <SecondaryHero>Предоставляемые услуги<span>**</span><br /></SecondaryHero>
 
