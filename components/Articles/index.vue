@@ -1,7 +1,7 @@
 <template>
                 <NuxtLink to="/articles" class="articles">
               <div class="article">
-                <img src="./assets/gr.jpg" alt="" class="article__img" />
+                <img src="./assets/gr.jpg" alt="Сварочник" class="article__img" />
                 <div class="article__content">
                   <h4 class="article__title">Какое оборудование выбрать</h4>
                   <div class="article__data">27.01.2022</div>
@@ -23,7 +23,7 @@
                 </div>
                 <img
                   src="./assets/e3.jpeg"
-                  alt=""
+                  alt="Сварочный аппарат"
                   class="article__img article__img_less"
                 />
                 <div class="article__data">07.03.2022</div>
@@ -39,7 +39,7 @@
                 </div>
                 <img
                   src="./assets/12r.jpeg"
-                  alt=""
+                  alt="Ресанта"
                   class="article__img article__img_less"
                 />
                 <div class="article__data">07.03.2022</div>

@@ -3,7 +3,7 @@
     <header class="header">
       <div class="header__wrapper">
         <NuxtLink class="header__logo" to="/">
-          <img class="logo_img" src="./assets/logo1.svg" alt="Logo" />
+          <img class="logo_img" src="./assets/logo1.svg" alt="Галактика сварки" />
         </NuxtLink>
 
         <nav class="header__nav">

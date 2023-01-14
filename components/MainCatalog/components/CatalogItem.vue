@@ -3,7 +3,7 @@
   <div class="card-item" :class="{'card-item-hover': isBack}" @click="onChange">
     <div class="card">
       <div class="front ">
-        <img :src="item.image" alt="" />
+        <img :src="item.image" alt="Продукт каталога" />
         <div class="catalog_desc">
           <p class="name-product">
             {{item.title}}

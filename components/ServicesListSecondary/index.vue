@@ -3,21 +3,21 @@
         <div class="wrapper srv">
             <div class="srv__list">
                 <div class="srv__item">
-                    <img  src="./assets/servise1.jpeg" alt="Work">
+                    <img  src="./assets/servise1.jpeg" alt="Услуги Сварки">
                     <h2 class="srv__title">Сварочные работы</h2>
                     <p>Компания Галактика сварки предоставляет весь спектр сварочных работ.
                         Изготовление и ремонт металло&shy;конструкций.
                     </p>
                 </div>
                 <div class="srv__item">
-                    <img src="./assets/servisse2.png" alt="Work">
+                    <img src="./assets/servisse2.png" alt="Услуги металлообработки">
                     <h2 class="srv__title">Металло&shy;обработка</h2>
                     <p>Изготовление метал&shy;лических изделий по техноло&shy;гическим заданиям любой сложности.
 
                     </p>
                 </div>
                 <div class="srv__item">
-                    <img src="./assets/service3.jpg" alt="Work">
+                    <img src="./assets/service3.jpg" alt="Услуги электромонтажа">
                     <h2 class="srv__title">Электро&shy;монтажные работы</h2>
                     <p>Электро&shy;монтажные работы. Проектировка. 
                         Подключение и настройка промышленного оборудования.
