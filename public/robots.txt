@@ -2,7 +2,7 @@ User-agent: *
 Disallow: /contacts#!
 Disallow: /services#!
 Disallow: /articles#!
-Disallow: /#!
+
 
 Host: www.galaktika-svarki.ru
 
