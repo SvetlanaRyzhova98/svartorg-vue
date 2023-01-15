@@ -8,9 +8,14 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
+    "@nuxtjs/fontawesome": "^1.1.2",
     "nuxt": "3.0.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/vue-fontawesome": "^3.0.2",
     "@hennge/vue3-pagination": "^1.0.17",
     "@pinia/nuxt": "^0.4.6",
     "nodemailer": "^6.8.0",

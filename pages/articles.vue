@@ -115,12 +115,12 @@
             не требует специального обучения.
           </p>
         </div>
-        <div class="article__data">07.03.2022</div>
+        <div class="article__data">07.11.2022</div>
       </div>
     </div>
-    <a href="./html.html" class="link-back">
+    <!-- <a href="./html.html" class="link-back">
       <i class="fas fa-arrow-left"></i>На главную</a
-    >
+    > -->
   </section>
 </template>
 
@@ -134,6 +134,7 @@
   font-size: 14px;
   line-height: 19px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .article {
   display: grid;

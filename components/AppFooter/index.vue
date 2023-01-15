@@ -1,124 +1,119 @@
 <template>
-    <footer class="footer">
-        <div class="wrapper_footer">
-          <div class="box-footer">
-            <div class="social">
-              <a class="footer__mail" href="mailto:gk.galaxy@yandex.ru">
-                gk.galaxy@yandex.ru</a
+  <footer class="footer">
+    <div class="wrapper_footer">
+      <div class="box-footer">
+        <div class="social">
+          <a class="footer__mail" href="mailto:gk.galaxy@yandex.ru">
+            gk.galaxy@yandex.ru</a
+          >
+          <div class="social__icon">
+            <a href="#!" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fa-solid fa-paper-plane" /></ClientOnly>
+            </a>
+            <a href="#!" class="footer__link"
               >
-              <div class="social__icon">
-                <a href="#!" class="footer__link"
-                  ><i class="fab fa-whatsapp"></i
-                ></a>
-                <a href="#!" class="footer__link"
-                  ><i class="fab fa-telegram-plane"></i
-                ></a>
-                <a href="#!" class="footer__link"> <i class="fab fa-vk"></i></a>
-                <a href="#!" class="footer__link">
-                  <i class="fab fa-youtube"></i
-                ></a>
-              </div>
-            </div>
-
-            <h3 class="form__title blue-text">Свяжитесь с нами</h3>
-            <form @submit.prevent="submit(form)" class="contact" action="">
-              <input
-                class="contact__input form-style"
-                type="text"
-                placeholder="Ваше имя"
-              />
-              <input
-                class="contact__input form-style"
-                type="text"
-                placeholder="Ваш телефон"
-                v-model="form.phone"
-              />
-              <textarea
-                class="contact__text form-style"
-                name="text_ask"
-                id=""
-                cols="30"
-                rows="10"
-                v-model="form.message"
-              ></textarea>
-              <button class="contact__button" type="submit">
-                Отправить
-                <i class="far fa-envelope icon"></i>
-              </button>
-              <!-- {{form}} -->
-            </form>
-          </div>
-
-          <div class="map" id="map">
-            <iframe
-              width="100%"
-              :src="Locations[location.location]?.coordinate"
-              frameborder="0"
-              style="border: 0"
-              allowfullscreen
-            ></iframe>
+              <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly></a>
+            <a href="#!" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fab fa-vk" /></ClientOnly>
+            </a>
+            <!-- <a href="#!" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fab fa-youtube" /></ClientOnly>
+            </a> -->
           </div>
         </div>
-        <div class="footer-copy">
 
-        </div>
-    </footer>
+        <h3 class="form__title blue-text">Свяжитесь с нами</h3>
+        <form @submit.prevent="submit(form)" class="contact" action="">
+          <input
+            class="contact__input form-style"
+            type="text"
+            placeholder="Ваше имя"
+          />
+          <input
+            class="contact__input form-style"
+            type="text"
+            placeholder="Ваш телефон"
+            v-model="form.phone"
+          />
+          <textarea
+            class="contact__text form-style"
+            name="text_ask"
+            id=""
+            cols="30"
+            rows="10"
+            v-model="form.message"
+          ></textarea>
+          <button class="contact__button" type="submit">
+            Отправить
+            <i class="far fa-envelope icon"></i>
+          </button>
+          <!-- {{form}} -->
+        </form>
+      </div>
+
+      <div class="map" id="map">
+        <iframe
+          width="100%"
+          :src="Locations[location.location]?.coordinate"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <div class="footer-copy"></div>
+  </footer>
 </template>
 
 <script setup>
-
 import { useLocationStore } from "../../store/location";
-  import { Locations } from '../../consts/location';
-
-
+import { Locations } from "../../consts/location";
 
 const form = ref({
-    name: '',
-    phone: '',
-    subject: '',
-    message: ''
+  name: "",
+  phone: "",
+  subject: "",
+  message: "",
 });
 
 async function submit(form) {
-  await $fetch('/api/contact', {
-		method: 'POST',
-		body: form,
-	})
-		.then(() => {
-			// this.errors = false;
-			// this.succsess = true;
-			// this.waiting = false;
-			this.form = {
-				name: '',
-				email: '',
-				subject: '',
-				message: '',
-			};
-		})
-		.catch(() => {
-			// this.errors = true;
-			// this.succsess = false;
-			// this.waiting = false;
-		});
+  await $fetch("/api/contact", {
+    method: "POST",
+    body: form,
+  })
+    .then(() => {
+      // this.errors = false;
+      // this.succsess = true;
+      // this.waiting = false;
+      this.form = {
+        name: "",
+        email: "",
+        subject: "",
+        message: "",
+      };
+    })
+    .catch(() => {
+      // this.errors = true;
+      // this.succsess = false;
+      // this.waiting = false;
+    });
 }
 
 const location = useLocationStore();
 </script>
 
 <style>
-
-
 /*Main end*/
 /*footer*/
 .wrapper_footer {
   display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 70px;
-    justify-items: end;
-    padding: 0 0 0 30px;
-    align-items: center;
-    max-width: 1920px;
-    margin: 0 auto;
+  grid-template-columns: 1fr 2fr;
+  gap: 70px;
+  justify-items: end;
+  padding: 0 0 0 30px;
+  align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
 }
 .footer {
   background: linear-gradient(
@@ -181,7 +176,7 @@ const location = useLocationStore();
   display: inline;
   color: #3395c5;
 }
-.footer__link:hover{
+.footer__link:hover {
   color: #b21410;
 }
 .footer__mail {
@@ -222,5 +217,4 @@ const location = useLocationStore();
   padding: 30px 0;
   font-size: 22px;
 }
-
 </style>

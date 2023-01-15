@@ -16,54 +16,13 @@
           <a href="#!" class="blue"> СВАРНОЙ</a>.
         </p>
 
-        <div class="location">
-          <div @click="onLocationOpenClick" class="location-select">
-            {{Locations[location.location].title}}
-            <i class="fas fa-arrow-circle-down" :class="{ rotated: isLocationOpen }">▼</i>
-          </div>
-
-          <ul class="location-city" :class="{ visible: !isLocationOpen }">
-            <li @click="setLocation('KRD')">{{ Locations["KRD"].title }}</li>
-            <li @click="setLocation('NVR')">{{ Locations["NVR"].title }}</li>
-            <li @click="setLocation('TMSH')">{{ Locations["TMSH"].title }}</li>
-          </ul>
-        </div>
+        <Location />
       </div>
-      <!-- <button type="submit" class="submit blue">КАТАЛОГ</button> -->
     </div>
   </div>
 </template>
 
-<script setup>
-import { useLocationStore } from "../../store/location";
-import { Locations } from "../../consts/location";
-
-const location = useLocationStore();
-
-const isLocationOpen = useState("isLocationOpen", () => false);
-
-function onLocationOpenClick() {
-  isLocationOpen.value = !isLocationOpen.value;
-}
-
-function setLocation(str) {
-  location.setLocation(str);
-  isLocationOpen.value = false;
-}
-// if (process.server) {
-//   counter.n = 20
-// }
-</script>
-
 <style scoped>
-.fa-arrow-circle-down {
-  font-size: 15px;
-  transition: .2s;
-  display: inline-block;
-}
-.rotated {
-  transform: rotate(180deg);
-}
 .hiro {
   width: 100%;
   height: 100vh;
@@ -72,20 +31,17 @@ function setLocation(str) {
   background-color: black;
   background: url("~/components/MainHero/assets/black-bg1.jpg") no-repeat center
     right;
-  /* background: url(../img/svar2_background1.jpg) no-repeat center center; */
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
   padding-top: 100px;
-  /* padding-right: calc(100vw + -86%); */
 }
 .hiro__decor {
   position: absolute;
   width: 300px;
   height: calc(100% - 80px);
-  /* left: 405px; */
   top: 60px;
   z-index: 1;
   background: var(--bg-color);
@@ -109,46 +65,11 @@ function setLocation(str) {
   line-height: 30px;
   letter-spacing: 0.5px;
 }
-.submit {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 22px;
-  background: var(--bg-color);
-  border: 1px solid white;
-  padding: 15px 40px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.location {
-  display: flex;
-  margin-top: 15px;
-  width: max-content;
-  font-size: 20px;
-  line-height: 25px;
-  flex-direction: column;
-}
-.location-city {
-  list-style: none;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-  margin-top: 10px;
-}
-.location-city li:hover {
-  color: var(--blue);
-  cursor: pointer;
-}
-.location-select:hover {
-  cursor: pointer;
-  color: var(--blue);
-}
+
 @media all and (max-width: 800px) {
-    .hiro {
+  .hiro {
     margin-bottom: 50px;
-    /* padding-top: 100px;  */
-}
+  }
   .hiro__desc {
     margin-bottom: 40px;
     font-size: 18px;
@@ -161,35 +82,21 @@ function setLocation(str) {
     font-size: 45px;
   }
   .hiro__decor {
-  width: 100%;}
+    width: 100%;
+  }
 }
-@media all and (max-width:500px){
+@media all and (max-width: 500px) {
   .hiro__title {
     font-size: 35px;
     line-height: 40px;
     margin-bottom: 20px;
-}
-.hiro__desc {
+  }
+  .hiro__desc {
     margin-bottom: 40px;
     font-size: 15px;
-}
-.location {
-  margin-top: 15px;
-  font-size: 15px;
-}
+  }
 }
 @media all and (max-height: 500px) {
-  .location {
-    margin-top: 15px;
-    /* font-weight: bold; */
-    display: flex;
-    gap: 10px;
-    width: max-content;
-    font-size: 18px;
-    line-height: 20px;
-    flex-direction: column;
-  }
-
   .hiro__desc {
     line-height: 20px;
   }
@@ -197,12 +104,6 @@ function setLocation(str) {
     font-size: 35px;
     line-height: 40px;
     margin-bottom: 20px;
-  }
- 
-  .location {
-    gap: 10px;
-    font-size: 15px;
-    line-height: 16px;
   }
 }
 @media all and (max-height: 400px) {

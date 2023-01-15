@@ -11,4 +11,7 @@ export default defineNuxtConfig({
         // pinia plugin
         '@pinia/nuxt',
       ],
+      css: [
+        '@fortawesome/fontawesome-svg-core/styles.css'
+      ]
 })
