@@ -7,16 +7,19 @@
             gk.galaxy@yandex.ru</a
           >
           <div class="social__icon">
-            <a href="#!" class="footer__link">
+            <!-- <a href="#!" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fa-solid fa-paper-plane" /></ClientOnly>
-            </a>
-            <a href="#!" class="footer__link"
+            </a> -->
+            <a href="https://wa.me/89384121563" class="footer__link"
               >
               <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly></a>
-            <a href="#!" class="footer__link">
+            <!-- <a href="" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fab fa-vk" /></ClientOnly>
+            </a> -->
+            <a href="https://viber.click/89384121563" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fa-brands fa-viber" /></ClientOnly>
             </a>
-            <!-- <a href="#!" class="footer__link">
+            <!-- <a href="https://www.instagram.com/galaktika_svarki/" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fab fa-youtube" /></ClientOnly>
             </a> -->
           </div>
@@ -25,16 +28,21 @@
         <h3 class="form__title blue-text">Свяжитесь с нами</h3>
         <form @submit.prevent="submit(form)" class="contact" action="">
           <input
+            
             class="contact__input form-style"
             type="text"
             placeholder="Ваше имя"
+            v-model="form.name"
           />
+          
           <input
             class="contact__input form-style"
-            type="text"
+            :class="{error: !isPhoneValid}"
+            type="tel"
             placeholder="Ваш телефон"
             v-model="form.phone"
           />
+          <div v-if="!isPhoneValid" class="error__message">Формат номера +7XXXXXXXXXX</div>
           <textarea
             class="contact__text form-style"
             name="text_ask"
@@ -43,10 +51,11 @@
             rows="10"
             v-model="form.message"
           ></textarea>
-          <button class="contact__button" type="submit">
-            Отправить
-            <i class="far fa-envelope icon"></i>
+          <button  class="contact__button" type="submit" :disabled="isDisable" >
+            Отправить <ClientOnly> <font-awesome-icon icon="fa-solid fa-share" /> </ClientOnly>
+            
           </button>
+         
           <!-- {{form}} -->
         </form>
       </div>
@@ -72,23 +81,20 @@ import { Locations } from "../../consts/location";
 const form = ref({
   name: "",
   phone: "",
-  subject: "",
   message: "",
 });
 
-async function submit(form) {
+async function submit(formArg) {
+  // debugger
   await $fetch("/api/contact", {
     method: "POST",
-    body: form,
+    body: formArg,
   })
     .then(() => {
-      // this.errors = false;
-      // this.succsess = true;
-      // this.waiting = false;
-      this.form = {
+      
+        form.value = {
         name: "",
-        email: "",
-        subject: "",
+        phone: "",
         message: "",
       };
     })
@@ -100,11 +106,49 @@ async function submit(form) {
 }
 
 const location = useLocationStore();
+
+
+const isPhoneValid = computed(() => {
+  const phone = form.value.phone;
+  const phoneRe = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  if (!phone.length) {
+    return true; 
+  }
+  return phoneRe.test(phone);
+});
+
+
+const isDisable = computed(() => {
+  const phone = form.value.phone;
+  return !(isPhoneValid.value && phone.length > 0);
+});
+
+
+
+
+   function isPhone() {
+    const regex = /(\d?)(\d{3})(\d{3})(\d{2})(\d{2})/g;
+    const subst = "+$1 ($2) $3-$4-$5";
+    return form.value.phone.replace(regex, subst);
+  }
+
 </script>
 
 <style>
 /*Main end*/
 /*footer*/
+.contact__input.form-style.error {
+  color: #b2141099;
+}
+.error__message{
+  font-size: 10px;
+font-style: italic;
+  color: #b2141099;
+}
+.contact__button:disabled{
+  color: grey;
+}
+ 
 .wrapper_footer {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -171,7 +215,7 @@ const location = useLocationStore();
   font-family: "Exo 2", sans-serif;
 }
 .footer__link {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 19px;
   display: inline;
   color: #3395c5;

@@ -21,7 +21,7 @@ import { Locations } from "../consts/location";
 
 const location = useLocationStore();
 
-const isLocationOpen = useState("isLocationOpen", () => false);
+const isLocationOpen = useState("isLocationOpen", () => true);
 
 function onLocationOpenClick() {
   isLocationOpen.value = !isLocationOpen.value;
@@ -53,6 +53,7 @@ function setLocation(str) {
   font-size: 20px;
   line-height: 25px;
   flex-direction: column;
+  color: #fd9d46cc;;
 }
 .location-city {
   list-style: none;
@@ -64,12 +65,12 @@ function setLocation(str) {
   margin-top: 10px;
 }
 .location-city li:hover {
-  color: var(--blue);
+  color: #f48116e5;
   cursor: pointer;
 }
 .location-select:hover {
   cursor: pointer;
-  color: var(--blue);
+  color:  #fd9d46cc;
 }
 
   @media all and (max-width: 500px) {

@@ -9,7 +9,7 @@ export const Locations = {
   TMSH: {
     title: "Тимашевск",
     address: "Пролетарская 106",
-    phone: "89183254800",
+    phone: "+79384737577",
     coordinate:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2790.677939322688!2d38.93106271550395!3d45.617115679103016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40e5557193b3a867%3A0xfae990e67bf4b844!2z0J_RgNC-0LvQtdGC0LDRgNGB0LrQsNGPINGD0LsuLCAxMDYsINCi0LjQvNCw0YjQtdCy0YHQuiwg0JrRgNCw0YHQvdC-0LTQsNGA0YHQutC40Lkg0LrRgNCw0LksINCg0L7RgdGB0LjRjywgMzUyNzAw!5e0!3m2!1sru!2skz!4v1673084619080!5m2!1sru!2skz",
   },

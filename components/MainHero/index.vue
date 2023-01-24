@@ -6,16 +6,19 @@
       <h1 class="hiro__title">Сварочное оборудование<br /></h1>
       <div class="hiro__desc">
         <p>
-          Оптово-розничная торговля: cварочное оборудование,
-          бензо-электроинструмент, силовая техника, аксессуары.
+          Оптово-розничная торговля: <span>cварочное оборудование,
+          бензо-электроинструмент, силовая техника, аксессуары.</span> 
         </p>
-        <p>
+        
+        <p class="upper">
           Cварочные работы, изготовление металлоконструкций, электромонтажные
-          работы.<br />
-          Розничная торговля представлена сетью магазинов
-          <a href="#!" class="blue"> СВАРНОЙ</a>.
+          работы.<br /></p>
+         <p> Розничная торговля представлена сетью магазинов
+          <NuxtLink class="blue" to="/contacts"> СВАРНОЙ </NuxtLink> 
         </p>
 
+        <p class="bue-desc">Для заказа свяжитесь с нами через форму внизу страницы или напишите на почту
+      <span>gk.galaxy@yandex.ru </span></p> 
         <Location />
       </div>
     </div>
@@ -23,6 +26,10 @@
 </template>
 
 <style scoped>
+.upper{
+  text-transform: uppercase;
+    letter-spacing: 3px;
+}
 .hiro {
   width: 100%;
   height: 100vh;
@@ -37,6 +44,15 @@
   align-items: center;
   margin-bottom: 100px;
   padding-top: 100px;
+}
+.hiro__desc p {
+  padding: 10px 0;
+}
+.hiro__desc p span{
+  text-transform: uppercase;
+    /* color: #fd9d46cc; */
+    padding: 30px 0;
+    font-size: 17px;
 }
 .hiro__decor {
   position: absolute;

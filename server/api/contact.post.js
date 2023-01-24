@@ -1,23 +1,20 @@
-
-
-
-
-
-
-
-
 import nodemailer from 'nodemailer';
 
 const config = useRuntimeConfig();
 
 const transporter = nodemailer.createTransport({
+    pool: true,
     host: config.MAILHOST,
     port: config.MAILPORT,
     auth: {
         user: config.MAILUSER,
         pass: config.MAILPASSWORD,
     },
-    secure: false
+
+
+    secure: false,
+        tls: {rejectUnauthorized: false},
+        debug:true
 });
 
 export default defineEventHandler(async (event) => {
@@ -30,9 +27,9 @@ export default defineEventHandler(async (event) => {
         const mail = await transporter.sendMail({
             from: config.MAILUSER,
             to: config.CONTACTMAIL,
-            subject: body.subject,
-            text: body.message,
-            html: body.message
+            subject: "Сообщение с сайта",
+            text: body.message + ' ' + body.phone,
+            html:   'От (имя): '  + body.name + '<br/> ' + 'Номер телефона: ' + ' ' + body.phone + '<br/> ' + 'Сообщение: '  + ' ' + body.message ,
         });
 
         
