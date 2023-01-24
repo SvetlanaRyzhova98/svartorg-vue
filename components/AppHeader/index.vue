@@ -145,7 +145,12 @@
             </li>
 
             <li class="header__item line">
-              <a href="#!" class="header__link">Контакты</a>
+              <NuxtLink
+                @click="myEventHandler"
+                class="header__link"
+                to="/contacts"
+                >Контакты</NuxtLink
+              >
             </li>
             <li class="header__item">
               <NuxtLink
