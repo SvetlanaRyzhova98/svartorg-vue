@@ -29,7 +29,7 @@
 
     <div class="citys">
       <div class="city">
-        <img src="../public/assets/magaz.png" alt="" />
+        <img src="../public/assets/magaz.jpg" alt="Уральская 136/7" />
         <div class="city__desc">
           <div class="city__name">Краснодар / <span>Уральская 136/7</span></div>
           <div class="social__icon">
@@ -54,13 +54,13 @@
       </div>
 
       <div class="city">
-        <img src="../public/assets/magaz2.png" alt="" />
+        <img src="../public/assets/magaz2.png" alt="Пролетарская 106" />
         <div class="city__desc">
           <div class="city__name">
             Тимашевск / <span>Пролетарская 106</span>
           </div>
           <div class="social__icon">
-            <a href="https://wa.me/89384121563" class="footer__link">
+            <a href="https://wa.me/89384737577" class="footer__link">
               <ClientOnly
                 ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
@@ -80,7 +80,7 @@
         </a>
       </div>
       <div class="city">
-        <img src="../public/assets/magaz.png" alt="" />
+        <img src="../public/assets/magaz3.jpg" alt="" />
         <div class="city__desc">
           <div class="city__name">Новороссийск / <span>Цемдолина</span></div>
           <div class="social__icon">
