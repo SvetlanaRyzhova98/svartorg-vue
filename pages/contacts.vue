@@ -3,7 +3,7 @@
     <Title>Контакты</Title>
     <Meta
       name="description"
-      content="Магазин Сварочных аппаратов ☎ +7-918-325-48-00, силовая техика, электроинструмент, компрессоры, пневмоинструмент"
+      content="Все для сварки ☎ +7-918-325-48-00, силовая техика, электроинструмент, компрессоры, пневмоинструмент"
     />
     <Meta
       name="keywords"
@@ -104,6 +104,7 @@
         </a>
       </div>
     </div>
+    <!-- <iframe src="https://yandex.kz/sprav/widget/rating-badge/231047479460?type=rating" width="150" height="50" frameborder="0"></iframe> -->
   </section>
 </template>
 <script setup>
