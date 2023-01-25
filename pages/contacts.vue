@@ -33,16 +33,16 @@
         <div class="city__desc">
           <div class="city__name">Краснодар / <span>Уральская 136/7</span></div>
           <div class="social__icon">
-            <a href="https://wa.me/89384121563" class="footer__link">
+            <a href="https://wa.me/89183254800" class="footer__link">
               <ClientOnly
                 ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
 
-            <a href="https://viber.click/89384121563" class="footer__link">
+            <!-- <a href="https://viber.click/89183254800" class="footer__link">
               <ClientOnly
                 ><font-awesome-icon icon="fa-brands fa-viber"
               /></ClientOnly>
-            </a>
+            </a> -->
           </div>
         </div>
         <a class="city__phone" :href="'tel:' + Locations.KRD.phone">
@@ -54,7 +54,7 @@
       </div>
 
       <div class="city">
-        <img src="../public/assets/magaz2.png" alt="Пролетарская 106" />
+        <img src="../public/assets/mag1.jpg" alt="Пролетарская 106" />
         <div class="city__desc">
           <div class="city__name">
             Тимашевск / <span>Пролетарская 106</span>
@@ -65,11 +65,11 @@
                 ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
 
-            <a href="https://viber.click/89384121563" class="footer__link">
+            <!-- <a href="https://viber.click/89384737577" class="footer__link">
               <ClientOnly
                 ><font-awesome-icon icon="fa-brands fa-viber"
               /></ClientOnly>
-            </a>
+            </a> -->
           </div>
         </div>
         <a class="city__phone" :href="'tel:' + Locations.TMSH.phone">
@@ -84,16 +84,16 @@
         <div class="city__desc">
           <div class="city__name">Новороссийск / <span>Цемдолина</span></div>
           <div class="social__icon">
-            <a href="https://wa.me/89384121563" class="footer__link">
+            <a href="https://wa.me/89384737577" class="footer__link">
               <ClientOnly
                 ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
 
-            <a href="https://viber.click/89384121563" class="footer__link">
+            <!-- <a href="https://viber.click/89384737577" class="footer__link">
               <ClientOnly
                 ><font-awesome-icon icon="fa-brands fa-viber"
               /></ClientOnly>
-            </a>
+            </a> -->
           </div>
         </div>
         <a class="city__phone" :href="'tel:' + Locations.NVR.phone">
@@ -176,6 +176,7 @@ import { Locations } from "../consts/location";
 }
 .city__desc .social__icon {
   gap: 10px;
+   
 }
 @media all and (max-width: 800px) {
   .citys {

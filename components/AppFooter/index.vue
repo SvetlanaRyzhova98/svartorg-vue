@@ -10,15 +10,15 @@
             <!-- <a href="#!" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fa-solid fa-paper-plane" /></ClientOnly>
             </a> -->
-            <a href="https://wa.me/89384121563" class="footer__link"
+            <a href="https://wa.me/89384737577" class="footer__link"
               >
               <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly></a>
             <!-- <a href="" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fab fa-vk" /></ClientOnly>
             </a> -->
-            <a href="https://viber.click/89384121563" class="footer__link">
+            <!-- <a href="https://viber.click/89384737577" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fa-brands fa-viber" /></ClientOnly>
-            </a>
+            </a> -->
             <!-- <a href="https://www.instagram.com/galaktika_svarki/" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fab fa-youtube" /></ClientOnly>
             </a> -->
@@ -215,7 +215,7 @@ font-style: italic;
   font-family: "Exo 2", sans-serif;
 }
 .footer__link {
-  font-size: 20px;
+  font-size: 25px;
   line-height: 19px;
   display: inline;
   color: #3395c5;
