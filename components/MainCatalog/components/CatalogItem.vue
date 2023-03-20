@@ -218,7 +218,7 @@ export default {
   background-color: white;
   backface-visibility: hidden;
   border-radius: 20px;
-  padding: 15px;
+  padding: 13px;
   /* min-height: 365px; */
   overflow: hidden;
   /* height: 330px; */
@@ -255,13 +255,13 @@ td:first-child {
   padding-right: 20px;
   border-right: 1px solid  var(--grey-light);
   line-height: 1.3;
-  padding: 5px;
-  max-width: 80px;
+  padding: 4px;
+  max-width: 90px;
 }
 td:last-child {
   color: rgb(15 14 14);
   font-size: 10px;
-  padding: 5px 0 3px 10px;
+  padding: 4px 0 3px 10px;
   min-width: 100px;
   font-weight: 600;
   vertical-align: middle;
