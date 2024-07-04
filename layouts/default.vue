@@ -1,24 +1,41 @@
 <template>
-   <Head>
-      <Title>Галактика Сварки</Title>
-      <Meta name="description" content="Сварочное оборудование - купить в Краснодаре, Тимашевске и Новороссийске по самым выгодным ценам, c гарантией. Звоните и покупайте - ☎ +7-918-325-48-00"/>
-      <Meta name="keywords" content="Купить сварочный инвертор, Сварка, Краснодар, Цемдолина, Новороссийск, Сварка металлоконструкций"/>
-      <Meta name="yandex-verification" content="c671d3980bb38ae7" />
-      <Link rel="icon" href="https://www.galaktika-svarki.ru/favicon.ico" type="image/x-icon" />
-    </Head>
-  <div>
+  <Head>
+    <Title>Галактика Сварки</Title>
+    <Meta
+      name="description"
+      content="Сварочное оборудование - купить в Краснодаре, Тимашевске и Новороссийске по самым выгодным ценам, c гарантией. Звоните и покупайте - ☎ +7-918-325-48-00"
+    />
+    <Meta
+      name="keywords"
+      content="Купить сварочный инвертор, Сварка, Краснодар, Цемдолина, Новороссийск, Сварка металлоконструкций"
+    />
+    <Meta
+      name="yandex-verification"
+      content="c671d3980bb38ae7"
+    />
+    <Link
+      rel="icon"
+      href="https://www.galaktika-svarki.ru/favicon.ico"
+      type="image/x-icon"
+    />
+  </Head>
+  <div class="wrapper_main">
     <AppHeader />
     <div class="offset">
       <slot />
     </div>
-   
+
     <AppFooter />
   </div>
 </template>
 
 <style>
-
-
+.wrapper_main{
+display: flex;
+height: 100%;
+min-height: 100vh;
+flex-direction: column;
+}
 html,
 body,
 div,
@@ -107,7 +124,7 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
-title{
+title {
   display: block;
 }
 /* make sure to set some focus styles for accessibility */
@@ -132,8 +149,13 @@ section {
 
 body {
   line-height: 1;
+  min-height: 100vh;
 }
-
+#__nuxt {
+  display: flex;
+  height: 100%;
+  min-height: 100vh;
+}
 ol,
 ul {
   list-style: none;
@@ -202,13 +224,9 @@ audio:not([controls]) {
   height: 0;
 }
 
-
-
 [hidden] {
   display: none;
 }
-
-
 
 html {
   font-size: 100%; /* 1 */
@@ -216,12 +234,10 @@ html {
   -ms-text-size-adjust: 100%; /* 2 */
 }
 
-
 img {
   border: 0; /* 1 */
   -ms-interpolation-mode: bicubic; /* 2 */
 }
-
 
 figure {
   margin: 0;
@@ -563,15 +579,13 @@ img {
   display: none;
 }
 .cards.instrumental {
- 
-
 }
 .cards.acsess {
   /* grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center; */
 }
-.offset{
-  padding-top: 20px;
+.offset {
+  padding: 20px 0;
 }
 
 @media all and (max-width: 1200px) {
@@ -607,14 +621,11 @@ img {
   .cards.acsess {
     /* grid-template-columns: 1fr; */
   }
- 
+
   .category {
     margin-bottom: 50px;
   }
-  
 }
-
-
 
 @media all and (max-width: 500px) {
   .wrapper_footer {
@@ -645,7 +656,6 @@ img {
     font-size: 15px;
   }
 
-
   .category__link {
     font-size: 15px;
   }
@@ -667,12 +677,9 @@ img {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
-
 }
 
 @media all and (max-height: 500px) {
-  
-  
 }
 @media all and (max-height: 400px) {
   /* .hiro__title {

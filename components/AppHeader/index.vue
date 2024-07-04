@@ -1,5 +1,5 @@
 <template>
-  <div>
+ 
     <header class="header">
       <div class="header__wrapper">
         <NuxtLink class="header__logo" to="/">
@@ -11,54 +11,13 @@
             <li class="header__item">
               <div class="header__link">Продукция</div>
               <ul class="header__sublist">
-                <li>
+                <li v-for="category in categories" :key="category.id">
                   <NuxtLink
                     class="header__link header__link--sub"
-                    to="/catalog/welding"
-                    >Сварочное оборудование</NuxtLink
+                    :to="`/catalog/${category.id}`"
                   >
-                </li>
-                <li>
-                  <NuxtLink
-                    class="header__link header__link--sub"
-                    to="/catalog/electro"
-                    >Электроинструмент</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    class="header__link header__link--sub"
-                    to="/catalog/benzo"
-                    >Бензоинструмент</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    class="header__link header__link--sub"
-                    to="/catalog/gas"
-                    >Газосварочное</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    class="header__link header__link--sub"
-                    to="/catalog/protection"
-                    >Маски</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    class="header__link header__link--sub"
-                    to="/catalog/materials"
-                    >Расходные материалы</NuxtLink
-                  >
-                </li>
-                <li>
-                  <NuxtLink
-                    class="header__link header__link--sub"
-                    to="/catalog/compressor"
-                    >Компрессоры и пневмо</NuxtLink
-                  >
+                    {{ category.name }}
+                  </NuxtLink>
                 </li>
               </ul>
             </li>
@@ -87,61 +46,14 @@
       >
         <nav class="nav">
           <ul class="mobile-header__list">
-            <li class="header__item">
+            <li v-for="category in categories" :key="category.id">
               <NuxtLink
                 @click="myEventHandler"
                 class="header__link"
-                to="/catalog/welding"
-                >Сварочное оборудование</NuxtLink
+                :to="`/catalog/${category.id}`"
               >
-            </li>
-            <li class="header__item">
-              <NuxtLink
-                @click="myEventHandler"
-                class="header__link"
-                to="/catalog/electro"
-                >Электроинструмент</NuxtLink
-              >
-            </li>
-            <li class="header__item">
-              <NuxtLink
-                @click="myEventHandler"
-                class="header__link"
-                to="/catalog/benzo"
-                >Бензоинструмент</NuxtLink
-              >
-            </li>
-            <li class="header__item">
-              <NuxtLink
-                @click="myEventHandler"
-                class="header__link"
-                to="/catalog/protection"
-                >Маски</NuxtLink
-              >
-            </li>
-            <li class="header__item">
-              <NuxtLink
-                @click="myEventHandler"
-                class="header__link"
-                to="/catalog/gas"
-                >Газосварочное</NuxtLink
-              >
-            </li>
-            <li class="header__item">
-              <NuxtLink
-                @click="myEventHandler"
-                class="header__link"
-                to="/catalog/materials"
-                >Расходные материалы</NuxtLink
-              >
-            </li>
-            <li class="header__item">
-              <NuxtLink
-                @click="myEventHandler"
-                class="header__link"
-                to="/catalog/compressor"
-                >Компрессоры и пневмо</NuxtLink
-              >
+                {{ category.name }}
+              </NuxtLink>
             </li>
 
             <li class="header__item line">
@@ -149,7 +61,7 @@
                 @click="myEventHandler"
                 class="header__link"
                 to="/contacts"
-                >Контакты</NuxtLink
+                >Контакты</NuxtLink>
               >
             </li>
             <li class="header__item">
@@ -157,42 +69,56 @@
                 @click="myEventHandler"
                 class="header__link"
                 to="/articles"
-                >Полезная информация</NuxtLink
+                >Полезная информация</NuxtLink>
               >
             </li>
           </ul>
         </nav>
       </div>
     </header>
-  </div>
+ 
 </template>
 
-<script>
-export default {
-  name: "AppHeader",
-  data() {
-    return { isMobileMenuOpen: false };
-  },
-  methods: {
-    onMobileMenuClick() {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    },
-    myEventHandler(e) {
-      this.isMobileMenuOpen = false;
-    },
-  },
-  created() {
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", this.myEventHandler);
-    }
-  },
-  destroyed() {
-    if (typeof window !== "undefined") {
-      window.removeEventListener("resize", this.myEventHandler);
-    }
-  },
-};
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useFetch } from '#app'
+
+const isMobileMenuOpen = ref(false)
+const categories = ref([])
+
+const onMobileMenuClick = () => {
+  isMobileMenuOpen.value = !isMobileMenuOpen.value
+}
+
+const myEventHandler = () => {
+  isMobileMenuOpen.value = false
+}
+
+// Fetch categories on the server-side
+const { data: categoriesData, error } = await useFetch('http://localhost:1337/api/categories')
+
+if (error.value) {
+  console.error('Error fetching categories:', error.value)
+} else {
+  categories.value = categoriesData.value.data.map(category => ({
+    id: category.id,
+    name: category.attributes.name
+  }))
+}
+
+onMounted(() => {
+  if (typeof window !== 'undefined') {
+    window.addEventListener('resize', myEventHandler)
+  }
+})
+
+onUnmounted(() => {
+  if (typeof window !== 'undefined') {
+    window.removeEventListener('resize', myEventHandler)
+  }
+})
 </script>
+
 
 <style>
 .menu-mobile {
@@ -255,11 +181,9 @@ export default {
 }
 .header {
   background: black;
-  position: fixed;
   width: 100%;
   display: flex;
   z-index: 99;
-  min-height: 80px;
   transition: 1.5s;
 }
 .header__nav {

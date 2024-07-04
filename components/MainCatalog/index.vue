@@ -31,7 +31,8 @@ import CatalogFilter from "./components/CatalogFilter";
 
 const route = useRoute();
 const { data: catalogItems } = await useFetch(
-  `/api/catalog?group=${route.params.group}`
+  `/products?group=${route.params.group}`,
+  { baseURL: process.env.BASE_URL || 'http://localhost:1337/api' }
 );
 
 const titles = {
@@ -48,28 +49,28 @@ const filter = useState("filter", () => ({}));
 
 const page = useState("page", () => 1);
 
-const ItemsOnPage = 12;
-// количество выводимых карточек в пагинации
+const ItemsOnPage = 12; // количество выводимых карточек в пагинации
 
 const items = computed(() => {
   const filterObj = Object.entries(filter.value)
     .filter(([key, value]) => value)
     .map(([key, value]) => key);
 
-  console.log(catalogItems.value);
-
   let afterFilter = [];
 
   if (!filterObj.length) {
-    afterFilter = catalogItems.value;
-  }
-  else {
+    afterFilter = catalogItems.value.data.map((item) => ({
+      id: item.id,
+      name: item.attributes.name,
+      price: item.attributes.price,
+      desc: item.attributes.desc,
+      image: item.attributes.image?.data?.attributes?.url || ''
+    }));
+  } else {
     afterFilter = (catalogItems.value || []).filter((itemA) => {
-    return filterObj.some((itemB) => itemA.hasOwnProperty(itemB));
-  });
+      return filterObj.some((itemB) => itemA.hasOwnProperty(itemB));
+    });
   }
-
-  
 
   return afterFilter;
 });
@@ -89,61 +90,12 @@ const updateHandler = () => {};
 
 onMounted(() => {
   page.value = 1;
-})
+});
 </script>
 
-<!-- <script setup>
-
-
-const route = useRoute();
-const { data: catalogItems } = await useFetch(`/api/catalog?group=${route.params.group}`);
-
-
-
-</script>
-
-<script>
-import CatalogItem from './components/CatalogItem';
-import CatalogHero from './components/CatalogHero';
-import CatalogFilter from './components/CatalogFilter';
-
-export default {
-  name: 'MainCatalog',
-  props: {},
-
-
-
-
-  computed: {
-    items() {
-      const filter = Object.entries(this.filter)
-        .filter(([key, value]) => value)
-        .map(([key, value]) => key);
-        console.log(filter);
-        console.log(this.catalogItems);
-      return (this.catalogItems || []).filter((item) => {
-        return item;
-      });
-    }
-  },
-
-  data() {
-    return {
-      titles: {
-        welding: {caption: 'Сварочное оборудование', href: '/catalog/welding'},
-        electro: {caption: 'Электрооборудование', href: '/catalog/electro'},
-      },
-      filter: {}
-    };
-  }
-}
-</script> -->
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .catalog_box {
   display: grid;
-  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
   margin-top: 30px;
@@ -151,18 +103,8 @@ export default {
   grid-auto-rows: 360px;
 }
 
-
 .Pagination {
-    margin: 25px 0;
-    justify-content: center;
+  margin: 25px 0;
+  justify-content: center;
 }
 </style>
-<!-- 
-Array.from(document.querySelectorAll(".card-item")).map((cardItem) => { const
-image = cardItem.querySelector(".front img").src; const desc =
-cardItem.querySelector(".front .name-product").firstChild.nodeValue.trim();
-const title = cardItem.querySelector(".front .name-product span").innerHTML;
-const price = cardItem.querySelector(".front .price").innerHTML.trim(); const
-table = cardItem.querySelector(".back .info-list").rows; const rows =
-Array.from(table).map((r) => {return {key: r.cells[0].firstChild.innerHTML, val:
-r.cells[1].innerHTML }}); return {image,desc,title,price,rows}; }); -->
