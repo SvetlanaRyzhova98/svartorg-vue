@@ -95,7 +95,7 @@ const myEventHandler = () => {
 }
 
 // Fetch categories on the server-side
-const { data: categoriesData, error } = await useFetch('http://188.130.251.143/:1337/api/categories')
+const { data: categoriesData, error } = await useFetch('http://188.130.251.143:1337/api/categories')
 
 if (error.value) {
   console.error('Error fetching categories:', error.value)

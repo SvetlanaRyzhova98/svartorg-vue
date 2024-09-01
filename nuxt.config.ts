@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      baseURL: process.env.BASE_URL || 'http://188.130.251.143/:1337/api',
+      baseURL: process.env.BASE_URL || 'http://188.130.251.143:1337/api',
     },
     MAILHOST: process.env.MAILHOST,
     MAILPORT: process.env.MAILPORT,

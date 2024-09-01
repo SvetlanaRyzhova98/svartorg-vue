@@ -73,7 +73,7 @@ const productId = route.params.id;
 const product = ref(null);
 const breadcrumbs = ref([]);
 const { data } = await useFetch(`/products/${productId}?populate=*`, {
-  baseURL: "http://188.130.251.143/:1337/api",
+  baseURL: "http://188.130.251.143:1337/api",
 });
 
 if (data.value) {
@@ -81,7 +81,7 @@ if (data.value) {
 
   // Получаем все изображения
   const images = item.img?.data?.map(
-    (img) => `http://188.130.251.143/:1337${img.attributes.url}`
+    (img) => `http://188.130.251.143:1337${img.attributes.url}`
   ) || [];
 
   product.value = {
@@ -95,7 +95,7 @@ if (data.value) {
     filials: item.filials?.data?.map((filial) => filial.attributes) || [],
     documents: item.instructions?.data?.map((doc) => ({
       name: doc.attributes.name,
-      url: `http://188.130.251.143/:1337${doc.attributes.url}`,
+      url: `http://188.130.251.143:1337${doc.attributes.url}`,
     })) || [],
     type_welding: item.tip_svarochnika?.data?.attributes?.welding || null,
   };
