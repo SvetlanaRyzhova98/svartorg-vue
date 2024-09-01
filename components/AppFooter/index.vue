@@ -169,6 +169,7 @@ font-style: italic;
     rgba(0, 0, 0, 1) 100%
   );
   color: white;
+  margin-top: auto;
 }
 .contact__input {
   font-weight: 400;

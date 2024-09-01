@@ -33,6 +33,7 @@
 .wrapper_main{
 display: flex;
 height: 100%;
+width: 100%;
 min-height: 100vh;
 flex-direction: column;
 }
@@ -209,8 +210,8 @@ audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  display: inline;
+  zoom: 1;
   max-width: 100%;
 }
 
@@ -271,7 +272,7 @@ legend {
   border: 0; /* 1 */
   padding: 0;
   white-space: normal; /* 2 */
-  *margin-left: -7px; /* 3 */
+  margin-left: -7px; /* 3 */
 }
 
 /**
@@ -288,7 +289,7 @@ textarea {
   font-size: 100%; /* 1 */
   margin: 0; /* 2 */
   vertical-align: baseline; /* 3 */
-  *vertical-align: middle; /* 3 */
+  vertical-align: middle; /* 3 */
 }
 
 /**
@@ -329,7 +330,7 @@ input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button; /* 2 */
   cursor: pointer; /* 3 */
-  *overflow: visible; /* 4 */
+  overflow: visible; /* 4 */
 }
 
 /**
@@ -348,14 +349,7 @@ html input[disabled] {
  *    Known issue: excess padding remains in IE 6.
  */
 
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
-  *height: 13px; /* 3 */
-  *width: 13px; /* 3 */
-}
-
+ 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
@@ -584,9 +578,7 @@ img {
   /* grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center; */
 }
-.offset {
-  padding: 20px 0;
-}
+ 
 
 @media all and (max-width: 1200px) {
   .wrapper {

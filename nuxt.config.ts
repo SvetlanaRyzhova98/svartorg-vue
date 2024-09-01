@@ -9,12 +9,9 @@ export default defineNuxtConfig({
     MAILPASSWORD: process.env.MAILPASSWORD,
     CONTACTMAIL: process.env.CONTACTMAIL
   },
-  modules: [
-    '@pinia/nuxt',
-  ],
+  modules: ['@pinia/nuxt', "vue3-carousel-nuxt"],
   css: [
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   components: true,
 });
- 

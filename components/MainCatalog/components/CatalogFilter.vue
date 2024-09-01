@@ -1,77 +1,72 @@
-
 <template>
-    <template v-if="group === 'welding'">
-        <div class="filters">
-          <button @click="onChange({'mma': !modelValue?.['mma']})" 
-          class="filter-btn"
-          :class="{'filter-btn-active': modelValue?.['mma']}"
-          >MMA</button>
-          <button @click="onChange({'tig': !modelValue?.['tig']})" 
-          class="filter-btn"
-          :class="{'filter-btn-active': modelValue?.['tig']}"
-          >TIG</button>
-          <button @click="onChange({'mig': !modelValue?.['mig']})" 
-          class="filter-btn"
-          :class="{'filter-btn-active': modelValue?.['mig']}"
-          >MIG/MAG</button>
-          <button @click="onChange({'cut': !modelValue?.['cut']})" 
-          class="filter-btn"
-          :class="{'filter-btn-active': modelValue?.['cut']}"
-          >CUT</button>
-        </div>
-    </template>
+  <div class="filter_box">
+    <div class="tags_filter">
+      <h3>Фильтр по тегам: {{id}}</h3>
+      <div class="tags_list">
+        <button
+          v-for="(tag, index) in tags"
+          :key="index"
+          @click="selectTag(tag.id)"
+          :class="{ active: id == tag.id }"
+        >
+          {{ tag.attributes.name }}  
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
-  
-  <script>
 
-  export default {
-    name: 'CatalogFilter',
-    props: {
-      group: String,
-      modelValue: Object
+<script setup>
+import { ref, watch } from 'vue';
+
+const route = useRoute();
+const router = useRouter();
+
+const props = defineProps({
+  tags: Array,
+  modelValue: Object,
+});
+
+let id = route.query.tag;
+
+const selectTag = (tagId) => {
+  props;
+  router.push({
+    path: route.path,
+    query: {
+      ...route.query,
+      tag: tagId,
     },
+  });
+};
 
-    data() {return {}},
-    emits: ['update:modelValue'],
-    methods: {
-        onChange(filter) {
-            this.$emit('update:modelValue',  {...this.modelValue, ... filter});
-        }
-    }
-  }
-  </script>
-  
-  <style scoped>
-  
-.filters{
-  margin-top: 20px;
+watch(() => route.query.tag, async (tagId) => {
+  id = tagId;
+});
+</script>
+
+<style scoped>
+.filter_box {
+  margin:10px 0 10px;
+}
+.tags_filter {
+  margin-bottom: 20px;
+}
+.tags_list {
   display: flex;
   gap: 10px;
-    flex-wrap: wrap;
-  justify-content: start;
-}  
-.filter-btn{
-  padding: 5px 27px;
-  border: 1px solid grey;
-  font-size: 14px;
-  font-style: italic;
-  border-radius: 8px;
-  background: transparent;
-  margin: 0 5px;
+  flex-wrap: wrap;
 }
-
-.filter-btn:hover{
-  background: #80808052;
+.tags_list button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
-.filter-btn-active{
-font-weight: 700;
+.tags_list button.active {
+  background-color: #3395c5;
+  color: #fff;
 }
-@media all and (max-width: 500px) {
-  .filter-btn {
-  padding: 5px 12px;
-  margin: 0;
-}
-}
-
-  </style>
-  
+</style>

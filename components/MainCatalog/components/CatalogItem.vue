@@ -1,53 +1,48 @@
 <template>
-  <NuxtLink :to="`/product/${item.id}`" class="card-item">
-    <div class="card">
-      <div class="front">
-        <img :src="item.image" alt="Продукт каталога" />
-        <div class="catalog_desc">
-          <p class="name-product">
-            {{ item.name }}
-            <span>{{ item.desc }}</span>
-          </p>
-          <div class="price">{{ item.price }}</div>
+  <div>
+    <NuxtLink :to="`/product/${item.id}`"  class="card_item">
+      <img
+        :src="getImageUrl(item.image)"
+        alt="Продукт каталога"
+      />
+      <div class="catalog_desc">
+        <p class="name-product">
+          {{ item.name }}
+          <span>{{ item.type }}</span>
+        </p>
+        <div class="price">
+          {{ item.price ? `${item.price} руб.` : 'Цена по запросу' }}
         </div>
       </div>
-    </div>
-  </NuxtLink>
+    </NuxtLink>
+  </div>
 </template>
 
-<script>
-export default {
-  name: 'CatalogItem',
-  props: {
-    item: Object
-  }
-}
+<script setup>
+defineProps({
+  item: Object,
+});
+const placeholderImage = '/assets/no_image.svg';  
+const getImageUrl = (image) => {
+  return image ?  "http://localhost:1337" + image : placeholderImage;
+};
 </script>
 
 <style scoped>
-.breadcrumbs{
+.breadcrumbs {
   display: flex;
   justify-content: start;
   margin-top: 20px;
   font-size: 13px;
 }
-.breadcrumbs li a{
-  color: rgba(34,41,51,0.6);
+.breadcrumbs li a {
+  color: rgba(34, 41, 51, 0.6);
   margin: 0 5px;
   font-style: italic;
 }
 .breadcrumbs span {
   font-style: italic;
   color: rgba(34, 41, 51, 0.6);
-}
-
-.catalog_box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  margin-top: 30px;
-  justify-content: center;
-  grid-auto-rows: 360px;
 }
 
 .name-product {
@@ -65,14 +60,22 @@ export default {
   color: grey;
   text-align: center;
   font-size: 14px;
+  margin-top: auto;
 }
- 
-.card-item {
+
+.card_item img {
+  width: 100%;
+}
+.card_item {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  border: 1px solid grey;
+  border-radius: 10px;
+  align-items: center;
   justify-content: center;
-  position: relative;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 250px;  
+  height: 100%;
 }
 .item-info {
   width: 100%;
@@ -82,7 +85,7 @@ export default {
 }
 
 .price {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 25px;
   text-align: center;
 }
@@ -93,13 +96,6 @@ export default {
   padding: 15px;
   width: 100%;
   color: black;
-}
-.card-item {
-  margin: 0px auto;
-  perspective: 400px;
-  width: 100%;
-  z-index: 73;
-  max-width: 265px;
 }
 
 .card {
