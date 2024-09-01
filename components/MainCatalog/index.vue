@@ -55,8 +55,8 @@ const fetchData = async (tag = null) => {
   // await useFetch(query, { baseURL: "http://localhost:1337/api" });
 
   const [{data}, {data: categoriesData}] = await Promise.all([
-    useFetch(query, { baseURL: "http://localhost:1337/api" }),
-    useFetch(`/categories/${categoryId}?populate=tegs`, { baseURL: "http://localhost:1337/api" })
+    useFetch(query, { baseURL: "http://188.130.251.143/:1337/api" }),
+    useFetch(`/categories/${categoryId}?populate=tegs`, { baseURL: "http://188.130.251.143/:1337/api" })
   ])
 
   if (data.value) {

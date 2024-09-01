@@ -24,7 +24,7 @@ defineProps({
 });
 const placeholderImage = '/assets/no_image.svg';  
 const getImageUrl = (image) => {
-  return image ?  "http://localhost:1337" + image : placeholderImage;
+  return image ?  "http://188.130.251.143/:1337" + image : placeholderImage;
 };
 </script>
 
