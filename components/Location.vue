@@ -2,9 +2,7 @@
   <div class="location">
     <div @click="onLocationOpenClick" class="location-select">
       {{ Locations[location.location].title }}
-      <i class="fas fa-arrow-circle-down" :class="{ rotated: isLocationOpen }"
-        >▼</i
-      >
+      <i class="fas fa-arrow-circle-down" :class="{ rotated: isLocationOpen }">▼</i>
     </div>
 
     <ul class="location-city" :class="{ visible: !isLocationOpen }">
@@ -21,7 +19,7 @@ import { Locations } from "../consts/location";
 
 const location = useLocationStore();
 
-const isLocationOpen = useState("isLocationOpen", () => true);
+const isLocationOpen = useState("isLocationOpen", () => false);
 
 function onLocationOpenClick() {
   isLocationOpen.value = !isLocationOpen.value;
@@ -38,7 +36,7 @@ function setLocation(str) {
 
 <style scoped>
 .fa-arrow-circle-down {
-  font-size: 15px;
+  font-size: 8px;
   transition: 0.2s;
   display: inline-block;
 }
@@ -48,54 +46,33 @@ function setLocation(str) {
 
 .location {
   display: flex;
-  margin-top: 15px;
+  width: -moz-max-content;
   width: max-content;
-  font-size: 20px;
-  line-height: 25px;
-  flex-direction: column;
-  color: #fd9d46cc;;
+  font-size: 14px;
+  position: relative;
+  color: #333333;
+  padding: 20px 0;
 }
 .location-city {
   list-style: none;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 5px;
+  gap: 10px;
+  position: absolute;
   margin-top: 10px;
+  padding: 10px 10px 10px 0;
+  top: 27px;
+  background: white;
+  box-shadow: 1px 1px 0px #80808012;
+  left: 0;
 }
 .location-city li:hover {
-  color: #f48116e5;
+  color: #000000;
   cursor: pointer;
 }
 .location-select:hover {
   cursor: pointer;
-  color:  #fd9d46cc;
+  color: #333333;
 }
-
-  @media all and (max-width: 500px) {
-    .location {
-      margin-top: 15px;
-      font-size: 15px;
-    }
-  }
-  @media all and (max-height: 500px) {
-    .location {
-      margin-top: 15px;
-      /* font-weight: bold; */
-      display: flex;
-      gap: 10px;
-      width: max-content;
-      font-size: 18px;
-      line-height: 20px;
-      flex-direction: column;
-    }
-
-    .location {
-      gap: 10px;
-      font-size: 15px;
-      line-height: 16px;
-    }
-  }
-
 </style>

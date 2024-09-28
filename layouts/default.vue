@@ -9,14 +9,15 @@
       name="keywords"
       content="Купить сварочный инвертор, Сварка, Краснодар, Цемдолина, Новороссийск, Сварка металлоконструкций"
     />
-    <Meta
-      name="yandex-verification"
-      content="c671d3980bb38ae7"
-    />
+    <Meta name="yandex-verification" content="c671d3980bb38ae7" />
     <Link
       rel="icon"
       href="https://www.galaktika-svarki.ru/favicon.ico"
       type="image/x-icon"
+    />
+    <link
+      href="/fonts/stylesheet.css"
+      rel="stylesheet"
     />
   </Head>
   <div class="wrapper_main">
@@ -30,12 +31,12 @@
 </template>
 
 <style>
-.wrapper_main{
-display: flex;
-height: 100%;
-width: 100%;
-min-height: 100vh;
-flex-direction: column;
+.wrapper_main {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
 }
 html,
 body,
@@ -349,7 +350,6 @@ html input[disabled] {
  *    Known issue: excess padding remains in IE 6.
  */
 
- 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
@@ -442,6 +442,7 @@ textarea {
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 html {
   box-sizing: border-box;
@@ -449,7 +450,7 @@ html {
 
 body {
   color: white;
-  font-family: "Exo 2", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
   --bg-color: #000000a6;
@@ -470,9 +471,7 @@ body {
 header {
   top: 0;
 }
-section {
-  margin-bottom: 100px;
-}
+ 
 a {
   text-decoration: none;
   color: white;
@@ -514,8 +513,7 @@ img {
   display: inline-block;
 }
 .main__link-left {
-  background: url(../img/svg/slider-menu__button_right.svg) no-repeat center
-    left;
+  background: url(../img/svg/slider-menu__button_right.svg) no-repeat center left;
   width: 55px;
   height: 55px;
   margin-left: -3px;
@@ -578,26 +576,17 @@ img {
   /* grid-template-columns: 1fr 1fr 1fr 1fr;
   justify-items: center; */
 }
- 
 
 @media all and (max-width: 1200px) {
   .wrapper {
-    padding: 0 30px;
+    padding: 0 15px;
   }
 }
 @media all and (max-width: 1000px) {
   .wrapper {
-    padding: 0 30px;
+    padding: 0 15px;
   }
-
-  .cards.instrumental {
-    /* grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    justify-items: center; */
-  }
-  section {
-    margin-bottom: 50px;
-  }
+ 
 }
 
 @media all and (max-width: 800px) {
@@ -662,9 +651,7 @@ img {
   .box-footer {
     padding: 30px 10px;
   }
-  section {
-    margin-bottom: 50px;
-  }
+   
   .cards.instrumental {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -674,10 +661,7 @@ img {
 @media all and (max-height: 500px) {
 }
 @media all and (max-height: 400px) {
-  /* .hiro__title {
-    font-size: 22px;
-    line-height: 22px;
-  } */
+ 
   .location {
     margin-top: 10px;
     gap: 5px;
@@ -690,5 +674,15 @@ img {
   .hiro__desc {
     font-size: 15px;
   }
+}
+.carousel__pagination-button::after {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 100% !important;
+}
+.carousel__slide img{
+  min-height: 300px;
+  max-height: 300px;
+  object-fit: cover ;
 }
 </style>
