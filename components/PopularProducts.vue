@@ -1,9 +1,8 @@
 <template>
   <div class="popular_container relative">
-    <!-- Отображаем компонент карусели только если есть данные -->
-     <div class="title">{{popularItemName}}</div>
+    <div class="title_carousel">Популярные товары</div>
     <client-only>
-      <CarouselComponent v-if="popularItemImages.length" :images="popularItemImages" />
+      <CarouselComponent v-if="popularItem.length" :product="popularItem" />
     </client-only>
   </div>
 </template>
@@ -14,46 +13,51 @@ import { useFetch } from "#app";
 import { defineAsyncComponent } from "vue";
 import { baseUrl } from "../consts/configServ.js";
 
-// Асинхронная загрузка компонента карусели
-const CarouselComponent = defineAsyncComponent(() => import("./Carousel.vue"));
+// Asynchronous loading of the carousel component
+const CarouselComponent = defineAsyncComponent(() => import("./CarouselPopular.vue"));
 
-// Создаем переменные для хранения данных
-const popularItemImages = ref([]);
-const popularItemName = ref([]);
+// Create a variable to store popular items
+const popularItem = ref([]);
 
-// Запрос на получение данных о популярных товарах
-const { data } = await useFetch(`/api/products?populate=img&filters[product_day][$eq]=true`, {
-  baseURL: baseUrl,
-});
+// Fetch popular products
+const { data } = await useFetch(
+  `/api/products?populate=img&filters[product_day][$eq]=true`,
+  {
+    baseURL: baseUrl,
+  }
+);
 
 if (data.value) {
-   
-  popularItemImages.value = data.value.data.map((product) => {
-    const images = product.attributes.img?.data?.map(
-      (img) => `${baseUrl}${img.attributes.formats.thumbnail?.url || img.attributes.url}`
-    ) || [];
-     
-    return images[0];  
-  }).filter(Boolean); 
+  popularItem.value = data.value.data
+    .map((product) => {
+      const images = product.attributes.img?.data?.map(
+        (img) => `${baseUrl}${img.attributes.formats.thumbnail?.url || img.attributes.url}`
+      ) || [];
 
-  popularItemName.value = data.value.data.map((product) => {
-    return product.attributes.name;
-  });
-
-  console.log(popularItemName.value);  
+      return {
+        src: images[0],
+        name: product.attributes.name,
+        id: product.id,
+        price: product.price,
+      };
+    })
+    .filter(Boolean);
 }
 </script>
 
 <style scoped>
 .popular_container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  height: 100%;
+  position: relative;
 }
-section.carousel {
-  margin: 0;
-  padding: 0;
+
+.title_carousel {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  z-index: 999;
+  font-size: 18px;
+  font-weight: 600;
+  transform: translate(50%, 0%);
 }
 
 .carousel__pagination-button::after {

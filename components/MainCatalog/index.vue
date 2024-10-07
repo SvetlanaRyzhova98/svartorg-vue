@@ -1,5 +1,4 @@
 <template>
-  <CatalogHero>{{ titles[categoryId]?.caption }}</CatalogHero>
   <div class="wrapper">
     <BreadCrumbs :path="[titles[categoryId]]" />
 
@@ -24,7 +23,6 @@ import { ref, computed, watch } from "vue";
 import { useFetch, useAsyncData } from "#app";
 import { useRoute } from "vue-router";
 
-import CatalogHero from "./components/CatalogHero";
 import CatalogFilter from "./components/CatalogFilter";
 
 const route = useRoute();

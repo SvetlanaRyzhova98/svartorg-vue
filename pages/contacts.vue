@@ -16,7 +16,7 @@
       type="image/x-icon"
     />
   </Head>
-  <SecondaryHero>Контакты</SecondaryHero>
+ 
 
   <section class="wrapper">
     <BreadCrumbs :path="[{ caption: 'Контакты', href: '/contacts' }]" />

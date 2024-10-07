@@ -12,7 +12,7 @@
     <Link rel="icon" href="https://www.galaktika-svarki.ru/favicon.ico" type="image/x-icon" />
     
   </Head>
-<SecondaryHero>Предоставляемые услуги<span>**</span><br /></SecondaryHero>
+ 
 
 <div class="wrapper">
     <BreadCrumbs :path="[{caption: 'Услуги', href: '/services'}]" />

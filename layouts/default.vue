@@ -449,7 +449,7 @@ html {
 }
 
 body {
-  color: white;
+  color:  #333;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -502,7 +502,7 @@ img {
 /*Main start*/
 
 .wrapper {
-  max-width: 1110px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -616,13 +616,7 @@ img {
     justify-items: center;
     padding: 0;
   }
-  .title-section {
-    font-size: 20px;
-    line-height: 1;
-    padding-left: 0;
-    background-size: 0;
-    color: var(--blue);
-  }
+ 
 
   .title-box {
     margin-bottom: 30px;
@@ -681,8 +675,20 @@ img {
   border-radius: 100% !important;
 }
 .carousel__slide img{
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 400px;
+  max-height: 400px;
   object-fit: cover ;
+}
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+   content: "";
+}
+
+.carousel__slide.carousel__slide--visible img{
+  border-radius: 10px;
 }
 </style>

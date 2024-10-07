@@ -22,6 +22,7 @@
   grid-template-columns: 3fr 1fr;
   gap: 25px;
   margin-top: 35px;
+  margin-bottom: 35px;
 }
 @media all and (max-height: 400px) {
 }

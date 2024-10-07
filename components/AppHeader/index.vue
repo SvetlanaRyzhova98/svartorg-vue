@@ -9,7 +9,7 @@
               <NuxtLink to="/services" class="header__link">Услуги</NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink class="header__link" to="/contacts">Контакты </NuxtLink>
+              <NuxtLink class="header__link" to="/contacts">Контакты</NuxtLink>
             </li>
             <li class="header__item">
               <NuxtLink to="/articles" class="header__link">Инфо</NuxtLink>
@@ -18,17 +18,24 @@
         </nav>
       </div>
       <div class="header_bottom">
-        <div class="bottom_panel">
+        <div class="bottom_panel" ref="bottomPanel">
           <NuxtLink class="header__logo" to="/">
-            <img class="logo_img" src="/assets/logo-new.svg" alt="Галактика сварки" />
+            <img
+              class="logo_img"
+              src="/assets/Logo-total-black.svg"
+              alt="Галактика сварки"
+            />
           </NuxtLink>
           <div class="bottom_panel-button">
-            <div class="button__catalog">Продукция</div>
-            <ul class="header__sublist">
+            <button class="button__catalog" @click="toggleCategories">
+              Продукция <span>▼</span>
+            </button>
+            <ul class="header__sublist" v-if="showCategories">
               <li v-for="category in categories" :key="category.id">
                 <NuxtLink
                   class="header__link header__link--sub"
                   :to="`/catalog/${category.id}`"
+                  @click="closeCategories"
                 >
                   {{ category.name }}
                 </NuxtLink>
@@ -36,6 +43,7 @@
             </ul>
           </div>
         </div>
+        <SearchComponent />
         <HeaderLocation />
       </div>
     </div>
@@ -47,14 +55,25 @@ import { ref, onMounted, onUnmounted } from "vue";
 import { useFetch } from "#app";
 
 const categories = ref([]);
+const showCategories = ref(false);
 
-// Fetch categories on the server-side
+// Функция для переключения видимости категорий
+const toggleCategories = () => {
+  showCategories.value = !showCategories.value;
+};
+
+// Функция для закрытия меню
+const closeCategories = () => {
+  showCategories.value = false;
+};
+
+// Получение категорий с сервера
 const { data: categoriesData, error } = await useFetch(
   "http://188.130.251.143:1337/api/categories"
 );
 
 if (error.value) {
-  console.error("Error fetching categories:", error.value);
+  console.error("Ошибка при получении категорий:", error.value);
 } else {
   categories.value = categoriesData.value.data.map((category) => ({
     id: category.id,
@@ -62,16 +81,28 @@ if (error.value) {
   }));
 }
 
-onUnmounted(() => {
-  if (typeof window !== "undefined") {
-    window.removeEventListener("resize", myEventHandler);
+// Закрытие меню при клике вне его области
+const handleClickOutside = (event) => {
+  const bottomPanel = document.querySelector(".bottom_panel");
+  if (!bottomPanel.contains(event.target)) {
+    closeCategories();
   }
+};
+
+// Добавляем слушатель события клика
+onMounted(() => {
+  window.addEventListener("click", handleClickOutside);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("click", handleClickOutside);
 });
 </script>
 
 <style>
 .logo_img {
   min-width: 150px;
+  max-width: 150px;
 }
 
 .line {
@@ -88,7 +119,6 @@ onUnmounted(() => {
 .header__wrapper {
   display: flex;
   width: 100%;
-  padding: 0 15px;
   font-family: "Gilroy", sans-serif;
   max-width: 1440px;
   margin: 0 auto;
@@ -98,12 +128,12 @@ onUnmounted(() => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 25px;
 }
 .header_top {
   width: 100%;
   display: flex;
-  gap: 240px;
+  gap: 300px;
 }
 .header {
   width: 100%;
@@ -119,7 +149,7 @@ onUnmounted(() => {
 }
 .header__link {
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 13px;
   line-height: 14px;
   text-decoration: none;
@@ -128,33 +158,36 @@ onUnmounted(() => {
 .bottom_panel {
   background-color: #e8e5e5;
   border-radius: 10px;
-  padding: 15px;
+  padding: 16px 20px;
   display: flex;
+  max-width: -moz-max-content;
   max-width: max-content;
   align-items: center;
-  gap: 30px;
+  gap: 50px;
+  height: 70px;
+  width: 100%;
 }
 .header__sublist {
-  position: absolute;
-  top: 19px;
-  /* left: -20px; */
-  height: 300px;
-  left: -17px;
   display: flex;
   flex-direction: column;
-  background: black;
   align-items: flex-start;
-  padding: 5px 15px;
-  justify-content: space-evenly;
-  display: none;
+  padding: 10px 15px;
+  justify-content: flex-start;
   border-radius: 8px;
   box-shadow: 7px 7px 13px 0px #1311119c;
-}
-.header__item:hover .header__sublist {
-  display: flex;
+  z-index: 100;
+
+  position: absolute;
+  top: 50px;
+  height: auto;
+  left: 0;
+  background: #fff;
+  gap: 15px;
 }
 .header__link--sub {
   margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .header__link:hover,
@@ -188,19 +221,28 @@ onUnmounted(() => {
   gap: 15px;
 }
 .header__link.header__link_cont {
-  font-size: 13px;
+  font-size: 14px;
   color: #333333;
 }
 .button__catalog {
   background-color: white;
   border-radius: 5px;
   padding: 10px 14px;
-  color: #333333;
-  font-size: 14px;
+  font-family: 'Gilroy';
+  font-size: 16px;
   height: 100%;
-  font-weight: 400;
+  border: none;
+  font-weight: 500;
 }
-
-@media all and (max-width: 1000px) {
+.button__catalog span {
+  font-size: 10px;
+}
+.bottom_panel-button {
+  position: relative;
+}
+@media all and (max-width: 1200px) {
+  .header__wrapper {
+    padding: 0 15px;
+  }
 }
 </style>

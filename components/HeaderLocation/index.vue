@@ -35,7 +35,11 @@ const location = useLocationStore();
   gap: 15px;
 }
 .header__link.header__link_cont {
-  font-size: 13px;
-  color: var(--blue);
+  font-size: 14px;
+  gap: 5px;
+  align-items: center;
+  color: #333333;
+  display: flex;
+  white-space: nowrap;
 }
 </style>

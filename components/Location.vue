@@ -48,10 +48,11 @@ function setLocation(str) {
   display: flex;
   width: -moz-max-content;
   width: max-content;
-  font-size: 14px;
+  font-size: 16px;
   position: relative;
   color: #333333;
   padding: 20px 0;
+  font-weight: 500;
 }
 .location-city {
   list-style: none;
