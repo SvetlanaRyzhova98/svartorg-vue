@@ -51,9 +51,10 @@ const getImageUrl = (image) => {
 }
 
 .name-product span {
-  font-weight: bold;
+  font-weight: 600;
   display: block;
-  padding: 7px 0;
+  padding: 5px 0;
+  font-size: 13px;
 }
 .catalog_desc {
   margin: 15px 0 0 0;
@@ -61,6 +62,9 @@ const getImageUrl = (image) => {
   text-align: center;
   font-size: 14px;
   margin-top: auto;
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card_item img {
@@ -68,14 +72,15 @@ const getImageUrl = (image) => {
 }
 .card_item {
   display: flex;
-  border: 1px solid grey;
   border-radius: 10px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
-  max-width: 250px;  
+  gap: 10px;
+  max-width: 250px;
   height: 100%;
+  background: white;
 }
 .item-info {
   width: 100%;

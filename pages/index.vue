@@ -25,18 +25,8 @@
           <GroupsCartsList />
         </div>
       </section>
-      <section>
-        <div class="wrapper">
-          <MainTitle>Предоставляемые услуги</MainTitle>
-          <ServicesList />
-        </div>
-      </section>
-      <section>
-        <div class="wrapper">
-          <MainTitle>Полезная информация</MainTitle>
-          <Articles />
-        </div>
-      </section>
+       
+      
     </main>
   </div>
 </template>

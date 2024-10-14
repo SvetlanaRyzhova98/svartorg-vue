@@ -1,91 +1,179 @@
 <template>
-        <GroupSelector :modelValue="currentType"
-  @update:modelValue="currentType = $event" />
-
-        <div class="cards instrumental">
-            <GroupItem v-for="(item, j) in filteredGroups" :key="j" :item="item" />
+    <div class="category_all_container">
+      <div class="category_container">
+        <!-- Основной цикл, исключаем категории с id 4 и 6 -->
+        <div
+          v-for="category in filteredCategories"
+          :key="category.id"
+          class="category_container_item"
+        >
+          <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
+            <div class="title">{{ category.name }}</div>
+            <div v-if="category.img" class="items-end">
+              <img :src="getFullImageUrl(category.img)" alt="category.name" />
+            </div>
+            <!-- Проверяем, если id категории равно 1, выводим теги -->
+            <div v-if="category.id === 1"> 
+              <div class="tags">
+                <div v-for="(tag, index) in category.tags" :key="index">
+                  <!-- Создаем кликабельную ссылку с параметром tag -->
+                  <NuxtLink :to="`/catalog/${category.id}?tag=${index+1}`" class="tag-link">
+                    {{ tag.name }}
+                  </NuxtLink>
+                </div>
+              </div>
+            </div>
+          </NuxtLink>
         </div>
-</template>
-
-
-<style>
-
-</style>
-
-<script>
-import GroupSelector from './components/GroupSelector';
-import GroupItem from './components/GroupItem';
-
-import weldingImg from './assets/1.jpg';
-import electroImg from './assets/electro1.jpg';
-import bensoImg from './assets/benso.jpeg';
-import weldingGasImg from './assets/gas.jpg';
-import compressorImg from './assets/compress.jpg';
-
-import protectImg from './assets/sredstva_individualnoy_zashchity_1.jpg';
-import materialyImg from './assets/svarochnye_materialy_1.jpg';
-
-export default {
-  name: 'GroupsCartsList',
-  components: {GroupSelector, GroupItem},
-  props: {},
-  computed: {
-    filteredGroups() {
-        return this.groups.filter((group) => (group.type === this.currentType));
-    }
-  },
-  data() {
-    return {
-        currentType: 'main',
-        groups: [
-            {
-                caption: 'сварочное оборудование',
-                imageSrc: weldingImg,
-                href: '/catalog/welding',
-                type: 'main'
-            },
-            {
-                caption: 'электроинструмент',
-                imageSrc: electroImg,
-                href: '/catalog/electro',
-                type: 'main'
-            },
-            {
-                caption: 'бензоинструмент',
-                imageSrc: bensoImg,
-                href: '/catalog/benzo',
-                type: 'main'
-            },
-            {
-                caption: 'газосварочное',
-                imageSrc: weldingGasImg,
-                href: '/catalog/gas',
-                type: 'main'
-            },
-            
-            {
-                caption: 'Компрессоры и пневмоинструмент',
-                imageSrc: compressorImg,
-                href: '/catalog/compressor',
-                type: 'main'
-            },
-            
-
-            {
-                caption: 'средства защиты',
-                imageSrc: protectImg,
-                href: '/catalog/protection',
-                type: 'secondary'
-            },
-            {
-                caption: 'сварочные материалы',
-                imageSrc: materialyImg,
-                href: '/catalog/materials',
-                type: 'secondary'
-            },
-        
-        ]
-    };
+      </div>
+      <div class="special_category_container">
+        <div v-for="category in specialCategories" :key="category.id">
+          <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
+            <div class="title">{{ category.name }}</div>
+            <div v-if="category.img" class="items-end">
+              <img :src="getFullImageUrl(category.img)" alt="category.name" />
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+    </div>
+  </template>
+  
+  <script setup>
+  import { ref, computed } from "vue";
+  import { useFetch } from "#app";
+  
+  // Функция для добавления базового URL к изображениям
+  const getFullImageUrl = (imgPath) => {
+    const baseUrl = "http://188.130.251.143:1337"; // Замените на ваш базовый URL, если он другой
+    return `${baseUrl}${imgPath}`;
+  };
+  
+  const categories = ref([]);
+  
+  // Получение категорий с сервера
+  const { data: categoriesData, error } = await useFetch(
+    "http://188.130.251.143:1337/api/categories?populate=*"
+  );
+  
+  if (error.value) {
+    console.error("Ошибка при получении категорий:", error.value);
+  } else {
+    categories.value = categoriesData.value.data.map((category) => ({
+      id: category.id,
+      name: category.attributes.name,
+      img: category.attributes.img?.data?.attributes?.url || "",
+      tags: category.attributes.tegs.data.map(tag => tag.attributes )
+    }));
   }
-}
-</script>
+  
+  // Категории, которые не имеют id 4 и 6
+  const filteredCategories = computed(() =>
+    categories.value.filter((category) => category.id !== 4 && category.id !== 6)
+  );
+  
+  // Категории с id 4 и 6
+  const specialCategories = computed(() =>
+    categories.value.filter((category) => category.id === 4 || category.id === 6)
+  );
+  </script>
+  
+  <style>
+  .category_container {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-radius: 5px;
+  }
+  .category_all_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  .special_category_container {
+    display: grid;
+    align-items: center;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 5px;
+  }
+  .category_container_item:first-child .category_item {
+    position: relative;
+    height: 100%;
+    background: #efeded69;
+    justify-content: flex-end;
+  }
+  .category_container_item:first-child .category_item .title {
+    FONT-WEIGHT: 500;
+    font-size: 24px;
+    color: #333;
+    text-align: end;
+    position: absolute;
+    padding: 0;
+    /* font-weight: 400; */
+    right: 40px;
+    top: 18px;
+  }
+  .category_container_item {
+    height: 100%;
+  }
+  .category_container_item:first-child .category_item .items-end {
+    justify-content: flex-start;
+  }
+  .category_container_item:first-child img {
+    height: 425px;
+  }
+  .category_container_item:first-child {
+    grid-row: span 2;
+    grid-column: span 2;
+    height: 100%;
+  }
+  
+  .category_item .title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #333;
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  .category_item {
+    background-color: #e8e5e59c;
+    padding: 20px;
+    border-radius: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .category_item img {
+    height: 160px;
+  }
+  .items-end {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  .tags {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    position: absolute;
+    top: 80px;
+    right: 40px;
+  }
+  .tag-link {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 5px 0px #0000000c;
+  }
+  </style>
+  

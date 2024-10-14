@@ -18,6 +18,7 @@ const CarouselComponent = defineAsyncComponent(() => import("./CarouselPopular.v
 
 // Create a variable to store popular items
 const popularItem = ref([]);
+let dataValue = null;
 
 // Fetch popular products
 const { data } = await useFetch(
@@ -28,17 +29,19 @@ const { data } = await useFetch(
 );
 
 if (data.value) {
-  popularItem.value = data.value.data
+  dataValue = data.value.data;
+  popularItem.value = dataValue
     .map((product) => {
       const images = product.attributes.img?.data?.map(
-        (img) => `${baseUrl}${img.attributes.formats.thumbnail?.url || img.attributes.url}`
+        (img) => `${baseUrl}${img.attributes.url || img.attributes.url}`
       ) || [];
 
       return {
         src: images[0],
         name: product.attributes.name,
+        type: product.attributes.type,
         id: product.id,
-        price: product.price,
+        price: product.attributes.price,
       };
     })
     .filter(Boolean);
@@ -53,11 +56,11 @@ if (data.value) {
 .title_carousel {
   position: absolute;
   top: 30px;
-  left: 0;
+  left: 50%;
   z-index: 999;
   font-size: 18px;
-  font-weight: 600;
-  transform: translate(50%, 0%);
+  font-weight: 500;
+  transform: translate(-50%, 0%);
 }
 
 .carousel__pagination-button::after {

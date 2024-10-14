@@ -1,12 +1,16 @@
 <template>
   <div class="img_box">
     <carousel :items-to-show="1">
-      <slide v-for="(img, index) in product" :key="img.id">
-        <div class="relative popular_img_box">
-          <img :src="img.src" alt="Продукт" />
-          <div class="absolute title_popular">{{ img.price }}</div>
-          <div class="absolute title_popular">{{ img.name }}</div>
-        </div>
+      <slide v-for="item in product" :key="item.id">
+        <a class="relative popular_img_box" :href="`/product/${item.id}`">
+          <img :src="item.src" alt="Продукт" />
+          <div class="popular_info_box absolute">
+            <div class="title_popular">{{ item.name }}</div>
+            <div class="title_popular_type">{{ item.type }}</div>
+
+            <div class="title_price">{{ item.price }} руб.</div>
+          </div>
+        </a>
       </slide>
 
       <template #addons>
@@ -41,11 +45,34 @@ const props = defineProps({
   height: 100%;
   object-fit: contain;
 }
-
-.title_popular {
-  color: black;
-  bottom: 30px;
+.popular_info_box {
+  display: flex;
+  gap: 5px;
   left: 50%;
   transform: translate(-50%, 0%);
+  bottom: 30px;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+  color: #333;
+  max-width: 200px;
+  width: 100%;
+}
+
+.title_popular {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.title_popular_type {
+  font-size: 12px;
+  width: 100%;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.title_price {
+  font-size: 14px;
+  text-align: start;
 }
 </style>

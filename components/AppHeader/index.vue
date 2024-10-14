@@ -226,16 +226,22 @@ onUnmounted(() => {
 }
 .button__catalog {
   background-color: white;
-  border-radius: 5px;
-  padding: 10px 14px;
-  font-family: 'Gilroy';
-  font-size: 16px;
-  height: 100%;
-  border: none;
-  font-weight: 500;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-family: 'Gilroy';
+    font-size: 16px;
+    height: 100%;
+    border: none;
+    gap: 4px;
+    flex-wrap: nowrap;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
 }
 .button__catalog span {
   font-size: 10px;
+  height: 6px;
 }
 .bottom_panel-button {
   position: relative;

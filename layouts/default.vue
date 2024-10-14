@@ -152,6 +152,7 @@ section {
 body {
   line-height: 1;
   min-height: 100vh;
+  background-color: #d4d1d11f;
 }
 #__nuxt {
   display: flex;
