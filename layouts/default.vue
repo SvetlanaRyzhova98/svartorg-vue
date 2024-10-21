@@ -578,8 +578,8 @@ img {
   justify-items: center; */
 }
 
-@media all and (max-width: 1200px) {
-  .wrapper {
+@media all and (max-width: 1400px) {
+  .wrapper, .header__wrapper {
     padding: 0 15px;
   }
 }
@@ -596,10 +596,7 @@ img {
     padding: 0 10px;
   }
 
-  img {
-    max-height: 300px;
-    min-width: 125px;
-  }
+ 
   .cards.acsess {
     /* grid-template-columns: 1fr; */
   }

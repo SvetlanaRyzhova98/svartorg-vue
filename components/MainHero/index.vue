@@ -2,12 +2,7 @@
   <div class="hiro wrapper"><Banner /><PopularProducts /></div>
 </template>
 
-
-<script>
- 
- 
-</script>
-
+<script></script>
 
 <style scoped>
 .wrapper {
@@ -24,6 +19,11 @@
   margin-top: 35px;
   margin-bottom: 35px;
 }
-@media all and (max-height: 400px) {
+
+@media all and (max-height: 800px) {
+  .hiro.wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
 }
 </style>

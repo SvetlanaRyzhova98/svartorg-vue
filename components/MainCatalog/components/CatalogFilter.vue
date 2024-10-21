@@ -1,7 +1,7 @@
 <template>
   <div class="filter_box">
     <div class="tags_filter">
-      <h3>Фильтр по тегам: {{id}}</h3>
+      <!-- <h3>Фильтр по тегам: {{id}}</h3> -->
       <div class="tags_list">
         <button
           v-for="(tag, index) in tags"

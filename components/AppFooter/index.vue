@@ -145,7 +145,7 @@ function isPhone() {
   background: #f4f4f4;
   color: white;
   margin-top: auto;
-  font-family: 'Gilroy', sans-serif;
+  font-family: "Gilroy", sans-serif;
 }
 .contact__input {
   font-weight: 400;
@@ -168,7 +168,7 @@ function isPhone() {
   color: rgb(67, 67, 67);
   line-height: 30px;
   font-size: 14px;
-  font-family: 'Gilroy', sans-serif;
+  font-family: "Gilroy", sans-serif;
 }
 .box-footer {
   padding: 30px 0;
@@ -176,7 +176,7 @@ function isPhone() {
 .contact {
   /* padding: 20px 0px; */
   text-align: end;
-  max-width: 350px;
+  /*max-width: 350px;*/
 }
 
 .contact__text {
@@ -211,8 +211,9 @@ function isPhone() {
 .social {
   display: flex;
   align-items: end;
-  flex-direction: column;
-  gap: 25px;
+  justify-content: end;
+  /* flex-direction: column; */
+  gap: 20px;
 }
 
 .social__icon {
@@ -240,5 +241,22 @@ function isPhone() {
   padding: 20px 0;
   font-size: 22px;
   font-weight: 500;
+}
+@media (max-width: 550px) {
+  .wrapper_footer {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 0;
+  }
+  .footer .wrapper_footer {
+    gap: 0px;
+    grid-template-rows: 360px 350px;
+}
+.box-footer{
+    padding: 25px;
+}
+.carousel__viewport .carousel__slide img {
+    min-height: auto;
+}
 }
 </style>

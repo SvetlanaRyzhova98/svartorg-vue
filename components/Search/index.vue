@@ -5,7 +5,7 @@
 
     {{ loading ? "Загрузка..." : "" }}
 
-    <div v-if="!catalogItems.length">🌶️</div>
+    <div v-if="!catalogItems.length" class="result_box">По запросу ничего не найдено. Попробуйте ввести иначе.</div>
 
     <div class="catalog_box">
       <MainCatalogItem
@@ -108,7 +108,10 @@ onMounted(async () => {
   margin: 30px 0 0px;
   font-size: 16px;
 }
-
+.result_box{
+    padding: 20px 0;
+    font-size: 20px;
+}
 @media all and (max-width: 800px) {
   .catalog_box {
     grid-template-columns: 1fr 1fr 1fr;

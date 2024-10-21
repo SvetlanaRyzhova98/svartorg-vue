@@ -32,7 +32,7 @@ const getImageUrl = (image) => {
 .breadcrumbs {
   display: flex;
   justify-content: start;
-  margin-top: 20px;
+  margin: 20px 0;
   font-size: 13px;
 }
 .breadcrumbs li a {

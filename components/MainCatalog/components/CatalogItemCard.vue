@@ -6,54 +6,60 @@
       <div class="product_card">
         <div class="img_box">
           <client-only>
-            <CarouselComponent v-if="product.images && product.images.length" :images="product.images" />
+            <CarouselComponent
+              v-if="product.images && product.images.length"
+              :images="product.images"
+            />
           </client-only>
-          <img v-if="product.images.length == 0" src="/assets/no_image.svg" alt="img">
+          <img v-if="product.images.length == 0" src="/assets/no_image.svg" alt="img" />
         </div>
         <div class="info_product">
-          <h1 class="title">
-            <span>{{ product.type }}</span><br> {{ product.name }}
-          </h1>
-         <div class="price_box">
-          <div class="type_welding" v-if="product.type_welding"> {{ product.type_welding }} </div>
-          <div class="price"> {{ product.price ? `${product.price} руб.` : 'Цена по запросу' }}</div>
-         </div>
-
-          <div class="availability">
-            <h2>Наличие в филиалах:</h2>
-            <ul>
-              <li
-                v-for="(filial, index) in product.filials"
-                :key="index"
-              >
-               <img src="/assets/ok.svg" alt="ok"> {{ filial.name }}
-              </li>
-            </ul>
+          <div class="flex gap-5 items-end">
+            <h1 class="title">
+                <span>{{ product.type }}</span
+                ><br />
+                {{ product.name }}
+              </h1>
+              <div class="price_box">
+                <div class="type_welding" v-if="product.type_welding">
+                  {{ product.type_welding }}
+                </div>
+                <div class="price">
+                  {{ product.price ? `${product.price} руб.` : "Цена по запросу" }}
+                </div>
+              </div>
           </div>
 
-          <div class="info_list">
-            <h2>Характеристики:</h2>
-            <ul>
-              <li
-                v-for="(row, index) in product.property.rows"
-                :key="index"
-              >
-                <span>{{ row.key }}:</span>  {{ row.val }}
-              </li>
-            </ul>
-          </div>
+          <div class="flex gap-10">
+            <div class="info_list">
+              <h2>Характеристики:</h2>
+              <ul>
+                <li v-for="(row, index) in product.property.rows" :key="index">
+                  <span>{{ row.key }}:</span> {{ row.val }}
+                </li>
+              </ul>
+            </div>
 
-          <div v-if="product.documents && product.documents.length" class="documents">
-            <h2>Файлы:</h2>
-            <ul>
-              <li
-                v-for="(doc, index) in product.documents"
-                :key="index"
-              >
-                <a class="link_doc" :href="doc.url" target="_blank">
-                  <img src="/assets/file.svg" alt="">{{ doc.name }}</a>
-              </li>
-            </ul>
+            <div class="flex gap-5">
+              <div class="availability">
+                <h2>Наличие в филиалах:</h2>
+                <ul>
+                  <li v-for="(filial, index) in product.filials" :key="index">
+                    <img src="/assets/ok.svg" alt="ok" /> {{ filial.name }}
+                  </li>
+                </ul>
+              </div>
+              <div v-if="product.documents && product.documents.length" class="documents">
+                <h2>Файлы:</h2>
+                <ul>
+                  <li v-for="(doc, index) in product.documents" :key="index">
+                    <a class="link_doc" :href="doc.url" target="_blank">
+                      <img src="/assets/file.svg" alt="" />{{ doc.name }}</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -80,9 +86,9 @@ if (data.value) {
   const item = data.value.data.attributes;
 
   // Получаем все изображения
-  const images = item.img?.data?.map(
-    (img) => `http://188.130.251.143:1337${img.attributes.url}`
-  ) || [];
+  const images =
+    item.img?.data?.map((img) => `http://188.130.251.143:1337${img.attributes.url}`) ||
+    [];
 
   product.value = {
     id: data.value.data.id,
@@ -93,10 +99,11 @@ if (data.value) {
     images,
     property: item.property || { rows: [] },
     filials: item.filials?.data?.map((filial) => filial.attributes) || [],
-    documents: item.instructions?.data?.map((doc) => ({
-      name: doc.attributes.name,
-      url: `http://188.130.251.143:1337${doc.attributes.url}`,
-    })) || [],
+    documents:
+      item.instructions?.data?.map((doc) => ({
+        name: doc.attributes.name,
+        url: `http://188.130.251.143:1337${doc.attributes.url}`,
+      })) || [],
     type_welding: item.tip_svarochnika?.data?.attributes?.welding || null,
   };
 
@@ -112,24 +119,40 @@ if (data.value) {
 const CarouselComponent = defineAsyncComponent(() => import("./Carousel.vue"));
 </script>
 
+
+<style>
+.flex{
+    display: flex;
+}
+.gap-5{
+gap: 20px;
+}
+.gap-10{
+gap: 40px;
+}
+.items-end{
+    align-items: flex-end;
+}   
+</style>
+
 <style scoped>
-.link_doc{
+.link_doc {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.price_box{
+.price_box {
   display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
 }
-.type_welding{
+.type_welding {
   border-radius: 10px;
-    text-transform: uppercase;
-    background: #7a7f852e;
-    padding: 10px;
-    width: max-content;
+  text-transform: uppercase;
+  background: #7a7f852e;
+  padding: 10px;
+  width: max-content;
 }
 .product_card a {
   color: black;
@@ -158,7 +181,7 @@ h2 {
 .info_product {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap:35px;
 }
 .info_list ul {
   list-style-type: none;

@@ -22,7 +22,7 @@ export default {
 .breadcrumbs{
   display: flex;
   justify-content: start;
-  margin-top: 20px;
+  margin: 25px 0;
   font-size: 13px;
 }
 .breadcrumbs li a{

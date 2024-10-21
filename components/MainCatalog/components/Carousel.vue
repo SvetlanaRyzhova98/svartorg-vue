@@ -38,5 +38,6 @@ console.log(props);
 img {
   width: 100%;
   height: auto;
+  object-fit: contain;
 }
 </style>

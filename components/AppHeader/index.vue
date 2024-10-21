@@ -150,7 +150,7 @@ onUnmounted(() => {
 .header__link {
   font-style: normal;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 14px;
   text-decoration: none;
   color: #333333;
@@ -247,8 +247,6 @@ onUnmounted(() => {
   position: relative;
 }
 @media all and (max-width: 1200px) {
-  .header__wrapper {
-    padding: 0 15px;
-  }
+   
 }
 </style>

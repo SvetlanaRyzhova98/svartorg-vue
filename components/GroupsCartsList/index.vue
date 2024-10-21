@@ -1,179 +1,239 @@
 <template>
-    <div class="category_all_container">
-      <div class="category_container">
-        <!-- Основной цикл, исключаем категории с id 4 и 6 -->
-        <div
-          v-for="category in filteredCategories"
-          :key="category.id"
-          class="category_container_item"
-        >
-          <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
-            <div class="title">{{ category.name }}</div>
-            <div v-if="category.img" class="items-end">
-              <img :src="getFullImageUrl(category.img)" alt="category.name" />
-            </div>
-            <!-- Проверяем, если id категории равно 1, выводим теги -->
-            <div v-if="category.id === 1"> 
-              <div class="tags">
-                <div v-for="(tag, index) in category.tags" :key="index">
-                  <!-- Создаем кликабельную ссылку с параметром tag -->
-                  <NuxtLink :to="`/catalog/${category.id}?tag=${index+1}`" class="tag-link">
-                    {{ tag.name }}
-                  </NuxtLink>
-                </div>
+  <div class="category_all_container">
+    <div class="category_container">
+      <!-- Основной цикл, исключаем категории с id 4 и 6 -->
+      <div
+        v-for="category in filteredCategories"
+        :key="category.id"
+        class="category_container_item"
+      >
+        <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
+          <div class="title">{{ category.name }}</div>
+
+          <!-- Проверяем, если id категории равно 1, выводим теги -->
+          <div v-if="category.id === 1">
+            <div class="tags">
+              <div v-for="(tag, index) in category.tags" :key="index">
+                <!-- Создаем кликабельную ссылку с параметром tag -->
+                <NuxtLink
+                  :to="`/catalog/${category.id}?tag=${index + 1}`"
+                  class="tag-link"
+                >
+                  {{ tag.name }}
+                </NuxtLink>
               </div>
             </div>
-          </NuxtLink>
-        </div>
-      </div>
-      <div class="special_category_container">
-        <div v-for="category in specialCategories" :key="category.id">
-          <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
-            <div class="title">{{ category.name }}</div>
-            <div v-if="category.img" class="items-end">
-              <img :src="getFullImageUrl(category.img)" alt="category.name" />
-            </div>
-          </NuxtLink>
-        </div>
+          </div>
+          <div v-if="category.img" class="items-end justify-end">
+            <img :src="getFullImageUrl(category.img)" alt="category.name" />
+          </div>
+        </NuxtLink>
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, computed } from "vue";
-  import { useFetch } from "#app";
-  
-  // Функция для добавления базового URL к изображениям
-  const getFullImageUrl = (imgPath) => {
-    const baseUrl = "http://188.130.251.143:1337"; // Замените на ваш базовый URL, если он другой
-    return `${baseUrl}${imgPath}`;
-  };
-  
-  const categories = ref([]);
-  
-  // Получение категорий с сервера
-  const { data: categoriesData, error } = await useFetch(
-    "http://188.130.251.143:1337/api/categories?populate=*"
-  );
-  
-  if (error.value) {
-    console.error("Ошибка при получении категорий:", error.value);
-  } else {
-    categories.value = categoriesData.value.data.map((category) => ({
-      id: category.id,
-      name: category.attributes.name,
-      img: category.attributes.img?.data?.attributes?.url || "",
-      tags: category.attributes.tegs.data.map(tag => tag.attributes )
-    }));
+    <div class="special_category_container">
+      <div v-for="category in specialCategories" :key="category.id">
+        <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
+          <div class="title">{{ category.name }}</div>
+          <div v-if="category.img" class="items-end justify-end">
+            <img :src="getFullImageUrl(category.img)" alt="category.name" />
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed } from "vue";
+import { useFetch } from "#app";
+
+// Функция для добавления базового URL к изображениям
+const getFullImageUrl = (imgPath) => {
+  const baseUrl = "http://188.130.251.143:1337"; // Замените на ваш базовый URL, если он другой
+  return `${baseUrl}${imgPath}`;
+};
+
+const categories = ref([]);
+
+// Получение категорий с сервера
+const { data: categoriesData, error } = await useFetch(
+  "http://188.130.251.143:1337/api/categories?populate=*"
+);
+
+if (error.value) {
+  console.error("Ошибка при получении категорий:", error.value);
+} else {
+  categories.value = categoriesData.value.data.map((category) => ({
+    id: category.id,
+    name: category.attributes.name,
+    img: category.attributes.img?.data?.attributes?.url || "",
+    tags: category.attributes.tegs.data.map((tag) => tag.attributes),
+  }));
+}
+
+// Категории, которые не имеют id 4 и 6
+const filteredCategories = computed(() =>
+  categories.value.filter((category) => category.id !== 4 && category.id !== 6)
+);
+
+// Категории с id 4 и 6
+const specialCategories = computed(() =>
+  categories.value.filter((category) => category.id === 4 || category.id === 6)
+);
+</script>
+
+<style>
+.category_container {
+  display: grid;
+  align-items: center;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  border-radius: 5px;
+}
+.category_all_container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.special_category_container {
+  display: grid;
+  align-items: center;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 5px;
+}
+.category_container_item:first-child .category_item {
+  position: relative;
+  height: 100%;
+  background: #efeded69;
+  justify-content: flex-end;
+  gap: 0;
+}
+.category_container_item:first-child .category_item .title {
+  font-weight: 500;
+  font-size: 24px;
+  color: #333;
+  text-align: end;
+  position: absolute;
+  padding: 0;
+  /* font-weight: 400; */
+  right: 40px;
+  top: 18px;
+}
+.category_container_item {
+  height: 100%;
+}
+.category_container_item:first-child .category_item .items-end {
+  justify-content: flex-start;
+}
+.category_container_item:first-child img {
+  height: 425px;
+  object-fit: contain;
+}
+.category_container_item:first-child {
+  grid-row: span 2;
+  grid-column: span 2;
+  height: 100%;
+}
+
+.category_item .title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.category_item {
+  background-color: #e8e5e59c;
+  padding: 20px;
+  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: #333;
+  gap: 20px;
+  justify-content: space-between;
+}
+.category_item img {
+  height: 160px;
+  object-fit: contain;
+}
+.items-end {
+  display: flex;
+  align-items: flex-end;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+.tags {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  position: absolute;
+  top: 80px;
+  right: 40px;
+}
+.tag-link {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+  text-transform: uppercase;
+  box-shadow: 0px 1px 5px 0px #0000000c;
+}
+@media (max-width: 1000px) {
+  .category_container_item:first-child img {
+    height: 350px;
   }
-  
-  // Категории, которые не имеют id 4 и 6
-  const filteredCategories = computed(() =>
-    categories.value.filter((category) => category.id !== 4 && category.id !== 6)
-  );
-  
-  // Категории с id 4 и 6
-  const specialCategories = computed(() =>
-    categories.value.filter((category) => category.id === 4 || category.id === 6)
-  );
-  </script>
-  
-  <style>
-  .category_container {
-    display: grid;
-    align-items: center;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-radius: 5px;
-  }
-  .category_all_container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 50px;
-  }
-  .special_category_container {
-    display: grid;
-    align-items: center;
-    gap: 20px;
-    grid-template-columns: 1fr 1fr;
-    border-radius: 5px;
-  }
-  .category_container_item:first-child .category_item {
-    position: relative;
-    height: 100%;
-    background: #efeded69;
-    justify-content: flex-end;
+  .category_item .title {
+    font-size: 17px;
+    margin: 0px;
   }
   .category_container_item:first-child .category_item .title {
-    FONT-WEIGHT: 500;
-    font-size: 24px;
-    color: #333;
-    text-align: end;
-    position: absolute;
-    padding: 0;
-    /* font-weight: 400; */
-    right: 40px;
-    top: 18px;
-  }
-  .category_container_item {
-    height: 100%;
-  }
-  .category_container_item:first-child .category_item .items-end {
-    justify-content: flex-start;
-  }
-  .category_container_item:first-child img {
-    height: 425px;
-  }
-  .category_container_item:first-child {
-    grid-row: span 2;
-    grid-column: span 2;
-    height: 100%;
-  }
-  
-  .category_item .title {
-    font-size: 20px;
-    font-weight: 500;
-    color: #333;
-    margin-left: 10px;
-    margin-top: 10px;
-  }
-  .category_item {
-    background-color: #e8e5e59c;
-    padding: 20px;
-    border-radius: 5px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    color: #333;
-    gap: 20px;
-    justify-content: space-between;
-  }
-  .category_item img {
-    height: 160px;
-  }
-  .items-end {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
+    font-size: 21px;
+    right: 27px;
+    top: 20px;
   }
   .tags {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    position: absolute;
-    top: 80px;
-    right: 40px;
+    top: 70px;
+    right: 28px;
+  }
+  .footer .wrapper_footer {
+    gap: 35px;
+  }
+
+  .carousel__viewport .carousel__slide img {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 800px) {
+  .category_container_item:first-child .category_item .title {
+    position: sticky;
+  }
+  .tags {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: sticky;
+    padding: 20px 0;
   }
   .tag-link {
-    background-color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: 500;
-    text-decoration: none;
-    color: #333;
-    text-transform: uppercase;
-    box-shadow: 0px 1px 5px 0px #0000000c;
+    display: block;
   }
-  </style>
-  
+}
+
+@media (max-width: 760px) {
+  .category_container {
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+  }
+  .hiro.wrapper {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+</style>

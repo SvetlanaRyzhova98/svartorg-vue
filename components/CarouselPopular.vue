@@ -75,4 +75,16 @@ const props = defineProps({
   font-size: 14px;
   text-align: start;
 }
+@media (max-width: 1000px) {
+  .popular_img_box img {
+    object-fit: contain;
+  }
+  .popular_info_box.absolute  {
+    bottom: 15px;
+  }
+  .carousel__viewport .carousel__slide img {
+    min-height: 300px;
+     
+  }
+}
 </style>

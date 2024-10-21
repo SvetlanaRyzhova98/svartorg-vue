@@ -1,7 +1,5 @@
 <template>
   <div class="header__contact">
-
-    
     <div class="header__link header__link_cont">
       <ClientOnly><font-awesome-icon icon="fa-solid fa-location-dot" /></ClientOnly>
       {{ Locations[location.location]?.address }}
@@ -11,8 +9,8 @@
       :href="'tel:' + Locations[location.location]?.phone"
       class="header__link header__link_cont"
     >
-    <ClientOnly><font-awesome-icon icon="fa-solid fa-phone" /></ClientOnly>
-      {{ Locations[location.location]?.phone}} 
+      <ClientOnly><font-awesome-icon icon="fa-solid fa-phone" /></ClientOnly>
+      {{ Locations[location.location]?.phone }}
     </a>
     <!-- <a
       :href="'tel:' + Locations[location.location]?.phone"
@@ -41,5 +39,15 @@ const location = useLocationStore();
   color: #333333;
   display: flex;
   white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .header__contact {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .header__wrapper .header_top {
+    gap: 70px;
+}
 }
 </style>

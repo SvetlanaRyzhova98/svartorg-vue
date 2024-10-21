@@ -121,27 +121,5 @@
     display: block;
 }
 
-
-
-@media all and (max-width: 800px) {
-   .article {
-    grid-template-columns: 1fr;
-  }
-  .article__img {
-    display: none;
-  }
  
-  
-}
-
-@media all and (max-width: 500px) {
-  .articles {
-    grid-template-columns: 1fr;
-    
-  }
-  .article__text {
-    margin-bottom: 0px;
-    min-height: 60px;
-  }
-}
 </style>
