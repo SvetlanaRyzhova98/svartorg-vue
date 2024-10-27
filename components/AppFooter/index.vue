@@ -134,11 +134,11 @@ function isPhone() {
 .wrapper_footer {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: 70px;
+  gap: 50px;
   justify-items: end;
   padding: 0 0 0 30px;
   align-items: center;
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 .footer {
@@ -242,7 +242,7 @@ function isPhone() {
   font-size: 22px;
   font-weight: 500;
 }
-@media (max-width: 550px) {
+@media (max-width: 650px) {
   .wrapper_footer {
     grid-template-columns: 1fr;
     justify-items: center;

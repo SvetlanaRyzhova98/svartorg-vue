@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="special_category_container">
-      <div v-for="category in specialCategories" :key="category.id">
+      <div v-for="category in specialCategories" :key="category.id" class="w-full h-full">
         <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
           <div class="title">{{ category.name }}</div>
           <div v-if="category.img" class="items-end justify-end">
@@ -192,6 +192,8 @@ const specialCategories = computed(() =>
   .category_item .title {
     font-size: 17px;
     margin: 0px;
+    word-break: break-word;
+    hyphens: auto;
   }
   .category_container_item:first-child .category_item .title {
     font-size: 21px;
@@ -231,9 +233,21 @@ const specialCategories = computed(() =>
     gap: 15px;
     grid-template-columns: 1fr 1fr;
   }
+  .category_container_item:first-child .category_item .title {
+    text-align: start;
+  }
   .hiro.wrapper {
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+  .category_container_item:first-child img {
+    height: 270px;
+  }
+
+  @media (max-width: 560px) {
+    .category_container_item:first-child img {
+      height: 225px;
+    }
   }
 }
 </style>

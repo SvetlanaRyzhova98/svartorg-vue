@@ -38,6 +38,10 @@ if (data.value) {
   gap: 10px;
   height: 100%;
 }
- 
+@media (max-width: 550px) {
+  .banner_box {
+    display: none;
+  }
+}
  
 </style>

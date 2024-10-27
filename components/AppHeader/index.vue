@@ -27,9 +27,15 @@
             />
           </NuxtLink>
           <div class="bottom_panel-button">
-            <button class="button__catalog" @click="toggleCategories">
-              Продукция <span>▼</span>
-            </button>
+            <div class="flex">
+              <button class="button__catalog" @click="toggleCategories">
+                Продукция <span>▼</span>
+              </button>
+              <button class="button__catalog_mobile" @click="toggleCategories">
+                <font-awesome-icon :icon="['fas', 'bars']" />
+              </button>
+            </div>
+
             <ul class="header__sublist" v-if="showCategories">
               <li v-for="category in categories" :key="category.id">
                 <NuxtLink
@@ -221,23 +227,23 @@ onUnmounted(() => {
   gap: 15px;
 }
 .header__link.header__link_cont {
-  font-size: 14px;
+  font-size: 16px;
   color: #333333;
 }
 .button__catalog {
   background-color: white;
-    border-radius: 5px;
-    padding: 10px 14px;
-    font-family: 'Gilroy';
-    font-size: 16px;
-    height: 100%;
-    border: none;
-    gap: 4px;
-    flex-wrap: nowrap;
-    display: flex;
-    font-weight: 500;
-    align-items: center;
-    justify-content: space-between;
+  border-radius: 5px;
+  padding: 10px 14px;
+  font-family: "Gilroy";
+  font-size: 16px;
+  height: 100%;
+  border: none;
+  gap: 4px;
+  flex-wrap: nowrap;
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  justify-content: space-between;
 }
 .button__catalog span {
   font-size: 10px;
@@ -246,7 +252,78 @@ onUnmounted(() => {
 .bottom_panel-button {
   position: relative;
 }
+.button__catalog_mobile{
+    display: none;
+}
 @media all and (max-width: 1200px) {
+  .bottom_panel {
+    gap: 25px;
+  }
+}
+@media all and (max-width: 900px) {
+  .header__link {
+    font-size: 16px;
+  }
    
+  .header_bottom {
+    display: grid;
+    grid-template-rows: auto auto; /* Две строки: одна для адреса, одна для панели и поиска */
+    grid-template-columns: auto 1fr; /* Первая колонка для панели, вторая для поиска */
+    gap: 10px;
+  }
+
+  .header__contact {
+    grid-row: 1; /* Адрес в первой строке */
+    grid-column: 1 / -1; /* Адрес занимает обе колонки */
+    text-align: right; /* Выравнивание адреса вправо */
+    margin: 10px 0;
+    justify-content: end;
+    
+  }
+
+  .bottom_panel {
+    grid-row: 2; /* Панель во второй строке */
+    grid-column: 1; /* Панель в первой колонке */
+  }
+
+  .form_search {
+    grid-row: 2; /* Поиск во второй строке */
+    grid-column: 2; /* Поиск во второй колонке */
+    width: 100%; /* Растягиваем поиск на всю оставшуюся ширину */
+  }
+}
+@media all and (max-width: 760px) {
+  .header__logo {
+    width: 35px;
+    display: block;
+    overflow: hidden;
+  }
+}
+@media all and (max-width: 470px) {
+    .button__catalog{
+        display: none;
+    }
+    .button__catalog_mobile{
+        display: flex;
+        background-color: white;
+        border-radius: 5px;
+        padding: 10px 14px;
+        font-family: "Gilroy";
+        font-size: 16px;
+        height: 100%;
+        border: none;
+        gap: 4px;
+        flex-wrap: nowrap;
+        display: flex;
+        font-weight: 500;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 9;
+    }
+    .header__wrapper .header_top {
+        gap: 15px;
+        justify-content: space-between;
+
+    }
 }
 </style>

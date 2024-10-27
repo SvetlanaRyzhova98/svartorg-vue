@@ -31,11 +31,14 @@ let id = route.query.tag;
 
 const selectTag = (tagId) => {
   props;
+
+  const isActive = id == tagId;
+
   router.push({
     path: route.path,
     query: {
       ...route.query,
-      tag: tagId,
+      tag: isActive ? undefined : tagId, // Убираем тег, если он уже активен
     },
   });
 };

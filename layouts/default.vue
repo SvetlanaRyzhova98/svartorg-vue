@@ -571,6 +571,10 @@ img {
 .displaynone {
   display: none;
 }
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
 .cards.instrumental {
 }
 .cards.acsess {
@@ -650,22 +654,19 @@ img {
   }
 }
 
-@media all and (max-height: 500px) {
-}
-@media all and (max-height: 400px) {
  
-  .location {
-    margin-top: 10px;
-    gap: 5px;
-  }
+@media all and (max-width: 400px) {
   .location-city {
     flex-direction: row;
     gap: 16px;
+    z-index: 999;
     margin-top: 5px;
   }
   .hiro__desc {
     font-size: 15px;
   }
+  .category_item .title {
+    font-size: 13px;}
 }
 .carousel__pagination-button::after {
   width: 10px !important;
@@ -680,13 +681,56 @@ img {
 .relative {
   position: relative;
 }
-
+.w-full{
+    width: 100%;
+}
+.h-full{
+    height: 100%;
+}
 .absolute {
   position: absolute;
    content: "";
 }
-
+.flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
 .carousel__slide.carousel__slide--visible img{
   border-radius: 10px;
 }
+
+.pagination-container {
+    display: flex;
+
+    column-gap: 10px;
+  }
+
+  .paginate-buttons {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(242, 242, 242);
+    border: 1px solid rgb(217, 217, 217);
+    color: black;
+    margin: 15px 0;
+  }
+
+  .paginate-buttons:hover {
+    background-color: #d8d8d8;
+  }
+
+  .active-page {
+    background-color: #3498db;
+
+    border: 1px solid #3498db;
+
+    color: white;
+  }
+
+  .active-page:hover {
+    background-color: #2988c8;
+  }
 </style>

@@ -25,6 +25,9 @@ export default {
   margin: 25px 0;
   font-size: 13px;
 }
+.breadcrumbs li{
+    width: min-content;
+}
 .breadcrumbs li a{
   color: rgba(34,41,51,0.6);
   margin: 0 5px;

@@ -57,7 +57,8 @@ if (data.value) {
   position: absolute;
   top: 30px;
   left: 50%;
-  z-index: 999;
+  white-space: nowrap;
+  z-index: 9;
   font-size: 18px;
   font-weight: 500;
   transform: translate(-50%, 0%);

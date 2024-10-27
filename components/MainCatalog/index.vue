@@ -2,32 +2,51 @@
   <div class="wrapper">
     <BreadCrumbs :path="[titles[categoryId]]" />
 
-    <CatalogFilter
-      :group="categoryId"
-      v-model="filter"
-      :tags="tags"
-    />
+    <CatalogFilter :group="categoryId" v-model="filter" :tags="tags" />
 
     <div class="catalog_box">
-      <MainCatalogItem
-        v-for="(item, j) in items"
-        :key="j"
-        :item="item"
-      />
+
+      <MainCatalogItem v-for="(item, j) in items" :key="item.id" :item="item" />
+      
     </div>
+
+    <div v-if="catalogItemsServer" class="flex justify-center">
+      <vue-awesome-paginate
+        :total-items="catalogItemsServer"
+        :items-per-page="SIZE"
+        :max-pages-shown="5"
+        v-model="page"
+        @click="onClickHandler"
+      />
+
+    </div>
+
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch } from "vue";
 import { useFetch, useAsyncData } from "#app";
-import { useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 import CatalogFilter from "./components/CatalogFilter";
 
+const router = useRouter();
 const route = useRoute();
 const categoryId = route.params.id;
 const tag = route.query.tag;
+
+const page = ref(route.query.page ? Number(route.query.page) : 1);
+
+function updateQueryParam(key, value) {
+  router.push({
+    path: route.path, // текущий путь
+    query: {
+      ...route.query, // сохраняем текущие query-параметры
+      [key]: value, // добавляем или изменяем новый query-параметр
+    },
+  });
+}
 
 const titles = {
   1: { caption: "Сварочное оборудование", href: "/catalog/1" },
@@ -41,21 +60,37 @@ const titles = {
 
 const filter = ref({});
 const catalogItems = ref([]);
+const catalogItemsServer = ref(0);
+const SIZE = 30;
 const tags = ref([]);
 
-const fetchData = async (tag = null) => {
-  let query = `/products?populate=*&filters[kategoriya][$eq]=${categoryId}`;
+const onClickHandler = async (pageId) => {
+  //   console.log(page);
+  //   updateQueryParam("page", pageId);
+  //   await fetchData(tag, SIZE, page.value);
+  page.value = pageId;
+  updateQueryParam("page", pageId);
+  await fetchData(tag, SIZE, page.value);
+};
+
+const fetchData = async (tag = null, size, page) => {
+  let query = `/products?populate=*&filters[kategoriya][$eq]=${categoryId}&pagination[pageSize]=${size}&pagination[page]=${page}&sort=id`;
   if (tag) {
     query += `&filters[tegs][id][$eq]=${tag}`;
   }
 
+  console.log(query);
   // const { data } = await useFetch(query, { baseURL: "http://localhost:1337/api" });
   // await useFetch(query, { baseURL: "http://localhost:1337/api" });
 
-  const [{data}, {data: categoriesData}] = await Promise.all([
+  const [{ data }, { data: categoriesData }] = await Promise.all([
     useFetch(query, { baseURL: "http://188.130.251.143:1337/api" }),
-    useFetch(`/categories/${categoryId}?populate=tegs`, { baseURL: "http://188.130.251.143:1337/api" })
-  ])
+    useFetch(`/categories/${categoryId}?populate=tegs`, {
+      baseURL: "http://188.130.251.143:1337/api",
+    }),
+  ]);
+
+  console.log(data);
 
   if (data.value) {
     catalogItems.value = data.value.data.map((item) => ({
@@ -65,14 +100,16 @@ const fetchData = async (tag = null) => {
       price: item.attributes.price,
       desc: item.attributes.desc,
       image: item.attributes.img?.data?.[0]?.attributes?.url || "",
-      tags: item.attributes.tegs.data.map(tag => tag.attributes.name)
+      tags: item.attributes.tegs.data.map((tag) => tag.attributes.name),
     }));
 
     tags.value = categoriesData.value.data.attributes.tegs.data;
+
+    catalogItemsServer.value = data.value.meta.pagination.total;
   }
 };
 
-await fetchData(tag);
+await fetchData(tag, SIZE, page.value);
 
 const items = computed(() => {
   const filterObj = Object.entries(filter.value)
@@ -93,9 +130,23 @@ const items = computed(() => {
 });
 
 // Слушаем изменения параметра фильтра в URL
-watch(() => route.query.tag, async (tagId) => {
-  await fetchData(tagId);
-});
+watch(
+  () => route.query.tag,
+  async (tagId) => {
+    page.value = 1;
+    updateQueryParam("page", page.value);
+    await fetchData(tagId, SIZE, page.value);
+  }
+);
+
+// watch(
+//   () => route.query.page,
+//   async (pageId) => {
+//     page.value = pageId;
+//     updateQueryParam("page", page.value);
+//     await fetchData(tagId, SIZE, page.value);
+//   }
+// );
 
 // watchEffect(() => {
 //   debugger

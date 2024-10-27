@@ -12,11 +12,7 @@
       <ClientOnly><font-awesome-icon icon="fa-solid fa-phone" /></ClientOnly>
       {{ Locations[location.location]?.phone }}
     </a>
-    <!-- <a
-      :href="'tel:' + Locations[location.location]?.phone"
-      class="header__link header__link_cont header__link_cont-mobile"
-    >
-    </a> -->
+   
   </div>
 </template>
 
@@ -33,21 +29,24 @@ const location = useLocationStore();
   gap: 15px;
 }
 .header__link.header__link_cont {
-  font-size: 14px;
+  font-size: 16px;
   gap: 5px;
   align-items: center;
   color: #333333;
   display: flex;
   white-space: nowrap;
 }
+@media (max-width: 1300px) {
+  .header__contact {
+    flex-direction: column;
+  }
+}
 @media (max-width: 900px) {
   .header__contact {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    flex-direction: row;
   }
   .header__wrapper .header_top {
     gap: 70px;
-}
+  }
 }
 </style>

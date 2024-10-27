@@ -1,14 +1,15 @@
 <template>
   <div class="img_box">
-    <carousel :items-to-show="1">
+    <Carousel :breakpoints="config.breakpoints">
+
       <slide v-for="item in product" :key="item.id">
         <a class="relative popular_img_box" :href="`/product/${item.id}`">
           <img :src="item.src" alt="Продукт" />
           <div class="popular_info_box absolute">
             <div class="title_popular">{{ item.name }}</div>
             <div class="title_popular_type">{{ item.type }}</div>
-
-            <div class="title_price">{{ item.price }} руб.</div>
+<!-- 
+            <div class="title_price">{{ item.price }} руб.</div> -->
           </div>
         </a>
       </slide>
@@ -17,12 +18,13 @@
         <navigation />
         <pagination />
       </template>
-    </carousel>
+    </Carousel>
   </div>
 </template>
 
 <script setup>
 import "vue3-carousel/dist/carousel.css";
+import { reactive } from 'vue';
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
 const props = defineProps({
@@ -31,6 +33,21 @@ const props = defineProps({
     required: true,
   },
 });
+
+const config = reactive({
+  breakpoints: {
+    
+    360: {
+      itemsToShow: 2,
+      snapAlign: 'start',
+    },
+    800: {
+      itemsToShow: 1,
+      snapAlign: 'start',
+    },
+  },
+});
+
 </script>
 
 <style scoped>
@@ -50,7 +67,7 @@ const props = defineProps({
   gap: 5px;
   left: 50%;
   transform: translate(-50%, 0%);
-  bottom: 30px;
+  bottom: 20px;
   align-items: center;
   flex-direction: column;
   gap: 5px;
@@ -65,7 +82,7 @@ const props = defineProps({
 }
 
 .title_popular_type {
-  font-size: 12px;
+  font-size: 14px;
   width: 100%;
   font-weight: 500;
   margin-bottom: 5px;
