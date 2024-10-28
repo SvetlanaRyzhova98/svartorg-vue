@@ -6,14 +6,14 @@
         <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
-              <NuxtLink to="/services" class="header__link">Услуги</NuxtLink>
+              <NuxtLink to="/how-to-buy" class="header__link">Как купить</NuxtLink>
             </li>
             <li class="header__item">
               <NuxtLink class="header__link" to="/contacts">Контакты</NuxtLink>
             </li>
-            <li class="header__item">
+            <!-- <li class="header__item">
               <NuxtLink to="/articles" class="header__link">Инфо</NuxtLink>
-            </li>
+            </li> -->
           </ul>
         </nav>
       </div>
@@ -298,6 +298,9 @@ onUnmounted(() => {
     display: block;
     overflow: hidden;
   }
+  .header__list {
+    gap: 15px;
+  }
 }
 @media all and (max-width: 470px) {
     .button__catalog{
@@ -324,6 +327,9 @@ onUnmounted(() => {
         gap: 15px;
         justify-content: space-between;
 
+    }
+    .header__link {
+        font-size: 14px;
     }
 }
 </style>

@@ -72,6 +72,12 @@ function setLocation(str) {
   color: #000000;
   cursor: pointer;
 }
+.location-select{
+    width: min-content;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
 .location-select:hover {
   cursor: pointer;
   color: #333333;

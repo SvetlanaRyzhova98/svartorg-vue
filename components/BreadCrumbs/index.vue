@@ -23,10 +23,13 @@ export default {
   display: flex;
   justify-content: start;
   margin: 25px 0;
+  gap: 5px;
+  flex-wrap: wrap;
   font-size: 13px;
 }
 .breadcrumbs li{
     width: min-content;
+    white-space: nowrap;
 }
 .breadcrumbs li a{
   color: rgba(34,41,51,0.6);
