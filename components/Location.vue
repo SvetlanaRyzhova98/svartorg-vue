@@ -9,6 +9,7 @@
       <li @click="setLocation('KRD')">{{ Locations["KRD"].title }}</li>
       <li @click="setLocation('NVR')">{{ Locations["NVR"].title }}</li>
       <li @click="setLocation('TMSH')">{{ Locations["TMSH"].title }}</li>
+      <li @click="setLocation('MPK')">{{ Locations["MPK"].title }}</li>
     </ul>
   </div>
 </template>
@@ -72,11 +73,11 @@ function setLocation(str) {
   color: #000000;
   cursor: pointer;
 }
-.location-select{
-    width: min-content;
-    display: flex;
-    align-items: center;
-    gap: 3px;
+.location-select {
+  width: min-content;
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 .location-select:hover {
   cursor: pointer;

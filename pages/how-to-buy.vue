@@ -1,6 +1,6 @@
 <template>
   <Head>
-    <Title>Контакты</Title>
+    <Title>Как купить</Title>
     <Meta
       name="description"
       content="Все для сварки ☎ +7-918-325-48-00, силовая техика, электроинструмент, компрессоры, пневмоинструмент"
@@ -54,7 +54,6 @@
 /* Основные стили */
 .how-to-buy {
   
-  padding: 20px 0;
   margin-bottom: 30px;
   color: #333;
 }
@@ -65,7 +64,7 @@
 
 h1 {
   font-size: 24px;
-  text-align: center;
+  text-align: start;
   margin-bottom: 20px;
 }
 
@@ -125,9 +124,7 @@ h2 {
     font-size: 16px;
   }
 
-  .how-to-buy {
-    padding: 15px;
-  }
+   
  
 }
 </style>

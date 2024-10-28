@@ -1,6 +1,6 @@
 <template>
   <Head>
-    <Title>Контакты</Title>
+    <Title>Все филиалы</Title>
     <Meta
       name="description"
       content="Все для сварки ☎ +7-918-325-48-00, силовая техика, электроинструмент, компрессоры, пневмоинструмент"
@@ -16,14 +16,12 @@
       type="image/x-icon"
     />
   </Head>
- 
 
   <section class="wrapper">
     <BreadCrumbs :path="[{ caption: 'Контакты', href: '/contacts' }]" />
 
     <p class="bue-desc">
-      Для заказа свяжитесь с нами через форму внизу страницы или напишите на
-      почту
+      Для заказа свяжитесь с нами через форму внизу страницы или напишите на почту
       <span>gk.galaxy@yandex.ru </span>
     </p>
 
@@ -33,50 +31,30 @@
         <div class="city__desc">
           <div class="city__name">Краснодар / <span>Уральская 136/7</span></div>
           <div class="social__icon">
-            <a href="https://wa.me/89183254800" class="footer__link">
-              <ClientOnly
-                ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
+            <a href="https://wa.me/+79183254800" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
-
-            <!-- <a href="https://viber.click/89183254800" class="footer__link">
-              <ClientOnly
-                ><font-awesome-icon icon="fa-brands fa-viber"
-              /></ClientOnly>
-            </a> -->
           </div>
         </div>
         <a class="city__phone" :href="'tel:' + Locations.KRD.phone">
           {{ Locations.KRD.phone }}
-          <ClientOnly
-            ><font-awesome-icon icon="fa-solid fa-phone-flip"
-          /></ClientOnly>
+          <ClientOnly><font-awesome-icon icon="fa-solid fa-phone-flip" /></ClientOnly>
         </a>
       </div>
 
       <div class="city">
         <img src="../public/assets/mag1.jpg" alt="Пролетарская 106" />
         <div class="city__desc">
-          <div class="city__name">
-            Тимашевск / <span>Пролетарская 106</span>
-          </div>
+          <div class="city__name">Тимашевск / <span>Пролетарская 106</span></div>
           <div class="social__icon">
-            <a href="https://wa.me/89384737577" class="footer__link">
-              <ClientOnly
-                ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
+            <a href="https://wa.me/+79384737577" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
-
-            <!-- <a href="https://viber.click/89384737577" class="footer__link">
-              <ClientOnly
-                ><font-awesome-icon icon="fa-brands fa-viber"
-              /></ClientOnly>
-            </a> -->
           </div>
         </div>
         <a class="city__phone" :href="'tel:' + Locations.TMSH.phone">
           {{ Locations.TMSH.phone }}
-          <ClientOnly
-            ><font-awesome-icon icon="fa-solid fa-phone-flip"
-          /></ClientOnly>
+          <ClientOnly><font-awesome-icon icon="fa-solid fa-phone-flip" /></ClientOnly>
         </a>
       </div>
       <div class="city">
@@ -84,23 +62,29 @@
         <div class="city__desc">
           <div class="city__name">Новороссийск / <span>Цемдолина</span></div>
           <div class="social__icon">
-            <a href="https://wa.me/89384737577" class="footer__link">
-              <ClientOnly
-                ><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
+            <a href="https://wa.me/+79384737577" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
-
-            <!-- <a href="https://viber.click/89384737577" class="footer__link">
-              <ClientOnly
-                ><font-awesome-icon icon="fa-brands fa-viber"
-              /></ClientOnly>
-            </a> -->
           </div>
         </div>
         <a class="city__phone" :href="'tel:' + Locations.NVR.phone">
           {{ Locations.NVR.phone }}
-          <ClientOnly
-            ><font-awesome-icon icon="fa-solid fa-phone-flip"
-          /></ClientOnly>
+          <ClientOnly><font-awesome-icon icon="fa-solid fa-phone-flip" /></ClientOnly>
+        </a>
+      </div>
+      <div class="city">
+        <img src="../public/assets/magaz4.jpg" alt="" />
+        <div class="city__desc">
+          <div class="city__name">Майкоп / <span>Хакурате 294</span></div>
+          <div class="social__icon">
+            <a href="https://wa.me/+79385535755" class="footer__link">
+              <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
+            ></a>
+          </div>
+        </div>
+        <a class="city__phone" :href="'tel:' + Locations.NVR.phone">
+          {{ Locations.MPK.phone }}
+          <ClientOnly><font-awesome-icon icon="fa-solid fa-phone-flip" /></ClientOnly>
         </a>
       </div>
     </div>
@@ -116,8 +100,7 @@ import { Locations } from "../consts/location";
   font-style: italic;
   color: grey;
   margin: 20px 0;
-  border-top: 2px solid gray;
-  padding: 20px 0 0 0;
+
   line-height: 1.5;
 }
 .bue-desc span {
@@ -147,10 +130,12 @@ import { Locations } from "../consts/location";
 .city img {
   max-width: 400px;
   width: 100%;
+
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 .city__name {
-  font-weight: bold;
-  font-style: italic;
+  font-weight: 600;
   color: var(--blue);
 }
 .city__name span {
@@ -158,15 +143,13 @@ import { Locations } from "../consts/location";
   font-weight: normal;
   color: #333030bd;
   font-size: 14px;
-  font-style: italic;
   letter-spacing: 1.5px;
   padding: 5px 0;
   display: block;
 }
 .city__phone {
-  font-size: 15px;
+  font-size: 16px;
   color: grey;
-  font-style: italic;
 }
 .city__desc {
   display: flex;
@@ -177,7 +160,6 @@ import { Locations } from "../consts/location";
 }
 .city__desc .social__icon {
   gap: 10px;
-   
 }
 @media all and (max-width: 800px) {
   .citys {

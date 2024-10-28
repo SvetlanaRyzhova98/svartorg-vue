@@ -9,7 +9,7 @@
               <NuxtLink to="/how-to-buy" class="header__link">Как купить</NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink class="header__link" to="/contacts">Контакты</NuxtLink>
+              <NuxtLink class="header__link" to="/contacts">Все филиалы</NuxtLink>
             </li>
             <!-- <li class="header__item">
               <NuxtLink to="/articles" class="header__link">Инфо</NuxtLink>
@@ -140,6 +140,7 @@ onUnmounted(() => {
   width: 100%;
   display: flex;
   gap: 300px;
+  justify-content: space-between;
 }
 .header {
   width: 100%;
