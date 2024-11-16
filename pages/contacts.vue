@@ -60,7 +60,7 @@
       <div class="city">
         <img src="../public/assets/magaz3.jpg" alt="" />
         <div class="city__desc">
-          <div class="city__name">Новороссийск / <span>Цемдолина</span></div>
+          <div class="city__name">Новороссийск / <span>Цемдолина, Ленина 224</span></div>
           <div class="social__icon">
             <a href="https://wa.me/+79384737577" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly

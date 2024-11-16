@@ -7,7 +7,7 @@
             gk.galaxy@yandex.ru</a
           >
           <div class="social__icon">
-            <a href="https://wa.me/89384737577" class="footer__link">
+            <a href="https://wa.me/+79384737577" class="footer__link">
               <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
             ></a>
           </div>
@@ -219,6 +219,7 @@ function isPhone() {
 .social__icon {
   display: flex;
   gap: 20px;
+  margin-right: 10px;
 }
 .button__box {
   display: flex;
