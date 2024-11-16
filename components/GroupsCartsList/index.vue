@@ -1,51 +1,58 @@
 <template>
-  <div class="category_all_container">
-    <div class="category_container">
-      <!-- Основной цикл, исключаем категории с id 4 и 6 -->
-      <div
-        v-for="category in filteredCategories"
-        :key="category.id"
-        class="category_container_item"
-      >
-        <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
-          <div class="title">{{ category.name }}</div>
-
-          <!-- Проверяем, если id категории равно 1, выводим теги -->
-          <div v-if="category.id === 1">
-            <div class="tags">
-              <div v-for="(tag, index) in category.tags" :key="index">
-                <!-- Создаем кликабельную ссылку с параметром tag -->
-                <NuxtLink
-                  :to="`/catalog/${category.id}?tag=${index + 1}`"
+    <div class="category_all_container">
+      <div class="category_container">
+        <div
+          v-for="category in filteredCategories"
+          :key="category.id"
+          class="category_container_item"
+        >
+          <NuxtLink
+            :to="`/catalog/${category.id}`"
+            class="category_item"
+            @click="handleCategoryClick"
+          >
+            <div class="title">{{ category.name }}</div>
+  
+            <!-- Теги -->
+            <div v-if="category.id === 1">
+              <div class="tags">
+                <button
+                  v-for="(tag, index) in category.tags"
+                  :key="index"
                   class="tag-link"
+                  @click="navigateToTag($event, category.id, index + 1)"
                 >
                   {{ tag.name }}
-                </NuxtLink>
+                </button>
               </div>
             </div>
-          </div>
-          <div v-if="category.img" class="items-end justify-end">
-            <img :src="getFullImageUrl(category.img)" alt="category.name" />
-          </div>
-        </NuxtLink>
+            <div v-if="category.img" class="items-end justify-end">
+              <img :src="getFullImageUrl(category.img)" alt="category.name" />
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+      <div class="special_category_container">
+        <div v-for="category in specialCategories" :key="category.id" class="w-full h-full">
+          <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
+            <div class="title">{{ category.name }}</div>
+            <div v-if="category.img" class="items-end justify-end">
+              <img :src="getFullImageUrl(category.img)" alt="category.name" />
+            </div>
+          </NuxtLink>
+        </div>
       </div>
     </div>
-    <div class="special_category_container">
-      <div v-for="category in specialCategories" :key="category.id" class="w-full h-full">
-        <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
-          <div class="title">{{ category.name }}</div>
-          <div v-if="category.img" class="items-end justify-end">
-            <img :src="getFullImageUrl(category.img)" alt="category.name" />
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-  </div>
-</template>
+  </template>
+  
+  
 
 <script setup>
 import { ref, computed } from "vue";
+import { useRouter } from "vue-router";
 import { useFetch } from "#app";
+
+const router = useRouter();
 
 // Функция для добавления базового URL к изображениям
 const getFullImageUrl = (imgPath) => {
@@ -80,6 +87,26 @@ const filteredCategories = computed(() =>
 const specialCategories = computed(() =>
   categories.value.filter((category) => category.id === 4 || category.id === 6)
 );
+
+// Обработчик клика по категории
+const handleCategoryClick = (event) => {
+  console.log("Category link clicked");
+  // Позволяет работать стандартной навигации NuxtLink
+};
+
+// Обработчик клика по тегу
+const navigateToTag = (event, categoryId, tagIndex) => {
+  event.preventDefault(); // Предотвращает действие по умолчанию для ссылки
+  router.push({
+    path: `/catalog/${categoryId}`,
+    query: {
+      tag: tagIndex,
+      page: 1,
+    },
+  });
+};
+
+
 </script>
 
 <style>
@@ -117,7 +144,6 @@ const specialCategories = computed(() =>
   text-align: end;
   position: absolute;
   padding: 0;
-  /* font-weight: 400; */
   right: 40px;
   top: 18px;
 }
@@ -179,11 +205,13 @@ const specialCategories = computed(() =>
   background-color: #ffffff;
   padding: 10px 20px;
   border-radius: 5px;
+  border: none;
   font-weight: 500;
   text-decoration: none;
   color: #333;
   text-transform: uppercase;
   box-shadow: 0px 1px 5px 0px #0000000c;
+  cursor: pointer;
 }
 @media (max-width: 1000px) {
   .category_container_item:first-child img {
