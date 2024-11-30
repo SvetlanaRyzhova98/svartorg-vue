@@ -1,51 +1,49 @@
 <template>
-    <div class="category_all_container">
-      <div class="category_container">
-        <div
-          v-for="category in filteredCategories"
-          :key="category.id"
-          class="category_container_item"
+  <div class="category_all_container">
+    <div class="category_container">
+      <div
+        v-for="category in filteredCategories"
+        :key="category.id"
+        class="category_container_item"
+      >
+        <NuxtLink
+          :to="`/catalog/${category.id}`"
+          class="category_item"
+          @click="handleCategoryClick"
         >
-          <NuxtLink
-            :to="`/catalog/${category.id}`"
-            class="category_item"
-            @click="handleCategoryClick"
-          >
-            <div class="title">{{ category.name }}</div>
-  
-            <!-- Теги -->
-            <div v-if="category.id === 1">
-              <div class="tags">
-                <button
-                  v-for="(tag, index) in category.tags"
-                  :key="index"
-                  class="tag-link"
-                  @click="navigateToTag($event, category.id, index + 1)"
-                >
-                  {{ tag.name }}
-                </button>
-              </div>
+          <div class="title">{{ category.name }}</div>
+
+          <!-- Теги -->
+          <div v-if="category.id === 1">
+            <div class="tags">
+              <button
+                v-for="(tag, index) in category.tags"
+                :key="index"
+                class="tag-link"
+                @click="navigateToTag($event, category.id, index + 1)"
+              >
+                {{ tag.name }}
+              </button>
             </div>
-            <div v-if="category.img" class="items-end justify-end">
-              <img :src="getFullImageUrl(category.img)" alt="category.name" />
-            </div>
-          </NuxtLink>
-        </div>
-      </div>
-      <div class="special_category_container">
-        <div v-for="category in specialCategories" :key="category.id" class="w-full h-full">
-          <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
-            <div class="title">{{ category.name }}</div>
-            <div v-if="category.img" class="items-end justify-end">
-              <img :src="getFullImageUrl(category.img)" alt="category.name" />
-            </div>
-          </NuxtLink>
-        </div>
+          </div>
+          <div v-if="category.img" class="items-end justify-end">
+            <img :src="getFullImageUrl(category.img)" alt="category.name" />
+          </div>
+        </NuxtLink>
       </div>
     </div>
-  </template>
-  
-  
+    <div class="special_category_container">
+      <div v-for="category in specialCategories" :key="category.id" class="w-full h-full">
+        <NuxtLink :to="`/catalog/${category.id}`" class="category_item">
+          <div class="title">{{ category.name }}</div>
+          <div v-if="category.img" class="items-end justify-end">
+            <img :src="getFullImageUrl(category.img)" alt="category.name" />
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script setup>
 import { ref, computed } from "vue";
@@ -105,8 +103,6 @@ const navigateToTag = (event, categoryId, tagIndex) => {
     },
   });
 };
-
-
 </script>
 
 <style>
@@ -213,7 +209,7 @@ const navigateToTag = (event, categoryId, tagIndex) => {
   box-shadow: 0px 1px 5px 0px #0000000c;
   cursor: pointer;
 }
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .category_container_item:first-child img {
     height: 350px;
   }
@@ -237,13 +233,16 @@ const navigateToTag = (event, categoryId, tagIndex) => {
   }
 
   .carousel__viewport .carousel__slide img {
+    max-height: 300px;
     min-height: 300px;
   }
 }
 
 @media (max-width: 800px) {
   .category_container_item:first-child .category_item .title {
-    position: sticky;
+    position: relative;
+    top: 0;
+    right: 0;
   }
   .tags {
     display: grid;

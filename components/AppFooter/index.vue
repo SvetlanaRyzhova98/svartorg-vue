@@ -7,9 +7,11 @@
             gk.galaxy@yandex.ru</a
           >
           <div class="social__icon">
-            <a href="https://wa.me/+79384737577" class="footer__link">
-              <ClientOnly><font-awesome-icon icon="fa-brands fa-whatsapp" /></ClientOnly
-            ></a>
+            <a :href="`https://wa.me/${phoneWhatsapp}`" class="footer__link">
+              <ClientOnly>
+                <font-awesome-icon icon="fa-brands fa-whatsapp" />
+              </ClientOnly>
+            </a>
           </div>
         </div>
 
@@ -66,6 +68,12 @@
 <script setup>
 import { useLocationStore } from "../../store/location";
 import { Locations } from "../../consts/location";
+import { ref, computed } from "vue";
+
+// Получаем данные о местоположении
+const location = useLocationStore();
+const currentLocation = computed(() => Locations[location.location] || {});
+const phoneWhatsapp = computed(() => currentLocation.value.phone || "");
 
 const form = ref({
   name: "",
@@ -93,8 +101,6 @@ async function submit(formArg) {
     });
 }
 
-const location = useLocationStore();
-
 const isPhoneValid = computed(() => {
   const phone = form.value.phone;
   const phoneRe = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
@@ -117,6 +123,9 @@ function isPhone() {
 </script>
 
 <style>
+.contact__input + .error__message {
+  margin: 0;
+}
 /*Main end*/
 /*footer*/
 .contact__input.form-style.error {
@@ -156,7 +165,7 @@ function isPhone() {
   width: 100%;
   border: none;
   /* border-bottom: 0.5px solid #e3e3e3; */
-  margin-bottom: 10px;
+  font-family: "Gilroy";
   background: #efeeed;
   color: rgb(81, 81, 81);
   font-size: 13px;
@@ -170,13 +179,25 @@ function isPhone() {
   font-size: 14px;
   font-family: "Gilroy", sans-serif;
 }
+[data-theme="dark"] .form-style {
+  background: #2e2e2e;
+  color: #e1e1e1;
+}
+[data-theme="dark"] .form-style::placeholder {
+  color: #e1e1e1;
+}
 .box-footer {
   padding: 30px 0;
+  width: 100%;
 }
 .contact {
   /* padding: 20px 0px; */
   text-align: end;
-  /*max-width: 350px;*/
+  /* max-width: 350px; */
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .contact__text {
@@ -191,8 +212,9 @@ function isPhone() {
   background-color: transparent;
   font-size: 15px;
   text-transform: uppercase;
+  text-align: end;
   color: var(--blue);
-  font-family: "Exo 2", sans-serif;
+  font-family: "Gilroy", sans-serif;
 }
 .footer__link {
   font-size: 25px;
@@ -252,12 +274,12 @@ function isPhone() {
   .footer .wrapper_footer {
     gap: 0px;
     grid-template-rows: 360px 350px;
-}
-.box-footer{
+  }
+  .box-footer {
     padding: 25px;
-}
-.carousel__viewport .carousel__slide img {
+  }
+  .carousel__viewport .carousel__slide img {
     min-height: auto;
-}
+  }
 }
 </style>

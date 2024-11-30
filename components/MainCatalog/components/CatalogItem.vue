@@ -82,6 +82,12 @@ const getImageUrl = (image) => {
   height: 100%;
   background: white;
 }
+[data-theme="dark"] .bottom_panel, [data-theme="dark"] .header__sublist, [data-theme="dark"] .card_item {
+    background: #2e2e2e;
+}
+[data-theme="dark"] .name-product {
+    color: #e8e5e5;
+}
 .item-info {
   width: 100%;
   transition: 1s all;

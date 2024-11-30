@@ -7,25 +7,22 @@ export default defineNuxtConfig({
       MAILPORT: process.env.MAILPORT,
       MAILUSER: process.env.MAILUSER,
       MAILPASSWORD: process.env.MAILPASSWORD,
-      CONTACTMAIL: process.env.CONTACTMAIL
+      CONTACTMAIL: process.env.CONTACTMAIL,
     },
     modules: ['@pinia/nuxt', 'vue3-carousel-nuxt'],
-    css: [
-      '@fortawesome/fontawesome-svg-core/styles.css'
-    ],
+    css: ['@fortawesome/fontawesome-svg-core/styles.css'],
     components: true,
     nitro: {
       preset: 'node-server', // Используется для SSR и маршрутизации
       routeRules: {
-        '/**': { ssr: true } // Включает SSR для всех маршрутов
-      }
+        '/**': { ssr: true }, // Включает SSR для всех маршрутов
+      },
     },
     app: {
       head: {
-        link: [
-          { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-        ]
-      }
-    }
+        link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      },
+    },
+    
   });
-  
+ 

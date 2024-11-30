@@ -14,7 +14,7 @@
           <img v-if="product.images.length == 0" src="/assets/no_image.svg" alt="img" />
         </div>
         <div class="info_product">
-          <div class="flex gap-5 items-end top-info">
+          <div class="flex gap-5 flex-col top-info">
             <h1 class="title">
               <span>{{ product.type }}</span
               ><br />
@@ -230,6 +230,7 @@ h2 {
 }
 .info_list li {
   padding: 5px;
+  gap: 30px;
   padding-left: 0px;
   display: flex;
   width: 100%;
@@ -262,7 +263,7 @@ h2 {
   font-size: 18px;
 }
 .price {
-  font-size: 23px;
+  font-size: 16px;
   font-weight: 600;
   color: #3395c5;
 }

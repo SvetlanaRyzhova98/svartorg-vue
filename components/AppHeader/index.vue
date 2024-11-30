@@ -6,14 +6,19 @@
         <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
-              <NuxtLink to="/how-to-buy" class="header__link">Как купить</NuxtLink>
+              <div class="theme-toggle" @click="toggleTheme">
+                <div
+                  class="theme-toggle__slider"
+                  :class="{ 'theme-toggle__slider--dark': theme === 'dark' }"
+                >
+                  <span class="theme-toggle__icon theme-toggle__icon--light"></span>
+                  <span class="theme-toggle__icon theme-toggle__icon--dark"></span>
+                </div>
+              </div>
             </li>
             <li class="header__item">
               <NuxtLink class="header__link" to="/contacts">Все филиалы</NuxtLink>
             </li>
-            <!-- <li class="header__item">
-              <NuxtLink to="/articles" class="header__link">Инфо</NuxtLink>
-            </li> -->
           </ul>
         </nav>
       </div>
@@ -59,9 +64,29 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { useFetch } from "#app";
+import Cookies from "js-cookie";  // Импортируем js-cookie
 
 const categories = ref([]);
 const showCategories = ref(false);
+
+// Устанавливаем тему при монтировании, если она есть в cookies
+const theme = ref(Cookies.get("theme") || "light");
+
+// Устанавливаем тему в HTML-элемент
+onMounted(() => {
+  document.documentElement.setAttribute("data-theme", theme.value);
+});
+
+// Переключение темы
+const toggleTheme = () => {
+  const newTheme = theme.value === "light" ? "dark" : "light";
+  theme.value = newTheme;
+
+  // Сохраняем тему в cookies
+  Cookies.set("theme", newTheme, { expires: 365, path: "/" });  // Тема сохраняется на год
+  document.documentElement.setAttribute("data-theme", newTheme);
+  window.location.reload();
+};
 
 // Функция для переключения видимости категорий
 const toggleCategories = () => {
@@ -253,8 +278,8 @@ onUnmounted(() => {
 .bottom_panel-button {
   position: relative;
 }
-.button__catalog_mobile{
-    display: none;
+.button__catalog_mobile {
+  display: none;
 }
 @media all and (max-width: 1200px) {
   .bottom_panel {
@@ -265,7 +290,7 @@ onUnmounted(() => {
   .header__link {
     font-size: 16px;
   }
-   
+
   .header_bottom {
     display: grid;
     grid-template-rows: auto auto; /* Две строки: одна для адреса, одна для панели и поиска */
@@ -279,7 +304,6 @@ onUnmounted(() => {
     text-align: right; /* Выравнивание адреса вправо */
     margin: 10px 0;
     justify-content: end;
-    
   }
 
   .bottom_panel {
@@ -304,33 +328,44 @@ onUnmounted(() => {
   }
 }
 @media all and (max-width: 470px) {
-    .button__catalog{
-        display: none;
-    }
-    .button__catalog_mobile{
-        display: flex;
-        background-color: white;
-        border-radius: 5px;
-        padding: 10px 14px;
-        font-family: "Gilroy";
-        font-size: 16px;
-        height: 100%;
-        border: none;
-        gap: 4px;
-        flex-wrap: nowrap;
-        display: flex;
-        font-weight: 500;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 9;
-    }
-    .header__wrapper .header_top {
-        gap: 15px;
-        justify-content: space-between;
-
-    }
-    .header__link {
-        font-size: 14px;
-    }
+  .button__catalog {
+    display: none;
+  }
+  .button__catalog_mobile {
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-family: "Gilroy";
+    font-size: 16px;
+    height: 100%;
+    border: none;
+    gap: 4px;
+    flex-wrap: nowrap;
+    display: flex;
+    font-weight: 500;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9;
+  }
+  .header__wrapper .header_top {
+    gap: 15px;
+    justify-content: space-between;
+  }
+  .header__link {
+    font-size: 14px;
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 </style>

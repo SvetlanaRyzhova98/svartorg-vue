@@ -15,10 +15,7 @@
       href="https://www.galaktika-svarki.ru/favicon.ico"
       type="image/x-icon"
     />
-    <link
-      href="/fonts/stylesheet.css"
-      rel="stylesheet"
-    />
+    <link href="/fonts/stylesheet.css" rel="stylesheet" />
   </Head>
   <div class="wrapper_main">
     <AppHeader />
@@ -29,7 +26,19 @@
     <AppFooter />
   </div>
 </template>
+<script setup>
+import { useHead } from "#app";
 
+// Проверка темы на клиенте или в cookies
+const theme = useCookie("theme").value || "light";
+
+// Установка атрибута data-theme в тег html
+useHead({
+  htmlAttrs: {
+    "data-theme": theme,
+  },
+});
+</script>
 <style>
 .wrapper_main {
   display: flex;
@@ -450,7 +459,7 @@ html {
 }
 
 body {
-  color:  #333;
+  color: #333;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 400;
@@ -472,7 +481,7 @@ body {
 header {
   top: 0;
 }
- 
+
 a {
   text-decoration: none;
   color: white;
@@ -571,9 +580,9 @@ img {
 .displaynone {
   display: none;
 }
-.flex-col{
-    display: flex;
-    flex-direction: column;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
 .cards.instrumental {
 }
@@ -583,7 +592,8 @@ img {
 }
 
 @media all and (max-width: 1400px) {
-  .wrapper, .header__wrapper {
+  .wrapper,
+  .header__wrapper {
     padding: 0 15px;
   }
 }
@@ -591,7 +601,6 @@ img {
   .wrapper {
     padding: 0 15px;
   }
- 
 }
 
 @media all and (max-width: 800px) {
@@ -600,7 +609,6 @@ img {
     padding: 0 10px;
   }
 
- 
   .cards.acsess {
     /* grid-template-columns: 1fr; */
   }
@@ -618,7 +626,6 @@ img {
     justify-items: center;
     padding: 0;
   }
- 
 
   .title-box {
     margin-bottom: 30px;
@@ -647,14 +654,13 @@ img {
   .box-footer {
     padding: 30px 10px;
   }
-   
+
   .cards.instrumental {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
   }
 }
 
- 
 @media all and (max-width: 400px) {
   .location-city {
     flex-direction: row;
@@ -666,71 +672,214 @@ img {
     font-size: 15px;
   }
   .category_item .title {
-    font-size: 13px;}
+    font-size: 13px;
+  }
 }
 .carousel__pagination-button::after {
   width: 10px !important;
   height: 10px !important;
   border-radius: 100% !important;
 }
-.carousel__slide img{
+.carousel__slide img {
   min-height: 400px;
   max-height: 400px;
-  object-fit: cover ;
+  object-fit: cover;
 }
 .relative {
   position: relative;
 }
-.w-full{
-    width: 100%;
+.w-full {
+  width: 100%;
 }
-.h-full{
-    height: 100%;
+.h-full {
+  height: 100%;
 }
 .absolute {
   position: absolute;
-   content: "";
+  content: "";
 }
-.flex{
-    display: flex;
+.flex {
+  display: flex;
 }
-.justify-center{
-    justify-content: center;
+.justify-center {
+  justify-content: center;
 }
-.carousel__slide.carousel__slide--visible img{
+.carousel__slide.carousel__slide--visible img {
   border-radius: 10px;
 }
 
 .pagination-container {
-    display: flex;
+  display: flex;
 
-    column-gap: 10px;
-  }
+  column-gap: 10px;
+}
 
-  .paginate-buttons {
-    height: 30px;
-    width: 30px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: rgb(242, 242, 242);
-    border: 1px solid rgb(217, 217, 217);
-    color: black;
-    margin: 15px 0;
-  }
+.paginate-buttons {
+  height: 30px;
+  width: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgb(242, 242, 242);
+  border: 1px solid rgb(217, 217, 217);
+  color: black;
+  margin: 15px 0;
+}
 
-  .paginate-buttons:hover {
-    background-color: #d8d8d8;
-  }
+.paginate-buttons:hover {
+  background-color: #d8d8d8;
+}
 
-  .active-page {
-    background-color: #3498db;
+.active-page {
+  background-color: #3498db;
 
-    border: 1px solid #3498db;
+  border: 1px solid #3498db;
 
-    color: white;
-  }
+  color: white;
+}
 
-  .active-page:hover {
-    background-color: #2988c8;
-  }
+.active-page:hover {
+  background-color: #2988c8;
+}
+.tags_list button {
+  font-family: "Gilroy", sans-serif;
+}
+
+/*----------------------------------------------------------------------- */
+
+:root {
+  --background-color: #f9f9f9;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] .input-search,
+[data-theme="dark"] .button_search {
+  background: #2e2e2e;
+  color: #e8e5e5;
+}
+[data-theme="dark"] .bottom_panel .logo_img {
+  filter: invert(1);
+}
+[data-theme="dark"] .bottom_panel,
+[data-theme="dark"] .header__sublist,
+[data-theme="dark"] .card_item {
+  background: #2e2e2e;
+}
+[data-theme="dark"] .button_search img {
+  filter: invert(1);
+}
+[data-theme="dark"] .breadcrumbs li a,
+[data-theme="dark"] .breadcrumbs span {
+  color: rgb(255 255 255 / 60%);
+}
+.map {
+  filter: none;
+}
+[data-theme="dark"] .button_search:hover {
+  background: #3d3c3c;
+}
+[data-theme="dark"] .map {
+  filter: grayscale(1) invert(100%);
+}
+[data-theme="dark"] .wrapper_footer {
+  background: #000000;
+}
+[data-theme="dark"] .name-product {
+  color: #e8e5e5;
+}
+[data-theme="dark"] .info_product .title,
+[data-theme="dark"] .info_product .title span,
+[data-theme="dark"] .info_product h2,
+[data-theme="dark"] .availability li {
+  color: #e1e1e1;
+}
+.info_list {
+    min-width: 400px;
+}
+[data-theme="dark"] .info_list li span,
+[data-theme="dark"] .info_list h2,
+[data-theme="dark"] .info_list li,
+[data-theme="dark"] .category_item .title {
+  color: #e1e1e1;
+}
+[data-theme="dark"] .category_item {
+  background: #2e2e2e;
+  color: #e1e1e1;
+}
+[data-theme="dark"] {
+  --background-color: #000;
+  --text-color: #ffffff;
+}
+[data-theme="dark"] .header__link.header__link_cont,
+[data-theme="dark"] .header__link,
+[data-theme="dark"] .location {
+  color: #e8e5e5;
+}
+html {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle {
+  width: 50px;
+  height: 25px;
+  background: var(--toggle-bg);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.theme-toggle__slider {
+  width: 21px;
+  height: 21px;
+  background: var(--slider-bg);
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s;
+}
+
+.theme-toggle__slider--dark {
+  transform: translateX(24px);
+}
+
+.theme-toggle__icon {
+  position: absolute;
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.theme-toggle__icon--light {
+  left: 10px;
+  opacity: 1;
+}
+
+.theme-toggle__icon--dark {
+  right: 10px;
+}
+[data-theme="dark"] .theme-toggle {
+  --toggle-bg: #5f5d5d;
+  --slider-bg: #fff;
+}
+
+[data-theme="light"] .theme-toggle {
+  --toggle-bg: #ccc;
+  --slider-bg: #000;
+}
+
+[data-theme="dark"] .theme-toggle__icon--dark {
+  opacity: 1;
+}
+
+[data-theme="light"] .theme-toggle__icon--light {
+  opacity: 1;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+}
 </style>

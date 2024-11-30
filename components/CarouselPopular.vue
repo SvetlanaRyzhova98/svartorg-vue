@@ -92,6 +92,12 @@ const config = reactive({
   font-size: 14px;
   text-align: start;
 }
+[data-theme="dark"] .popular_img_box {
+    background: #2e2e2e;
+}
+[data-theme="dark"] .popular_info_box *{
+    color: #e1e1e1;
+}
 @media (max-width: 1000px) {
   .popular_img_box img {
     object-fit: contain;
