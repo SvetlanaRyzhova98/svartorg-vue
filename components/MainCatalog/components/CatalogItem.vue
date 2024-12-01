@@ -88,6 +88,9 @@ const getImageUrl = (image) => {
 [data-theme="dark"] .name-product {
     color: #e8e5e5;
 }
+[data-theme="dark"] .info_list li span, [data-theme="dark"] .info_list h2, [data-theme="dark"] .info_list li, [data-theme="dark"] .category_item .title {
+    color: #e1e1e1;
+}
 .item-info {
   width: 100%;
   transition: 1s all;
