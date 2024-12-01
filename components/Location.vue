@@ -55,6 +55,10 @@ function setLocation(str) {
   padding: 20px 0;
   font-weight: 500;
 }
+
+[data-theme="dark"] .location-city {
+  background: #000000;
+}
 .location-city {
   list-style: none;
   display: flex;
@@ -64,10 +68,13 @@ function setLocation(str) {
   position: absolute;
   margin-top: 10px;
   padding: 10px 10px 10px 0;
-  top: 27px;
   background: white;
   box-shadow: 1px 1px 0px #80808012;
   left: 0;
+  padding: 10px;
+  z-index: 99;
+  border-radius: 5px;
+  top: 30px;
 }
 .location-city li:hover {
   color: #000000;
