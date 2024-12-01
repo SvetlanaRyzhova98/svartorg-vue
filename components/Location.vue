@@ -56,6 +56,9 @@ function setLocation(str) {
   font-weight: 500;
 }
 
+[data-theme="dark"] .location-city li:hover {
+    color: #ffffff;
+  }
 [data-theme="dark"] .location-city {
   background: #000000;
 }
