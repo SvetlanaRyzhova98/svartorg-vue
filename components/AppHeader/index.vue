@@ -9,13 +9,16 @@
               <NuxtLink class="header__link" to="/contacts">Все филиалы</NuxtLink>
             </li>
             <li class="header__item">
-              <div class="theme-toggle" @click="toggleTheme">
-                <div
-                  class="theme-toggle__slider"
-                  :class="{ 'theme-toggle__slider--dark': theme === 'dark' }"
-                >
-                  <span class="theme-toggle__icon theme-toggle__icon--light"></span>
-                  <span class="theme-toggle__icon theme-toggle__icon--dark"></span>
+              <div class="flex-center">
+                Тема:
+                <div class="theme-toggle" @click="toggleTheme">
+                  <div
+                    class="theme-toggle__slider"
+                    :class="{ 'theme-toggle__slider--dark': theme === 'dark' }"
+                  >
+                    <span class="theme-toggle__icon theme-toggle__icon--light"></span>
+                    <span class="theme-toggle__icon theme-toggle__icon--dark"></span>
+                  </div>
                 </div>
               </div>
             </li>
@@ -144,7 +147,11 @@ onUnmounted(() => {
   min-width: 150px;
   max-width: 150px;
 }
-
+.flex-center {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
 .line {
   border-top: 2px solid rgb(71, 66, 66);
   margin: 0 auto;
