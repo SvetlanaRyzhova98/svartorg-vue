@@ -6,6 +6,9 @@
         <nav class="header__nav">
           <ul class="header__list">
             <li class="header__item">
+              <NuxtLink class="header__link" to="/contacts">Все филиалы</NuxtLink>
+            </li>
+            <li class="header__item">
               <div class="theme-toggle" @click="toggleTheme">
                 <div
                   class="theme-toggle__slider"
@@ -15,9 +18,6 @@
                   <span class="theme-toggle__icon theme-toggle__icon--dark"></span>
                 </div>
               </div>
-            </li>
-            <li class="header__item">
-              <NuxtLink class="header__link" to="/contacts">Все филиалы</NuxtLink>
             </li>
           </ul>
         </nav>
@@ -64,7 +64,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import { useFetch } from "#app";
-import Cookies from "js-cookie";  // Импортируем js-cookie
+import Cookies from "js-cookie"; // Импортируем js-cookie
 
 const categories = ref([]);
 const showCategories = ref(false);
@@ -80,11 +80,14 @@ onMounted(() => {
 // Переключение темы
 const toggleTheme = () => {
   const newTheme = theme.value === "light" ? "dark" : "light";
+
+  // Сохраняем новую тему в cookies
+  Cookies.set("theme", newTheme, { expires: 365, path: "/" });
+
+  // Устанавливаем тему в состоянии
   theme.value = newTheme;
 
-  // Сохраняем тему в cookies
-  Cookies.set("theme", newTheme, { expires: 365, path: "/" });  // Тема сохраняется на год
-  document.documentElement.setAttribute("data-theme", newTheme);
+  // Перезагружаем страницу
   window.location.reload();
 };
 
@@ -123,6 +126,12 @@ const handleClickOutside = (event) => {
 // Добавляем слушатель события клика
 onMounted(() => {
   window.addEventListener("click", handleClickOutside);
+
+  const savedTheme = Cookies.get("theme") || "light";
+  theme.value = savedTheme;
+
+  // Устанавливаем тему в атрибут HTML
+  document.documentElement.setAttribute("data-theme", savedTheme);
 });
 
 onUnmounted(() => {
@@ -356,16 +365,4 @@ onUnmounted(() => {
     font-size: 14px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 </style>
