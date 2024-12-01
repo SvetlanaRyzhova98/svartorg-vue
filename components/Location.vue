@@ -56,6 +56,9 @@ function setLocation(str) {
   font-weight: 500;
 }
 
+[data-theme="dark"] .location-select:hover {
+    color: #e1e1e1;
+}
 [data-theme="dark"] .location-city li:hover {
     color: #ffffff;
   }
