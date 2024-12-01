@@ -225,6 +225,9 @@ h2 {
 .info_list li:nth-child(odd) {
   /* background-color: rgb(223 223 223 / 27%); */
 }
+[data-theme="dark"] .info_list li span {
+  background-color: #e1e1e1;
+}
 .info_list li span {
   color: #292929;
 }
