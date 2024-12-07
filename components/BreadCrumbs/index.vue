@@ -26,9 +26,11 @@ export default {
   gap: 5px;
   flex-wrap: wrap;
   font-size: 13px;
+  font-family: "Gilroy", sans-serif;
 }
 .breadcrumbs li{
     width: min-content;
+    font-family: "Gilroy", sans-serif;
     white-space: nowrap;
 }
 .breadcrumbs li a{

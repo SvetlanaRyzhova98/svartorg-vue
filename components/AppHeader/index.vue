@@ -276,7 +276,7 @@ onUnmounted(() => {
   background-color: white;
   border-radius: 5px;
   padding: 10px 14px;
-  font-family: "Gilroy";
+  font-family: "Gilroy", sans-serif;
   font-size: 16px;
   height: 100%;
   border: none;
@@ -352,7 +352,7 @@ onUnmounted(() => {
     background-color: white;
     border-radius: 5px;
     padding: 10px 14px;
-    font-family: "Gilroy";
+    font-family: "Gilroy", sans-serif;
     font-size: 16px;
     height: 100%;
     border: none;

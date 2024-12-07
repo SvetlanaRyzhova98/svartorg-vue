@@ -56,6 +56,7 @@ if (data.value) {
 .title_carousel {
   position: absolute;
   top: 30px;
+  font-family: "Gilroy", sans-serif;
   left: 50%;
   white-space: nowrap;
   z-index: 9;

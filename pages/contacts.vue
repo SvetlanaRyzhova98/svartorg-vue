@@ -100,7 +100,7 @@ import { Locations } from "../consts/location";
   font-style: italic;
   color: grey;
   margin: 20px 0;
-
+  font-family: "Gilroy", sans-serif;
   line-height: 1.5;
 }
 .bue-desc span {
@@ -137,6 +137,7 @@ import { Locations } from "../consts/location";
 .city__name {
   font-weight: 600;
   color: var(--blue);
+  font-family: "Gilroy", sans-serif;
 }
 .city__name span {
   text-transform: none;
@@ -150,6 +151,7 @@ import { Locations } from "../consts/location";
 .city__phone {
   font-size: 16px;
   color: grey;
+  font-family: "Gilroy", sans-serif;
 }
 .city__desc {
   display: flex;

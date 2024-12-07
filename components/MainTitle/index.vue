@@ -13,6 +13,7 @@
 }
 .title-section {
   font-size: 24px;
+  font-family: "Gilroy", sans-serif;
   font-weight: 500;
 }
 @media all and (max-width: 800px) {

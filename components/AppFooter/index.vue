@@ -160,6 +160,7 @@ function isPhone() {
 .contact__input {
   font-weight: 400;
   font-size: 14px;
+  font-family: "Gilroy", sans-serif;
   line-height: 19px;
 }
 .form-style {
@@ -205,7 +206,6 @@ function isPhone() {
   max-height: 80px;
   resize: none;
   line-height: 1.4;
-  color: grey;
 }
 .contact__button {
   padding: 5px 10px;
@@ -264,6 +264,7 @@ function isPhone() {
   text-transform: uppercase;
   padding: 20px 0;
   font-size: 22px;
+  font-family: "Gilroy", sans-serif;
   font-weight: 500;
 }
 @media (max-width: 650px) {

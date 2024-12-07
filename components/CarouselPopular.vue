@@ -77,15 +77,17 @@ const config = reactive({
 }
 
 .title_popular {
-  font-size: 16px;
-  font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Gilroy", sans-serif;
 }
 
 .title_popular_type {
-  font-size: 14px;
-  width: 100%;
-  font-weight: 500;
-  margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+    width: 100%;
+    font-family: "Gilroy", sans-serif;
 }
 
 .title_price {

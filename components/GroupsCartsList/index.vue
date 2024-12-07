@@ -164,6 +164,7 @@ const navigateToTag = (event, categoryId, tagIndex) => {
   font-weight: 500;
   color: #333;
   margin-left: 10px;
+  font-family: "Gilroy", sans-serif;
   margin-top: 10px;
 }
 .category_item {
