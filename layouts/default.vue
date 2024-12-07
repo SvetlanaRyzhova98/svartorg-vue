@@ -15,7 +15,6 @@
       href="https://www.galaktika-svarki.ru/favicon.ico"
       type="image/x-icon"
     />
-    <link href="/fonts/stylesheet.css" rel="stylesheet" />
   </Head>
   <div class="wrapper_main">
     <AppHeader />
