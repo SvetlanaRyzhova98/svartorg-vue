@@ -24,7 +24,7 @@ defineProps({
 });
 const placeholderImage = '/assets/no_image.svg';  
 const getImageUrl = (image) => {
-  return image ?  "https://galaktika-svarki.ru/" + image : placeholderImage;
+  return image ?  "https://galaktika-svarki.ru" + image : placeholderImage;
 };
 </script>
 
