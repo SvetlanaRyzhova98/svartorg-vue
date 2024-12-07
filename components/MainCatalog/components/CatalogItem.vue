@@ -78,7 +78,7 @@ const getImageUrl = (image) => {
   flex-direction: column;
   padding: 10px;
   gap: 10px;
-  max-width: 250px;
+ /* max-width: 250px;*/
   height: 100%;
   background: white;
 }
