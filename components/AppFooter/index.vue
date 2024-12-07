@@ -68,6 +68,7 @@
 <script setup>
 import { useLocationStore } from "../../store/location";
 import { Locations } from "../../consts/location";
+
 import { ref, computed } from "vue";
 
 // Получаем данные о местоположении
@@ -83,7 +84,7 @@ const form = ref({
 
 async function submit(formArg) {
   // debugger
-  await $fetch("/api/contact", {
+  await $fetch("/backend/api/contact", {
     method: "POST",
     body: formArg,
   })
