@@ -54,7 +54,7 @@ const router = useRouter();
 
 // Функция для добавления базового URL к изображениям
 const getFullImageUrl = (imgPath) => {
-  const baseUrl = "http://188.130.251.143:1337"; // Замените на ваш базовый URL, если он другой
+  const baseUrl = "https://galaktika-svarki.ru"; // Замените на ваш базовый URL, если он другой
   return `${baseUrl}${imgPath}`;
 };
 
@@ -62,7 +62,7 @@ const categories = ref([]);
 
 // Получение категорий с сервера
 const { data: categoriesData, error } = await useFetch(
-  "http://188.130.251.143:1337/api/categories?populate=*"
+  "https://galaktika-svarki.ru/api/categories?populate=*"
 );
 
 if (error.value) {

@@ -84,9 +84,9 @@ const fetchData = async (tag = null, size, page) => {
   // await useFetch(query, { baseURL: "http://localhost:1337/api" });
 
   const [{ data }, { data: categoriesData }] = await Promise.all([
-    useFetch(query, { baseURL: "http://188.130.251.143:1337/api" }),
+    useFetch(query, { baseURL: "https://galaktika-svarki.ru/api" }),
     useFetch(`/categories/${categoryId}?populate=tegs`, {
-      baseURL: "http://188.130.251.143:1337/api",
+      baseURL: "https://galaktika-svarki.ru/api",
     }),
   ]);
 

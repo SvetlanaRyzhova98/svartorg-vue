@@ -38,7 +38,7 @@ onMounted(async () => {
     while (true) {
       try {
         const query = `/products?fields[0]=name&fields[1]=type&pagination[page]=${page}&pagination[pageSize]=${pageSize}&sort=id`;
-        const response = await fetch(`http://188.130.251.143:1337/api${query}`);
+        const response = await fetch(`https://galaktika-svarki.ru/api${query}`);
         if (!response.ok) {
           throw new Error(`Ошибка HTTP: ${response.status}`);
         }
@@ -75,7 +75,7 @@ onMounted(async () => {
       const queryString = `${ids
         .map((id, index) => `filters[id][$in][${index}]=${id}`)
         .join("&")}&populate=img`;
-      const resp = await fetch(`http://188.130.251.143:1337/api/products?${queryString}`);
+      const resp = await fetch(`https://galaktika-svarki.ru/api/products?${queryString}`);
       const { data } = await resp.json();
       console.log("ids", data);
 

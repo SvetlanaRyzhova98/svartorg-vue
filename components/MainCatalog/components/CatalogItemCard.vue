@@ -113,7 +113,7 @@ const productId = route.params.id;
 const product = ref(null);
 const breadcrumbs = ref([]);
 const { data } = await useFetch(`/products/${productId}?populate=*`, {
-  baseURL: "http://188.130.251.143:1337/api",
+  baseURL: "https://galaktika-svarki.ru/api",
 });
 
 if (data.value) {
@@ -121,7 +121,7 @@ if (data.value) {
 
   // Получаем все изображения
   const images =
-    item.img?.data?.map((img) => `http://188.130.251.143:1337${img.attributes.url}`) ||
+    item.img?.data?.map((img) => `https://galaktika-svarki.ru${img.attributes.url}`) ||
     [];
 
   product.value = {
@@ -136,7 +136,7 @@ if (data.value) {
     documents:
       item.instructions?.data?.map((doc) => ({
         name: doc.attributes.name,
-        url: `http://188.130.251.143:1337${doc.attributes.url}`,
+        url: `https://galaktika-svarki.ru${doc.attributes.url}`,
       })) || [],
     type_welding: item.tip_svarochnika?.data?.attributes?.welding || null,
   };

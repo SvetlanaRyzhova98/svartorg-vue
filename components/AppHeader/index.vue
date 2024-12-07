@@ -106,7 +106,7 @@ const closeCategories = () => {
 
 // Получение категорий с сервера
 const { data: categoriesData, error } = await useFetch(
-  "http://188.130.251.143:1337/api/categories"
+  "https://galaktika-svarki.ru/api/categories"
 );
 
 if (error.value) {
