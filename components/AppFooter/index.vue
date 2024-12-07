@@ -84,7 +84,7 @@ const form = ref({
 
 async function submit(formArg) {
   // debugger
-  await $fetch("/backend/api/contact", {
+  await $fetch("/back/contact", {
     method: "POST",
     body: formArg,
   })
