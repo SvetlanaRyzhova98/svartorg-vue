@@ -310,6 +310,7 @@ a.button_send {
     width: 50%;
   }
 }
+
 @media all and (max-width: 650px) {
   .product_card {
     flex-direction: column;
@@ -317,5 +318,10 @@ a.button_send {
   .img_box {
     width: 100%;
   }
+}
+@media all and (max-width: 400px){
+    .info_list {
+        min-width: 310px;
+    }
 }
 </style>

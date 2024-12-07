@@ -793,7 +793,7 @@ img {
   color: #e1e1e1;
 }
 .info_list {
-  min-width: 400px;
+  min-width: 380px;
 }
 [data-theme="dark"] .info_list li span,
 [data-theme="dark"] .info_list h2,
