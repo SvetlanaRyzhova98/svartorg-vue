@@ -167,7 +167,6 @@
 }
 .article__title {
   font-size: 16px;
-  letter-spacing: 0.05em;
   max-width: 235px;
   margin-bottom: 15px;
   text-overflow: ellipsis;

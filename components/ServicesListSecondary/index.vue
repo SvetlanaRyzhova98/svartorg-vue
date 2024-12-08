@@ -77,7 +77,6 @@
   font-size: 20px;
   line-height: 1;
   font-weight: 600;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 

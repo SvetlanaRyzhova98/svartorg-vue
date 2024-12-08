@@ -144,7 +144,6 @@ import { Locations } from "../consts/location";
   font-weight: normal;
   color: #333030bd;
   font-size: 14px;
-  letter-spacing: 1.5px;
   padding: 5px 0;
   display: block;
 }

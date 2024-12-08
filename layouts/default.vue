@@ -570,7 +570,6 @@ img {
   z-index: 4;
   font-size: 16px;
   line-height: 1;
-  letter-spacing: 0.05em;
   text-transform: uppercase;
   display: flex;
   align-items: center;
