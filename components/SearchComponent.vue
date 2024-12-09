@@ -36,7 +36,7 @@ const onSubmit = (e) => {
   border-radius: 10px;
   cursor: pointer;
 }
-.banner_box {
+.banner__box {
   display: flex;
   flex-direction: column;
   gap: 10px;

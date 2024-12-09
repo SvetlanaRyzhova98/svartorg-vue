@@ -1,5 +1,5 @@
 <template>
-  <div class="banner_box">
+  <div class="banner__box">
     <client-only>
       <CarouselComponent v-if="bannerImages.length" :images="bannerImages" />
     </client-only>
@@ -32,14 +32,14 @@ if (data.value) {
 </script>
 
 <style scoped>
-.banner_box {
+div.banner__box {
   display: flex;
   flex-direction: column;
   gap: 10px;
   height: 100%;
 }
 @media (max-width: 550px) {
-  .banner_box {
+  .banner__box {
     display: none;
   }
 }
