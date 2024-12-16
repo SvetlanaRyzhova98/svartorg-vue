@@ -1,17 +1,14 @@
 <template>
   <div>
-    <NuxtLink :to="`/product/${item.id}`"  class="card_item">
-      <img
-        :src="getImageUrl(item.image)"
-        alt="Продукт каталога"
-      />
+    <NuxtLink :to="`/product/${item.id}`" class="card_item">
+      <img :src="getImageUrl(item.image)" alt="Продукт каталога" />
       <div class="catalog_desc">
         <p class="name-product">
           {{ item.name }}
           <span>{{ item.type }}</span>
         </p>
         <div class="price">
-          {{ item.price ? `${item.price} руб.` : 'Цена по запросу' }}
+          {{ item.price ? `${item.price} руб.` : "Цена по запросу" }}
         </div>
       </div>
     </NuxtLink>
@@ -22,9 +19,9 @@
 defineProps({
   item: Object,
 });
-const placeholderImage = '/assets/no_image.svg';  
+const placeholderImage = "/assets/no_image.svg";
 const getImageUrl = (image) => {
-  return image ?  "https://galaktika-svarki.ru" + image : placeholderImage;
+  return image ? "https://galaktika-svarki.ru" + image : placeholderImage;
 };
 </script>
 
@@ -69,6 +66,9 @@ const getImageUrl = (image) => {
 
 .card_item img {
   width: 100%;
+
+  aspect-ratio: 1;
+  object-fit: cover;
 }
 .card_item {
   display: flex;
@@ -78,18 +78,23 @@ const getImageUrl = (image) => {
   flex-direction: column;
   padding: 10px;
   gap: 10px;
- /* max-width: 250px;*/
+  /* max-width: 250px;*/
   height: 100%;
   background: white;
 }
-[data-theme="dark"] .bottom_panel, [data-theme="dark"] .header__sublist, [data-theme="dark"] .card_item {
-    background: #2e2e2e;
+[data-theme="dark"] .bottom_panel,
+[data-theme="dark"] .header__sublist,
+[data-theme="dark"] .card_item {
+  background: #2e2e2e;
 }
 [data-theme="dark"] .name-product {
-    color: #e8e5e5;
+  color: #e8e5e5;
 }
-[data-theme="dark"] .info_list li span, [data-theme="dark"] .info_list h2, [data-theme="dark"] .info_list li, [data-theme="dark"] .category_item .title {
-    color: #e1e1e1;
+[data-theme="dark"] .info_list li span,
+[data-theme="dark"] .info_list h2,
+[data-theme="dark"] .info_list li,
+[data-theme="dark"] .category_item .title {
+  color: #e1e1e1;
 }
 .item-info {
   width: 100%;
