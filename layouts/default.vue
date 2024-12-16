@@ -803,6 +803,12 @@ img {
   background: #2e2e2e;
   color: #e1e1e1;
 }
+[data-theme="dark"] .carousel__pagination-button--active:after {
+    background-color: #969696!important;
+}
+[data-theme="dark"] .carousel__icon {
+    fill: rgb(150 150 150)!important;
+}
 [data-theme="dark"] .footer {
   background: #000000;
 }
