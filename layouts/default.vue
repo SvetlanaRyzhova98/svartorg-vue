@@ -15,6 +15,42 @@
       href="https://www.galaktika-svarki.ru/favicon.ico"
       type="image/x-icon"
     />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(99172841, "init", {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/99172841"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+    <!-- /Yandex.Metrika counter -->
   </Head>
   <div class="wrapper_main">
     <AppHeader />
@@ -804,23 +840,23 @@ img {
   color: #e1e1e1;
 }
 [data-theme="dark"] .carousel__pagination-button--active:after {
-    background-color: #969696!important;
+  background-color: #969696 !important;
 }
 [data-theme="dark"] .carousel__icon {
-    fill: rgb(150 150 150)!important;
+  fill: rgb(150 150 150) !important;
 }
 [data-theme="dark"] .footer {
   background: #000000;
 }
 
 [data-theme="dark"] .paginate-buttons.active-page {
-    background-color: #3498db;
-    border: 1px solid #3498db;
-    color: white;
+  background-color: #3498db;
+  border: 1px solid #3498db;
+  color: white;
 }
 [data-theme="dark"] .paginate-buttons {
-    background-color: rgb(136 136 136);
-    border: 1px solid rgb(136 136 136);
+  background-color: rgb(136 136 136);
+  border: 1px solid rgb(136 136 136);
 }
 [data-theme="dark"] {
   --background-color: #000;
