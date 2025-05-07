@@ -48,9 +48,6 @@ function setLocation(str) {
   locationStore.setLocation(str);
   isLocationOpen.value = false;
 }
-// if (process.server) {
-//   counter.n = 20
-// }
 </script>
 
 <style scoped>

@@ -23,10 +23,18 @@
     </div>
 
     <AppFooter />
+    <CityModal 
+      :is-open="showModal" 
+      @close="closeModal"
+      @select-city="handleCitySelect"
+    />
   </div>
 </template>
 <script setup>
 import { useHead } from "#app";
+import { onMounted } from 'vue'
+import CityModal from '../components/CityModal.vue'
+import { useCityModal } from '../composables/useCityModal'
 
 // Проверка темы на клиенте или в cookies
 const theme = useCookie("theme").value || "light";
@@ -37,6 +45,17 @@ useHead({
     "data-theme": theme,
   },
 });
+
+const { 
+  showModal, 
+  closeModal, 
+  handleCitySelect, 
+  checkAndShowModal 
+} = useCityModal()
+
+onMounted(() => {
+  checkAndShowModal()
+})
 </script>
 <style>
 .wrapper_main {
