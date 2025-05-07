@@ -1,7 +1,8 @@
 <template>
   <div class="location">
     <div @click="onLocationOpenClick" class="location-select">
-      {{ Locations[location.location].title }}
+      <template v-if="isLoading">...</template>
+      <template v-else>{{ Locations[currentLocation].title }}</template>
       <i class="fas fa-arrow-circle-down" :class="{ rotated: isLocationOpen }">▼</i>
     </div>
 
@@ -17,17 +18,34 @@
 <script setup>
 import { useLocationStore } from "../store/location";
 import { Locations } from "../consts/location";
+import { onMounted, computed, ref } from 'vue';
 
-const location = useLocationStore();
-
+const locationStore = useLocationStore();
 const isLocationOpen = useState("isLocationOpen", () => false);
+const isLoading = ref(true);
+
+// Получаем текущую локацию через computed
+const currentLocation = computed(() => locationStore.location);
+
+// Инициализируем локацию при монтировании компонента
+onMounted(() => {
+  // Проверяем localStorage напрямую
+  const savedLocation = localStorage.getItem('selectedLocation');
+  if (savedLocation) {
+    locationStore.setLocation(savedLocation);
+  }
+  // Устанавливаем флаг загрузки в false после небольшой задержки
+  setTimeout(() => {
+    isLoading.value = false;
+  }, 100);
+});
 
 function onLocationOpenClick() {
   isLocationOpen.value = !isLocationOpen.value;
 }
 
 function setLocation(str) {
-  location.setLocation(str);
+  locationStore.setLocation(str);
   isLocationOpen.value = false;
 }
 // if (process.server) {
