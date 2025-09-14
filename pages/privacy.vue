@@ -16,7 +16,7 @@
 
   <div class="page">
     <main>
-      <section class="wrapper">
+      <section class="wrapper wrapper_privacy">
         <BreadCrumbs
           :path="[{ caption: ' Политика конфиденциальности', href: '/privacy' }]"
         />
@@ -238,5 +238,12 @@
 
 .requisites-table tr:hover {
   background-color: #f0f8ff;
+}
+
+@media (max-width: 600px) {
+  .wrapper.wrapper_privacy {
+    padding: 0px;
+  }
+
 }
 </style>
