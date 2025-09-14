@@ -3,8 +3,8 @@
     <div class="wrapper_footer">
       <div class="box-footer">
         <div class="social">
-          <a class="footer__mail" href="mailto:gk.galaxy@yandex.ru">
-            gk.galaxy@yandex.ru</a
+          <NuxtLink class="footer__mail" to="mailto:gk.galaxy@yandex.ru">
+            gk.galaxy@yandex.ru</NuxtLink
           >
           <div class="social__icon">
             <a :href="`https://wa.me/${phoneWhatsapp}`" class="footer__link">
@@ -16,38 +16,45 @@
         </div>
 
         <h3 class="form__title blue-text">Свяжитесь с нами</h3>
-        <form @submit.prevent="submit(form)" class="contact" action="">
+        <form @submit.prevent="checkForm" class="contact" action="">
           <input
             class="contact__input form-style"
             type="text"
             placeholder="Ваше имя"
             v-model="form.name"
+            :class="{ error: showNameError }"
           />
 
           <input
             class="contact__input form-style"
-            :class="{ error: !isPhoneValid }"
             type="tel"
             placeholder="Ваш телефон"
             v-model="form.phone"
+            :class="{ error: showPhoneError || !isPhoneValid }"
           />
-          <div v-if="!isPhoneValid" class="error__message">
-            Формат номера +7XXXXXXXXXX
-          </div>
+
           <textarea
             class="contact__text form-style"
             name="text_ask"
-            id=""
             cols="30"
             rows="10"
+            placeholder="Ваше сообщение"
             v-model="form.message"
           ></textarea>
-          <button class="contact__button" type="submit" :disabled="isDisable">
-            Отправить
-            <ClientOnly> <font-awesome-icon icon="fa-solid fa-share" /> </ClientOnly>
-          </button>
+          <!-- Ошибки -->
+          <div v-if="formError" class="form-error">{{ formError }}</div>
+          <!-- Чекбокс согласия -->
+          <label class="consent" :class="{ 'consent-error': showConsentError }">
+            <input type="checkbox" v-model="isAgreed" />
+            <span style="text-align: start;">
+              Я соглашаюсь с
+              <NuxtLink to="/privacy" target="_blank" rel="noopener">
+                Политикой обработки персональных данных
+              </NuxtLink>
+            </span>
+          </label>
 
-          <!-- {{form}} -->
+          <button class="contact__button" type="submit">Отправить</button>
         </form>
       </div>
 
@@ -68,10 +75,8 @@
 <script setup>
 import { useLocationStore } from "../../store/location";
 import { Locations } from "../../consts/location";
-
 import { ref, computed } from "vue";
 
-// Получаем данные о местоположении
 const location = useLocationStore();
 const currentLocation = computed(() => Locations[location.location] || {});
 const phoneWhatsapp = computed(() => currentLocation.value.phone || "");
@@ -82,44 +87,66 @@ const form = ref({
   message: "",
 });
 
+const isAgreed = ref(false);
+const formError = ref("");
+const showConsentError = ref(false);
+const showNameError = ref(false);
+const showPhoneError = ref(false);
+
+const isPhoneValid = computed(() => {
+  const phone = form.value.phone;
+  const phoneRe = /^\+7\d{10}$/;
+  if (!phone.length) return true;
+  return phoneRe.test(phone);
+});
+
 async function submit(formArg) {
-  // debugger
   await $fetch("/back/contact", {
     method: "POST",
     body: formArg,
   })
     .then(() => {
-      form.value = {
-        name: "",
-        phone: "",
-        message: "",
-      };
+      form.value = { name: "", phone: "", message: "" };
+      isAgreed.value = false;
+      formError.value = "";
+      showConsentError.value = false;
+      showNameError.value = false;
+      showPhoneError.value = false;
     })
     .catch(() => {
-      // this.errors = true;
-      // this.succsess = false;
-      // this.waiting = false;
+      formError.value = "Ошибка отправки. Попробуйте позже.";
     });
 }
 
-const isPhoneValid = computed(() => {
-  const phone = form.value.phone;
-  const phoneRe = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-  if (!phone.length) {
-    return true;
+function checkForm() {
+  // сбрасываем ошибки
+  formError.value = "";
+  showConsentError.value = false;
+  showNameError.value = false;
+  showPhoneError.value = false;
+
+  if (!form.value.name) {
+    showNameError.value = true;
+    formError.value = "Пожалуйста, укажите имя.";
+    return;
   }
-  return phoneRe.test(phone);
-});
+  if (!form.value.phone) {
+    showPhoneError.value = true;
+    formError.value = "Пожалуйста, укажите телефон.";
+    return;
+  }
+  if (!isPhoneValid.value) {
+    showPhoneError.value = true;
+    formError.value = "Неверный формат телефона. Укажите в формате +7XXXXXXXXXX.";
+    return;
+  }
+  if (!isAgreed.value) {
+    showConsentError.value = true;
+    formError.value = "Необходимо согласие с политикой персональных данных.";
+    return;
+  }
 
-const isDisable = computed(() => {
-  const phone = form.value.phone;
-  return !(isPhoneValid.value && phone.length > 0);
-});
-
-function isPhone() {
-  const regex = /(\d?)(\d{3})(\d{3})(\d{2})(\d{2})/g;
-  const subst = "+$1 ($2) $3-$4-$5";
-  return form.value.phone.replace(regex, subst);
+  submit(form.value);
 }
 </script>
 
@@ -127,18 +154,14 @@ function isPhone() {
 .contact__input + .error__message {
   margin: 0;
 }
-/*Main end*/
-/*footer*/
 .contact__input.form-style.error {
-  color: #b2141099;
+  border: 1px solid #b2141059;
 }
 .error__message {
   font-size: 10px;
   font-style: italic;
-  color: #b2141099;
-}
-.contact__button:disabled {
-  color: grey;
+  color: #b21410ab;
+  bottom:82px;
 }
 
 .wrapper_footer {
@@ -166,19 +189,16 @@ function isPhone() {
 .form-style {
   width: 100%;
   border: none;
-  /* border-bottom: 0.5px solid #e3e3e3; */
-  font-family: "Gilroy";
   background: #efeeed;
   color: rgb(81, 81, 81);
   font-size: 13px;
-  padding: 10px 15px;
-  line-height: 30px;
+  padding: 9px 15px;
   border-radius: 10px;
 }
 .form-style::placeholder {
-  color: rgb(67, 67, 67);
-  line-height: 30px;
-  font-size: 14px;
+  color: #999;
+  font-size: 12px;
+  line-height: 28px;
   font-family: "Gilroy", sans-serif;
 }
 [data-theme="dark"] .form-style {
@@ -186,36 +206,44 @@ function isPhone() {
   color: #e1e1e1;
 }
 [data-theme="dark"] .form-style::placeholder {
-  color: #e1e1e1;
+  color: #aaa;
 }
 .box-footer {
   padding: 30px 0;
   width: 100%;
 }
 .contact {
-  /* padding: 20px 0px; */
   text-align: end;
-  /* max-width: 350px; */
   gap: 10px;
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
 }
-
 .contact__text {
   max-height: 80px;
   resize: none;
   line-height: 1.4;
 }
+.contact__button:hover {
+  background-color: #359acbe0;
+  cursor: pointer;
+}
 .contact__button {
-  padding: 5px 10px;
+  padding: 8px 16px;
   border: 1px solid transparent;
-  background-color: transparent;
-  font-size: 15px;
-  text-transform: uppercase;
+  max-width: max-content;
+  border-radius: 10px;
+  background-color: #359acbb8;
+  font-size: 14px;
   text-align: end;
-  color: var(--blue);
+  color: white;
+  margin-top: 5px;
   font-family: "Gilroy", sans-serif;
+}
+.contact__button:disabled {
+  color: white;
+  background-color: #7f8589b8;
 }
 .footer__link {
   font-size: 25px;
@@ -224,7 +252,7 @@ function isPhone() {
   color: #3395c5;
 }
 .footer__link:hover {
-  color: #b21410;
+  color: #104bb2;
 }
 .footer__mail {
   display: block;
@@ -235,10 +263,8 @@ function isPhone() {
   display: flex;
   align-items: end;
   justify-content: end;
-  /* flex-direction: column; */
   gap: 20px;
 }
-
 .social__icon {
   display: flex;
   gap: 20px;
@@ -251,7 +277,6 @@ function isPhone() {
   position: relative;
   width: 100%;
   height: 100%;
-  /* filter: grayscale(1) invert(100%); */
 }
 .map iframe {
   position: absolute;
@@ -267,6 +292,34 @@ function isPhone() {
   font-family: "Gilroy", sans-serif;
   font-weight: 500;
 }
+.consent {
+  font-size: 12px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+  margin-top: 20px;
+}
+.consent input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #3395c5; /* голубая галочка */
+  cursor: pointer;
+}
+
+.consent a {
+  color: #3395c5;
+  text-decoration: underline;
+}
+.form-error {
+  position: absolute;
+  bottom: 0;
+  font-size: 10px;
+  color: #b21410ab;
+  text-align: start;
+  bottom: 80px;
+}
 @media (max-width: 650px) {
   .wrapper_footer {
     grid-template-columns: 1fr;
@@ -275,7 +328,7 @@ function isPhone() {
   }
   .footer .wrapper_footer {
     gap: 0px;
-    grid-template-rows: 360px 350px;
+    grid-template-rows: 420px 350px;
   }
   .box-footer {
     padding: 25px;

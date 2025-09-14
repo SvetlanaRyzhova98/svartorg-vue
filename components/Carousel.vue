@@ -1,25 +1,16 @@
 <template>
   <div class="img_box">
-  <carousel :items-to-show="1">
+    <carousel :items-to-show="1" :autoplay="4000" :pauseAutoplayOnHover="true" :wrap-around="true">
+      <slide v-for="(img, index) in images" :key="img">
+        <img :src="img" alt="Продукт" />
+      </slide>
 
-    <slide
-      v-for="(img, index) in images"
-      :key="img"
-    >
-      <img
-        :src="img"
-        alt="Продукт"
-      />
-    </slide>
-
-    <template #addons>
-      <navigation />
-      <pagination />
-    </template>
-    
-  </carousel>
-</div>
-    
+      <template #addons>
+        <navigation />
+        <pagination />
+      </template>
+    </carousel>
+  </div>
 </template>
 
 <script setup>
@@ -32,15 +23,12 @@ const props = defineProps({
     required: true,
   },
 });
-
 </script>
 
 <style scoped>
-
 img {
   width: 100%;
-  height:  100%;
+  height: 100%;
   object-fit: cover;
 }
-
 </style>
